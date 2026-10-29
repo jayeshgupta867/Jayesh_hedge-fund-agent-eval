@@ -1,0 +1,72 @@
+{
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "note": "",
+  "snapshot_id": "SNAP-443a63f0f0a5",
+  "ideas": {
+    "IDEA-006": "EXCEPTION",
+    "IDEA-004": "MEMO_READY",
+    "IDEA-001": "MEMO_READY",
+    "IDEA-002": "MEMO_READY",
+    "IDEA-003": "MEMO_READY",
+    "IDEA-005": "MEMO_READY"
+  },
+  "receipts": [
+    {
+      "tray": "candidates.json",
+      "from": "U2",
+      "to": "S1",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "reasons.json",
+      "from": "S1",
+      "to": "harness",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "selected.json",
+      "from": "PM",
+      "to": "S1",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "memo_draft_IDEA-004",
+      "from": "S1",
+      "to": "harness",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "memo_draft_IDEA-001",
+      "from": "S1",
+      "to": "harness",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "memo_draft_IDEA-002",
+      "from": "S1",
+      "to": "harness",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "memo_draft_IDEA-003",
+      "from": "S1",
+      "to": "harness",
+      "result": "PASS",
+      "reason": ""
+    },
+    {
+      "tray": "memo_draft_IDEA-005",
+      "from": "S1",
+      "to": "harness",
+      "result": "PASS",
+      "reason": ""
+    }
+  ]
+}

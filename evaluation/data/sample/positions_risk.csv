@@ -1,0 +1,11 @@
+ticker,sector,direction,market_value,pct_nav,var_95,settlement_status
+AURA,Technology,LONG,22500000,4.5,1.1,Settled
+BLTX,Technology,LONG,20000000,4.0,0.9,Settled
+CRVN,Technology,SHORT,-10000000,-2.0,0.6,Settled
+DLMR,Energy,LONG,25000000,5.0,1.4,Settled
+ENVO,Energy,LONG,25000000,5.0,1.2,Settled
+FRGE,Energy,LONG,25000000,5.0,1.3,Settled
+GLDN,Energy,LONG,25000000,5.0,1.5,Settled
+HVEN,Energy,LONG,25000000,5.0,1.4,Settled
+HLXA,Healthcare,LONG,15000000,3.0,0.8,Settled
+IRNS,Industrials,SHORT,-12500000,-2.5,0.7,Pending T+1

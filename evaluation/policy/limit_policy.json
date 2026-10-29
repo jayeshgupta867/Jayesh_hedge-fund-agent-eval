@@ -1,0 +1,15 @@
+{
+  "version": "demo-1",
+  "owner": "PM",
+  "limits": {
+    "max_position_pct_nav": 5.0,
+    "max_sector_pct_nav": 25.0,
+    "max_gross_pct_nav": 150.0,
+    "max_net_pct_nav": 40.0
+  },
+  "sizing": {
+    "risk_budget_pct_nav": 0.6,
+    "max_liquidation_days": 5,
+    "max_adv_participation": 0.2
+  }
+}

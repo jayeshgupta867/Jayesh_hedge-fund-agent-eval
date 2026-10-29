@@ -1,0 +1,9 @@
+idea_id,ticker,direction,sector,thesis,expected_return,horizon_months,conviction,status,date_generated
+IDEA-001,JOVA,LONG,Healthcare,Margin recovery as new plant reaches full capacity,0.18,12,4,Pending,2026-10-20
+IDEA-002,KYTE,LONG,Technology,Under-earning cloud segment re-rates on next guidance,0.12,6,3,Pending,2026-10-21
+IDEA-003,LUMN,SHORT,Financials,Deposit outflows compress net interest margin,0.10,9,4,New,2026-10-22
+IDEA-004,MERA,LONG,Energy,Refining spreads widen into winter,0.15,6,5,Pending,2026-10-22
+IDEA-005,NOVQ,LONG,,Spin-off unlocks hidden subsidiary value,0.25,18,3,Pending,2026-10-23
+IDEA-006,IRNS,SHORT,Industrials,Order backlog roll-off,0.09,6,3,Pending,2026-10-18
+IDEA-007,OKRA,LONG,Industrials,Pricing power in specialty components,0.08,12,2,Approved,2026-10-10
+IDEA-008,PRSM,SHORT,Consumer,Inventory build signals discounting,0.11,6,4,Rejected,2026-10-12
