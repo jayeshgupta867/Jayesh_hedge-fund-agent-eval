@@ -34,5 +34,7 @@ See `CHANGELOG.md` for the reasoning.
 | `CHANGELOG.md` | V1 → V2 decisions and reasons |
 | `PASS_REVIEW.md` | Final 13-check design review |
 
-## Next
-Build the evaluation harness: synthetic data, Python implementations of the ranking, sizing and limit scripts, and test cases for normal, edge and trap scenarios (stale data, wrong citations, unapproved positions).
+## Evaluation
+The `evaluation/` folder contains a runnable Python version of the harness, tested against 18 scenarios: normal runs, edge cases (sector at its limit, unknown sector, stale or mixed data snapshots) and traps (a wrong citation, an inflated conviction score, positions opened without PM approval, a database write attempt). All 18 pass, and a mutation check confirms the tests fail when a safeguard is removed.
+
+The research agent is stubbed, so this evaluates the harness, not the model. See `evaluation/README.md` for the full results table and how to run it.
