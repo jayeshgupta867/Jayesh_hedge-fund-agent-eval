@@ -1,0 +1,6 @@
+date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
+2026-11-02,AMD,BUY,LONG,34.56,492.17,17010.0,17.01,standing rules: memo passed,20261102-AMD
+2026-11-02,MU,BUY,LONG,21.72,868.15,18853.68,18.85,standing rules: memo passed,20261102-MU
+2026-11-02,TXN,BUY,LONG,106.34,308.0,32753.83,32.75,standing rules: memo passed,20261102-TXN
+2026-11-02,PANW,BUY,LONG,44.77,362.67,16237.89,16.24,standing rules: memo passed,20261102-PANW
+2026-11-02,ADI,BUY,LONG,58.39,425.49,24842.89,24.84,standing rules: memo passed,20261102-ADI
