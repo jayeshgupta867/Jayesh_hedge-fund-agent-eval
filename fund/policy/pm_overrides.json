@@ -1,0 +1,5 @@
+{
+  "note": "PM veto. Tickers in veto_tickers are never traded; tickers in close_tickers are closed at the next run. Edit this file on GitHub to act.",
+  "veto_tickers": [],
+  "close_tickers": []
+}

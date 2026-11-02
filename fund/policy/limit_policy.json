@@ -1,0 +1,16 @@
+{
+  "version": "fund-1",
+  "owner": "PM",
+  "note": "Limits are data, not design: the PM edits this file; every day's report records the version used.",
+  "limits": {
+    "max_position_pct_nav": 5.0,
+    "max_sector_pct_nav": 25.0,
+    "max_gross_pct_nav": 150.0,
+    "max_net_pct_nav": 50.0
+  },
+  "sizing": {
+    "risk_budget_pct_nav": 1.0,
+    "max_liquidation_days": 5,
+    "max_adv_participation": 0.2
+  }
+}
