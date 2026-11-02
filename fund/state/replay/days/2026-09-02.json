@@ -1,0 +1,32 @@
+{
+ "date": "2026-09-02",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-09-02",
+   "ticker": "PANW",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 38.74,
+   "price": 328.48,
+   "notional": -12724.07,
+   "cost": 12.72,
+   "reason": "stop loss (-14.4% price move)",
+   "idea_id": "20260811-PANW"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 985362.28,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 985349.56
+}

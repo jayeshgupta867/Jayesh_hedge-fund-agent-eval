@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-09",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-09",
+   "ticker": "UNH",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 76.6,
+   "price": 379.3,
+   "notional": -29055.22,
+   "cost": 29.06,
+   "reason": "signal faded (momentum percentile 47%)",
+   "idea_id": "20260811-UNH"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 997761.64,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 997732.59
+}

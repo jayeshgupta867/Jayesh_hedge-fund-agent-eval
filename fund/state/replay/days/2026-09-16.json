@@ -1,0 +1,203 @@
+{
+ "date": "2026-09-16",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-09-16",
+   "ticker": "LRCX",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 37.97,
+   "price": 269.23,
+   "notional": -10222.95,
+   "cost": 10.22,
+   "reason": "stop loss (-12.1% price move)",
+   "idea_id": "20260810-LRCX"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-09-16",
+   "ticker": "COP",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 142.16,
+   "price": 132.54,
+   "notional": 18841.91,
+   "cost": 18.84,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260916-COP"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 982946.87,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-b3ad1cd426c2",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260916-COP",
+    "ticker": "COP",
+    "direction": "LONG",
+    "sector": "Energy",
+    "score": 1.2756,
+    "conviction": 3,
+    "momentum_12_1": 0.4251,
+    "reason": "Strong uptrend: 12-1 momentum +42.5%, +17.2% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260916-COP": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260916-COP",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260916-COP": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "COP LONG \u00b7 2026-09-16 \u00b7 idea age from 2026-09-16",
+    "2_thesis_summary": "COP ranks in the top of the universe on 12-1 momentum (+42.5%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4251",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260916-COP",
+      "snapshot_id": "SNAP-b3ad1cd426c2",
+      "value": 0.4251,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1715",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260916-COP",
+      "snapshot_id": "SNAP-b3ad1cd426c2",
+      "value": 0.1715,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.313",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260916-COP",
+      "snapshot_id": "SNAP-b3ad1cd426c2",
+      "value": 0.313,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1063,
+     "volatility": 0.313,
+     "adv_usd": 879968218.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.92% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.9169,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Energy)",
+      "result": "PASS",
+      "usage": 3.6553,
+      "limit": 25.0,
+      "headroom": 21.3447,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 78.8984,
+      "limit": 150.0,
+      "headroom": 71.1016,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 14.1294,
+      "limit": 50.0,
+      "headroom": 35.8706,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-b3ad1cd426c2"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 982917.81
+}

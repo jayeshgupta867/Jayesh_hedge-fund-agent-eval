@@ -1,0 +1,44 @@
+{
+ "date": "2026-10-20",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-20",
+   "ticker": "CVS",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 320.5,
+   "price": 94.75,
+   "notional": -30367.01,
+   "cost": 30.37,
+   "reason": "signal faded (momentum percentile 49%)",
+   "idea_id": "20260813-CVS"
+  },
+  {
+   "date": "2026-10-20",
+   "ticker": "ISRG",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 43.43,
+   "price": 438.0,
+   "notional": 19021.37,
+   "cost": 19.02,
+   "reason": "stop loss (+12.2% price move)",
+   "idea_id": "20260817-ISRG"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 976014.12,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 975964.73
+}

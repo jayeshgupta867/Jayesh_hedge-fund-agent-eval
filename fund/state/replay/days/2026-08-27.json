@@ -1,0 +1,481 @@
+{
+ "date": "2026-08-27",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-08-27",
+   "ticker": "NOW",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 96.35,
+   "price": 138.43,
+   "notional": 13338.02,
+   "cost": 13.34,
+   "reason": "stop loss (+17.6% price move)",
+   "idea_id": "20260817-NOW"
+  },
+  {
+   "date": "2026-08-27",
+   "ticker": "ADBE",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 61.02,
+   "price": 289.15,
+   "notional": 17645.33,
+   "cost": 17.65,
+   "reason": "stop loss (+13.8% price move)",
+   "idea_id": "20260817-ADBE"
+  },
+  {
+   "date": "2026-08-27",
+   "ticker": "CRM",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 83.87,
+   "price": 252.05,
+   "notional": 21138.21,
+   "cost": 21.14,
+   "reason": "stop loss (+32.0% price move)",
+   "idea_id": "20260817-CRM"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-08-27",
+   "ticker": "BMY",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 292.78,
+   "price": 66.95,
+   "notional": 19601.33,
+   "cost": 19.6,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260827-BMY"
+  },
+  {
+   "date": "2026-08-27",
+   "ticker": "AMGN",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 49.57,
+   "price": 436.99,
+   "notional": 21659.56,
+   "cost": 21.66,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260827-AMGN"
+  },
+  {
+   "date": "2026-08-27",
+   "ticker": "TSLA",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 29.69,
+   "price": 354.81,
+   "notional": -10535.46,
+   "cost": 10.54,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260827-TSLA"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 990268.2,
+ "screen": {
+  "ideas": 3,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-fb2047c3d8aa",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260827-BMY",
+    "ticker": "BMY",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.2024,
+    "conviction": 3,
+    "momentum_12_1": 0.4007,
+    "reason": "Strong uptrend: 12-1 momentum +40.1%, +18.1% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260827-AMGN",
+    "ticker": "AMGN",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.104,
+    "conviction": 3,
+    "momentum_12_1": 0.3678,
+    "reason": "Strong uptrend: 12-1 momentum +36.8%, +24.5% vs 200-day average"
+   },
+   {
+    "rank": 3,
+    "idea_id": "20260827-TSLA",
+    "ticker": "TSLA",
+    "direction": "SHORT",
+    "sector": "Consumer Discretionary",
+    "score": 0.4548,
+    "conviction": 3,
+    "momentum_12_1": -0.1517,
+    "reason": "Persistent downtrend: 12-1 momentum -15.2%, -11.6% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260827-BMY": "MEMO_READY",
+   "20260827-AMGN": "MEMO_READY",
+   "20260827-TSLA": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260827-BMY",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260827-AMGN",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260827-TSLA",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260827-BMY": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "BMY LONG \u00b7 2026-08-27 \u00b7 idea age from 2026-08-27",
+    "2_thesis_summary": "BMY ranks in the top of the universe on 12-1 momentum (+40.1%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4007",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260827-BMY",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.4007,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1812",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260827-BMY",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.1812,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3031",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260827-BMY",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.3031,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1002,
+     "volatility": 0.3031,
+     "adv_usd": 720928370.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.98% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.9795,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 14.7466,
+      "limit": 25.0,
+      "headroom": 10.2534,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.2218,
+      "limit": 150.0,
+      "headroom": 81.7782,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 19.0448,
+      "limit": 50.0,
+      "headroom": 30.9552,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-fb2047c3d8aa"
+   },
+   "20260827-AMGN": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "AMGN LONG \u00b7 2026-08-27 \u00b7 idea age from 2026-08-27",
+    "2_thesis_summary": "AMGN ranks in the top of the universe on 12-1 momentum (+36.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.3678",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260827-AMGN",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.3678,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.2454",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260827-AMGN",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.2454,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2743",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260827-AMGN",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.2743,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.092,
+     "volatility": 0.2743,
+     "adv_usd": 1078667233.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.19% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.1874,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 14.7466,
+      "limit": 25.0,
+      "headroom": 10.2534,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.2218,
+      "limit": 150.0,
+      "headroom": 81.7782,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 19.0448,
+      "limit": 50.0,
+      "headroom": 30.9552,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-fb2047c3d8aa"
+   },
+   "20260827-TSLA": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "TSLA SHORT \u00b7 2026-08-27 \u00b7 idea age from 2026-08-27",
+    "2_thesis_summary": "TSLA ranks in the bottom of the universe on 12-1 momentum (-15.2%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.1517",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260827-TSLA",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": -0.1517,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1161",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260827-TSLA",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": -0.1161,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.5639",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260827-TSLA",
+      "snapshot_id": "SNAP-fb2047c3d8aa",
+      "value": 0.5639,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0379,
+     "volatility": 0.5639,
+     "adv_usd": 11281726235.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.06% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.064,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Discretionary)",
+      "result": "PASS",
+      "usage": 6.8086,
+      "limit": 25.0,
+      "headroom": 18.1914,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.2218,
+      "limit": 150.0,
+      "headroom": 81.7782,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 19.0448,
+      "limit": 50.0,
+      "headroom": 69.0448,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-fb2047c3d8aa"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 990164.28
+}

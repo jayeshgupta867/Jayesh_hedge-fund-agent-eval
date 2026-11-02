@@ -1,0 +1,19 @@
+{
+ "date": "2026-10-02",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1008832.66,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 1008832.66
+}

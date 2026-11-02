@@ -1,0 +1,56 @@
+{
+ "date": "2026-10-22",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-22",
+   "ticker": "AMAT",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 26.39,
+   "price": 375.58,
+   "notional": -9912.2,
+   "cost": 9.91,
+   "reason": "stop loss (-15.0% price move)",
+   "idea_id": "20260901-AMAT"
+  },
+  {
+   "date": "2026-10-22",
+   "ticker": "LRCX",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 45.92,
+   "price": 230.15,
+   "notional": -10569.24,
+   "cost": 10.57,
+   "reason": "stop loss (-14.5% price move)",
+   "idea_id": "20260917-LRCX"
+  },
+  {
+   "date": "2026-10-22",
+   "ticker": "KLAC",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 75.97,
+   "price": 147.83,
+   "notional": -11230.32,
+   "cost": 11.23,
+   "reason": "stop loss (-16.5% price move)",
+   "idea_id": "20260918-KLAC"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 967191.4,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 967159.69
+}

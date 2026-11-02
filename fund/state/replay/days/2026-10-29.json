@@ -1,0 +1,203 @@
+{
+ "date": "2026-10-29",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-29",
+   "ticker": "GOOGL",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 61.15,
+   "price": 283.82,
+   "notional": -17354.49,
+   "cost": 17.35,
+   "reason": "stop loss (-17.3% price move)",
+   "idea_id": "20260812-GOOGL"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-10-29",
+   "ticker": "NOW",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 97.34,
+   "price": 109.67,
+   "notional": -10674.9,
+   "cost": 10.67,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261029-NOW"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 985877.87,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-fdf4fd0a01d0",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20261029-NOW",
+    "ticker": "NOW",
+    "direction": "SHORT",
+    "sector": "Information Technology",
+    "score": 1.1424,
+    "conviction": 4,
+    "momentum_12_1": -0.2856,
+    "reason": "Persistent downtrend: 12-1 momentum -28.6%, -4.8% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20261029-NOW": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261029-NOW",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20261029-NOW": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "NOW SHORT \u00b7 2026-10-29 \u00b7 idea age from 2026-10-29",
+    "2_thesis_summary": "NOW ranks in the bottom of the universe on 12-1 momentum (-28.6%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.2856",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261029-NOW",
+      "snapshot_id": "SNAP-fdf4fd0a01d0",
+      "value": -0.2856,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0475",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261029-NOW",
+      "snapshot_id": "SNAP-fdf4fd0a01d0",
+      "value": -0.0475,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.7388",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261029-NOW",
+      "snapshot_id": "SNAP-fdf4fd0a01d0",
+      "value": 0.7388,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "4 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0714,
+     "volatility": 0.7388,
+     "adv_usd": 2185723655.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.08% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.0828,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 16.3556,
+      "limit": 25.0,
+      "headroom": 8.6444,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 99.015,
+      "limit": 150.0,
+      "headroom": 50.985,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 4.0556,
+      "limit": 50.0,
+      "headroom": 54.0556,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-fdf4fd0a01d0"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 985849.84
+}

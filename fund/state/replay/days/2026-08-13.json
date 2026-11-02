@@ -1,0 +1,698 @@
+{
+ "date": "2026-08-13",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-08-13",
+   "ticker": "CVS",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 320.5,
+   "price": 94.99,
+   "notional": 30443.93,
+   "cost": 30.44,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260813-CVS"
+  },
+  {
+   "date": "2026-08-13",
+   "ticker": "NKE",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 716.97,
+   "price": 41.23,
+   "notional": -29560.62,
+   "cost": 29.56,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260813-NKE"
+  },
+  {
+   "date": "2026-08-13",
+   "ticker": "NFLX",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 367.94,
+   "price": 78.24,
+   "notional": -28787.7,
+   "cost": 28.79,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260813-NFLX"
+  },
+  {
+   "date": "2026-08-13",
+   "ticker": "CSCO",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 110.34,
+   "price": 113.47,
+   "notional": 12520.0,
+   "cost": 12.52,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260813-CSCO"
+  },
+  {
+   "date": "2026-08-13",
+   "ticker": "MRK",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 148.58,
+   "price": 135.55,
+   "notional": 20139.83,
+   "cost": 20.14,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260813-MRK"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1002731.33,
+ "screen": {
+  "ideas": 10,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-d654b18fd518",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260813-CVS",
+    "ticker": "CVS",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 2.632,
+    "conviction": 4,
+    "momentum_12_1": 0.6578,
+    "reason": "Strong uptrend: 12-1 momentum +65.8%, +12.8% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260813-NKE",
+    "ticker": "NKE",
+    "direction": "SHORT",
+    "sector": "Consumer Discretionary",
+    "score": 2.066,
+    "conviction": 5,
+    "momentum_12_1": -0.4133,
+    "reason": "Persistent downtrend: 12-1 momentum -41.3%, -21.9% vs 200-day average"
+   },
+   {
+    "rank": 3,
+    "idea_id": "20260813-NFLX",
+    "ticker": "NFLX",
+    "direction": "SHORT",
+    "sector": "Communication Services",
+    "score": 1.994,
+    "conviction": 5,
+    "momentum_12_1": -0.3987,
+    "reason": "Persistent downtrend: 12-1 momentum -39.9%, -12.4% vs 200-day average"
+   },
+   {
+    "rank": 4,
+    "idea_id": "20260813-CSCO",
+    "ticker": "CSCO",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 1.7952,
+    "conviction": 3,
+    "momentum_12_1": 0.5983,
+    "reason": "Strong uptrend: 12-1 momentum +59.8%, +24.5% vs 200-day average"
+   },
+   {
+    "rank": 5,
+    "idea_id": "20260813-MRK",
+    "ticker": "MRK",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.7724,
+    "conviction": 3,
+    "momentum_12_1": 0.5908,
+    "reason": "Strong uptrend: 12-1 momentum +59.1%, +20.5% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260813-CVS": "MEMO_READY",
+   "20260813-NKE": "MEMO_READY",
+   "20260813-NFLX": "MEMO_READY",
+   "20260813-CSCO": "MEMO_READY",
+   "20260813-MRK": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260813-CVS",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260813-NKE",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260813-NFLX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260813-CSCO",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260813-MRK",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260813-CVS": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "CVS LONG \u00b7 2026-08-13 \u00b7 idea age from 2026-08-13",
+    "2_thesis_summary": "CVS ranks in the top of the universe on 12-1 momentum (+65.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.6578",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260813-CVS",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.6578,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1278",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260813-CVS",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.1278,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2635",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260813-CVS",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.2635,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "4 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1645,
+     "volatility": 0.2635,
+     "adv_usd": 844048844.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "3.04% NAV (risk-budget sized)",
+    "9_size_pct_nav": 3.0361,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 5.3711,
+      "limit": 25.0,
+      "headroom": 19.6289,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 24.8584,
+      "limit": 150.0,
+      "headroom": 125.1416,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 15.341000000000001,
+      "limit": 50.0,
+      "headroom": 34.659,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-d654b18fd518"
+   },
+   "20260813-NKE": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "NKE SHORT \u00b7 2026-08-13 \u00b7 idea age from 2026-08-13",
+    "2_thesis_summary": "NKE ranks in the bottom of the universe on 12-1 momentum (-41.3%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.4133",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260813-NKE",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": -0.4133,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.2187",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260813-NKE",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": -0.2187,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3392",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260813-NKE",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.3392,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1033,
+     "volatility": 0.3392,
+     "adv_usd": 859589316.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.95% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.9481,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Discretionary)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 24.8584,
+      "limit": 150.0,
+      "headroom": 125.1416,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 15.341000000000001,
+      "limit": 50.0,
+      "headroom": 65.341,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-d654b18fd518"
+   },
+   "20260813-NFLX": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "NFLX SHORT \u00b7 2026-08-13 \u00b7 idea age from 2026-08-13",
+    "2_thesis_summary": "NFLX ranks in the bottom of the universe on 12-1 momentum (-39.9%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.3987",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260813-NFLX",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": -0.3987,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1244",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260813-NFLX",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": -0.1244,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3483",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260813-NFLX",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.3483,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0997,
+     "volatility": 0.3483,
+     "adv_usd": 3160376486.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.87% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.8711,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Communication Services)",
+      "result": "PASS",
+      "usage": 2.1107,
+      "limit": 25.0,
+      "headroom": 22.8893,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 24.8584,
+      "limit": 150.0,
+      "headroom": 125.1416,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 15.341000000000001,
+      "limit": 50.0,
+      "headroom": 65.341,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-d654b18fd518"
+   },
+   "20260813-CSCO": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "CSCO LONG \u00b7 2026-08-13 \u00b7 idea age from 2026-08-13",
+    "2_thesis_summary": "CSCO ranks in the top of the universe on 12-1 momentum (+59.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.5983",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260813-CSCO",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.5983,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.2446",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260813-CSCO",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.2446,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.4805",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260813-CSCO",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.4805,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1496,
+     "volatility": 0.4805,
+     "adv_usd": 2610181905.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.25% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.2487,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 15.212499999999999,
+      "limit": 25.0,
+      "headroom": 9.7875,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 24.8584,
+      "limit": 150.0,
+      "headroom": 125.1416,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 15.341000000000001,
+      "limit": 50.0,
+      "headroom": 34.659,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-d654b18fd518"
+   },
+   "20260813-MRK": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "MRK LONG \u00b7 2026-08-13 \u00b7 idea age from 2026-08-13",
+    "2_thesis_summary": "MRK ranks in the top of the universe on 12-1 momentum (+59.1%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.5908",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260813-MRK",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.5908,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.2054",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260813-MRK",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.2054,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2987",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260813-MRK",
+      "snapshot_id": "SNAP-d654b18fd518",
+      "value": 0.2987,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1477,
+     "volatility": 0.2987,
+     "adv_usd": 1106299605.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.01% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.0087,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 5.3711,
+      "limit": 25.0,
+      "headroom": 19.6289,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 24.8584,
+      "limit": 150.0,
+      "headroom": 125.1416,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 15.341000000000001,
+      "limit": 50.0,
+      "headroom": 34.659,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-d654b18fd518"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 1002609.88
+}

@@ -1,0 +1,190 @@
+{
+ "date": "2026-08-21",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-08-21",
+   "ticker": "META",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 22.61,
+   "price": 549.9,
+   "notional": -12433.09,
+   "cost": 12.43,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260821-META"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 993852.25,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-be7d2989735c",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260821-META",
+    "ticker": "META",
+    "direction": "SHORT",
+    "sector": "Communication Services",
+    "score": 0.5604,
+    "conviction": 3,
+    "momentum_12_1": -0.1867,
+    "reason": "Persistent downtrend: 12-1 momentum -18.7%, -11.8% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260821-META": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260821-META",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260821-META": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "META SHORT \u00b7 2026-08-21 \u00b7 idea age from 2026-08-21",
+    "2_thesis_summary": "META ranks in the bottom of the universe on 12-1 momentum (-18.7%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.1867",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260821-META",
+      "snapshot_id": "SNAP-be7d2989735c",
+      "value": -0.1867,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1179",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260821-META",
+      "snapshot_id": "SNAP-be7d2989735c",
+      "value": -0.1179,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.4796",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260821-META",
+      "snapshot_id": "SNAP-be7d2989735c",
+      "value": 0.4796,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0467,
+     "volatility": 0.4796,
+     "adv_usd": 9919048425.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.25% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.251,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Communication Services)",
+      "result": "PASS",
+      "usage": 8.4351,
+      "limit": 25.0,
+      "headroom": 16.5649,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 69.5724,
+      "limit": 150.0,
+      "headroom": 80.4276,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 13.5966,
+      "limit": 50.0,
+      "headroom": 63.5966,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-be7d2989735c"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 993839.82
+}

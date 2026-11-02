@@ -1,0 +1,342 @@
+{
+ "date": "2026-09-30",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-09-30",
+   "ticker": "MS",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 91.13,
+   "price": 188.08,
+   "notional": -17139.96,
+   "cost": 17.14,
+   "reason": "stop loss (-13.5% price move)",
+   "idea_id": "20260814-MS"
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "GS",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 14.73,
+   "price": 900.36,
+   "notional": -13259.57,
+   "cost": 13.26,
+   "reason": "stop loss (-13.0% price move)",
+   "idea_id": "20260814-GS"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-09-30",
+   "ticker": "DE",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 27.38,
+   "price": 671.55,
+   "notional": 18384.71,
+   "cost": 18.38,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260930-DE"
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "TJX",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 197.46,
+   "price": 132.31,
+   "notional": -26126.11,
+   "cost": 26.13,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260930-TJX"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1004165.52,
+ "screen": {
+  "ideas": 2,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-81f1cf66e612",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260930-DE",
+    "ticker": "DE",
+    "direction": "LONG",
+    "sector": "Industrials",
+    "score": 1.2732,
+    "conviction": 3,
+    "momentum_12_1": 0.4245,
+    "reason": "Strong uptrend: 12-1 momentum +42.4%, +15.2% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260930-TJX",
+    "ticker": "TJX",
+    "direction": "SHORT",
+    "sector": "Consumer Discretionary",
+    "score": 0.1668,
+    "conviction": 3,
+    "momentum_12_1": -0.0556,
+    "reason": "Persistent downtrend: 12-1 momentum -5.6%, -13.0% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260930-DE": "MEMO_READY",
+   "20260930-TJX": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260930-DE",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260930-TJX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260930-DE": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "DE LONG \u00b7 2026-09-30 \u00b7 idea age from 2026-09-30",
+    "2_thesis_summary": "DE ranks in the top of the universe on 12-1 momentum (+42.4%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4245",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260930-DE",
+      "snapshot_id": "SNAP-81f1cf66e612",
+      "value": 0.4245,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.152",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260930-DE",
+      "snapshot_id": "SNAP-81f1cf66e612",
+      "value": 0.152,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3277",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260930-DE",
+      "snapshot_id": "SNAP-81f1cf66e612",
+      "value": 0.3277,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1061,
+     "volatility": 0.3277,
+     "adv_usd": 907369126.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.83% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.8309,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Industrials)",
+      "result": "PASS",
+      "usage": 8.2462,
+      "limit": 25.0,
+      "headroom": 16.7538,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 89.5728,
+      "limit": 150.0,
+      "headroom": 60.4272,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 24.835,
+      "limit": 50.0,
+      "headroom": 25.165,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-81f1cf66e612"
+   },
+   "20260930-TJX": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "TJX SHORT \u00b7 2026-09-30 \u00b7 idea age from 2026-09-30",
+    "2_thesis_summary": "TJX ranks in the bottom of the universe on 12-1 momentum (-5.6%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.0556",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260930-TJX",
+      "snapshot_id": "SNAP-81f1cf66e612",
+      "value": -0.0556,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1297",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260930-TJX",
+      "snapshot_id": "SNAP-81f1cf66e612",
+      "value": -0.1297,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2306",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260930-TJX",
+      "snapshot_id": "SNAP-81f1cf66e612",
+      "value": 0.2306,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0139,
+     "volatility": 0.2306,
+     "adv_usd": 1201666508.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.60% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.6019,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Discretionary)",
+      "result": "PASS",
+      "usage": 11.838999999999999,
+      "limit": 25.0,
+      "headroom": 13.161,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 89.5728,
+      "limit": 150.0,
+      "headroom": 60.4272,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 24.835,
+      "limit": 50.0,
+      "headroom": 74.835,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-81f1cf66e612"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 1004090.61
+}

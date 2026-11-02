@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-15",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-15",
+   "ticker": "CAT",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 25.39,
+   "price": 735.64,
+   "notional": -18679.06,
+   "cost": 18.68,
+   "reason": "stop loss (-12.2% price move)",
+   "idea_id": "20260810-CAT"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 979908.28,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 979889.6
+}

@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-27",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-27",
+   "ticker": "TSLA",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 29.69,
+   "price": 407.46,
+   "notional": 12098.81,
+   "cost": 12.1,
+   "reason": "stop loss (+14.8% price move)",
+   "idea_id": "20260827-TSLA"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 988636.61,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 988624.52
+}

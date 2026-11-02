@@ -1,0 +1,203 @@
+{
+ "date": "2026-08-24",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-08-24",
+   "ticker": "CMG",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 479.32,
+   "price": 38.02,
+   "notional": 18223.62,
+   "cost": 18.22,
+   "reason": "stop loss (+14.0% price move)",
+   "idea_id": "20260818-CMG"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-08-24",
+   "ticker": "C",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 153.77,
+   "price": 131.72,
+   "notional": 20254.14,
+   "cost": 20.25,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260824-C"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 991458.81,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-79228cbf535b",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260824-C",
+    "ticker": "C",
+    "direction": "LONG",
+    "sector": "Financials",
+    "score": 1.3512,
+    "conviction": 3,
+    "momentum_12_1": 0.4505,
+    "reason": "Strong uptrend: 12-1 momentum +45.1%, +9.2% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260824-C": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260824-C",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260824-C": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "C LONG \u00b7 2026-08-24 \u00b7 idea age from 2026-08-24",
+    "2_thesis_summary": "C ranks in the top of the universe on 12-1 momentum (+45.1%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4505",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260824-C",
+      "snapshot_id": "SNAP-79228cbf535b",
+      "value": 0.4505,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0919",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260824-C",
+      "snapshot_id": "SNAP-79228cbf535b",
+      "value": 0.0919,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2937",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260824-C",
+      "snapshot_id": "SNAP-79228cbf535b",
+      "value": 0.2937,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1126,
+     "volatility": 0.2937,
+     "adv_usd": 1229037261.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.04% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.0429,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Financials)",
+      "result": "PASS",
+      "usage": 5.3372,
+      "limit": 25.0,
+      "headroom": 19.6628,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 69.1488,
+      "limit": 150.0,
+      "headroom": 80.8512,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 13.9738,
+      "limit": 50.0,
+      "headroom": 36.0262,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-79228cbf535b"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 991420.33
+}

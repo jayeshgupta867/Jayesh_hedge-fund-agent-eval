@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-12",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-12",
+   "ticker": "BMY",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 295.81,
+   "price": 57.58,
+   "notional": -17032.62,
+   "cost": 17.03,
+   "reason": "stop loss (-13.1% price move)",
+   "idea_id": "20260827-BMY"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 997710.1,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 997693.07
+}

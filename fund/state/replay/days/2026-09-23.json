@@ -1,0 +1,190 @@
+{
+ "date": "2026-09-23",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-09-23",
+   "ticker": "KO",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 308.57,
+   "price": 88.09,
+   "notional": 27181.66,
+   "cost": 27.18,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260923-KO"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 998004.83,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-5b544a859321",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260923-KO",
+    "ticker": "KO",
+    "direction": "LONG",
+    "sector": "Consumer Staples",
+    "score": 1.254,
+    "conviction": 3,
+    "momentum_12_1": 0.4178,
+    "reason": "Strong uptrend: 12-1 momentum +41.8%, +12.2% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260923-KO": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260923-KO",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260923-KO": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "KO LONG \u00b7 2026-09-23 \u00b7 idea age from 2026-09-23",
+    "2_thesis_summary": "KO ranks in the top of the universe on 12-1 momentum (+41.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4178",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260923-KO",
+      "snapshot_id": "SNAP-5b544a859321",
+      "value": 0.4178,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1222",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260923-KO",
+      "snapshot_id": "SNAP-5b544a859321",
+      "value": 0.1222,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2203",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260923-KO",
+      "snapshot_id": "SNAP-5b544a859321",
+      "value": 0.2203,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1045,
+     "volatility": 0.2203,
+     "adv_usd": 1413096729.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.72% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.7236,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Staples)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 88.3689,
+      "limit": 150.0,
+      "headroom": 61.6311,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 27.8647,
+      "limit": 50.0,
+      "headroom": 22.1353,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-5b544a859321"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 997977.64
+}

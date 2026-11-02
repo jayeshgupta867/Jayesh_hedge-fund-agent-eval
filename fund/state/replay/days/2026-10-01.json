@@ -1,0 +1,330 @@
+{
+ "date": "2026-10-01",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-01",
+   "ticker": "ACN",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 90.54,
+   "price": 212.3,
+   "notional": 19222.21,
+   "cost": 19.22,
+   "reason": "stop loss (+17.9% price move)",
+   "idea_id": "20260812-ACN"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-10-01",
+   "ticker": "CVX",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 120.67,
+   "price": 207.1,
+   "notional": 24990.19,
+   "cost": 24.99,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261001-CVX"
+  },
+  {
+   "date": "2026-10-01",
+   "ticker": "DIS",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 226.64,
+   "price": 101.33,
+   "notional": -22965.01,
+   "cost": 22.97,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261001-DIS"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1001309.05,
+ "screen": {
+  "ideas": 2,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-cebb324f4c00",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20261001-CVX",
+    "ticker": "CVX",
+    "direction": "LONG",
+    "sector": "Energy",
+    "score": 1.2384,
+    "conviction": 3,
+    "momentum_12_1": 0.4126,
+    "reason": "Strong uptrend: 12-1 momentum +41.3%, +12.7% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20261001-DIS",
+    "ticker": "DIS",
+    "direction": "SHORT",
+    "sector": "Communication Services",
+    "score": 0.1764,
+    "conviction": 3,
+    "momentum_12_1": -0.0589,
+    "reason": "Persistent downtrend: 12-1 momentum -5.9%, -2.0% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20261001-CVX": "MEMO_READY",
+   "20261001-DIS": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261001-CVX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261001-DIS",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20261001-CVX": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "CVX LONG \u00b7 2026-10-01 \u00b7 idea age from 2026-10-01",
+    "2_thesis_summary": "CVX ranks in the top of the universe on 12-1 momentum (+41.3%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4126",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261001-CVX",
+      "snapshot_id": "SNAP-cebb324f4c00",
+      "value": 0.4126,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1266",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261001-CVX",
+      "snapshot_id": "SNAP-cebb324f4c00",
+      "value": 0.1266,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2404",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261001-CVX",
+      "snapshot_id": "SNAP-cebb324f4c00",
+      "value": 0.2404,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1032,
+     "volatility": 0.2404,
+     "adv_usd": 2053898272.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.50% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.4958,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Energy)",
+      "result": "PASS",
+      "usage": 5.2978000000000005,
+      "limit": 25.0,
+      "headroom": 19.7022,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 92.405,
+      "limit": 150.0,
+      "headroom": 57.595,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 25.7744,
+      "limit": 50.0,
+      "headroom": 24.2256,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-cebb324f4c00"
+   },
+   "20261001-DIS": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "DIS SHORT \u00b7 2026-10-01 \u00b7 idea age from 2026-10-01",
+    "2_thesis_summary": "DIS ranks in the bottom of the universe on 12-1 momentum (-5.9%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.0589",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261001-DIS",
+      "snapshot_id": "SNAP-cebb324f4c00",
+      "value": -0.0589,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0197",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261001-DIS",
+      "snapshot_id": "SNAP-cebb324f4c00",
+      "value": -0.0197,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2616",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261001-DIS",
+      "snapshot_id": "SNAP-cebb324f4c00",
+      "value": 0.2616,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0147,
+     "volatility": 0.2616,
+     "adv_usd": 907418442.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.29% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.2936,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Communication Services)",
+      "result": "PASS",
+      "usage": 7.383100000000001,
+      "limit": 25.0,
+      "headroom": 17.6169,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 92.405,
+      "limit": 150.0,
+      "headroom": 57.595,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 25.7744,
+      "limit": 50.0,
+      "headroom": 75.7744,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-cebb324f4c00"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 1001241.87
+}

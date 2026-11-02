@@ -1,0 +1,317 @@
+{
+ "date": "2026-10-21",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-10-21",
+   "ticker": "ISRG",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 42.35,
+   "price": 428.12,
+   "notional": -18131.03,
+   "cost": 18.13,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261021-ISRG"
+  },
+  {
+   "date": "2026-10-21",
+   "ticker": "AXP",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 85.32,
+   "price": 323.61,
+   "notional": -27611.46,
+   "cost": 27.61,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261021-AXP"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 982073.12,
+ "screen": {
+  "ideas": 2,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-a53a740aec66",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20261021-ISRG",
+    "ticker": "ISRG",
+    "direction": "SHORT",
+    "sector": "Health Care",
+    "score": 0.3684,
+    "conviction": 3,
+    "momentum_12_1": -0.123,
+    "reason": "Persistent downtrend: 12-1 momentum -12.3%, -2.2% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20261021-AXP",
+    "ticker": "AXP",
+    "direction": "SHORT",
+    "sector": "Financials",
+    "score": 0.36,
+    "conviction": 3,
+    "momentum_12_1": -0.12,
+    "reason": "Persistent downtrend: 12-1 momentum -12.0%, -0.8% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20261021-ISRG": "MEMO_READY",
+   "20261021-AXP": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261021-ISRG",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261021-AXP",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20261021-ISRG": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "ISRG SHORT \u00b7 2026-10-21 \u00b7 idea age from 2026-10-21",
+    "2_thesis_summary": "ISRG ranks in the bottom of the universe on 12-1 momentum (-12.3%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.123",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261021-ISRG",
+      "snapshot_id": "SNAP-a53a740aec66",
+      "value": -0.123,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0218",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261021-ISRG",
+      "snapshot_id": "SNAP-a53a740aec66",
+      "value": -0.0218,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.325",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261021-ISRG",
+      "snapshot_id": "SNAP-a53a740aec66",
+      "value": 0.325,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0307,
+     "volatility": 0.325,
+     "adv_usd": 914318941.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.85% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.8462,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 15.802900000000001,
+      "limit": 25.0,
+      "headroom": 9.1971,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 99.504,
+      "limit": 150.0,
+      "headroom": 50.496,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 12.0966,
+      "limit": 50.0,
+      "headroom": 62.0966,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-a53a740aec66"
+   },
+   "20261021-AXP": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "AXP SHORT \u00b7 2026-10-21 \u00b7 idea age from 2026-10-21",
+    "2_thesis_summary": "AXP ranks in the bottom of the universe on 12-1 momentum (-12.0%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.12",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261021-AXP",
+      "snapshot_id": "SNAP-a53a740aec66",
+      "value": -0.12,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0076",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261021-AXP",
+      "snapshot_id": "SNAP-a53a740aec66",
+      "value": -0.0076,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2134",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261021-AXP",
+      "snapshot_id": "SNAP-a53a740aec66",
+      "value": 0.2134,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.03,
+     "volatility": 0.2134,
+     "adv_usd": 998980270.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.81% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.8116,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Financials)",
+      "result": "PASS",
+      "usage": 3.8315,
+      "limit": 25.0,
+      "headroom": 21.1685,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 99.504,
+      "limit": 150.0,
+      "headroom": 50.496,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 12.0966,
+      "limit": 50.0,
+      "headroom": 62.0966,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-a53a740aec66"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 982027.38
+}

@@ -1,0 +1,32 @@
+{
+ "date": "2026-09-14",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-09-14",
+   "ticker": "KLAC",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 61.11,
+   "price": 169.09,
+   "notional": -10332.58,
+   "cost": 10.33,
+   "reason": "stop loss (-12.2% price move)",
+   "idea_id": "20260810-KLAC"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 979028.27,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 979017.94
+}

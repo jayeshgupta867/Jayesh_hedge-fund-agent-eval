@@ -1,0 +1,190 @@
+{
+ "date": "2026-09-28",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-09-28",
+   "ticker": "BKNG",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 90.42,
+   "price": 163.87,
+   "notional": -14816.51,
+   "cost": 14.82,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260928-BKNG"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1008269.09,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-bf37eb0f8b75",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260928-BKNG",
+    "ticker": "BKNG",
+    "direction": "SHORT",
+    "sector": "Consumer Discretionary",
+    "score": 0.2568,
+    "conviction": 3,
+    "momentum_12_1": -0.0857,
+    "reason": "Persistent downtrend: 12-1 momentum -8.6%, -10.4% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260928-BKNG": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260928-BKNG",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260928-BKNG": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "BKNG SHORT \u00b7 2026-09-28 \u00b7 idea age from 2026-09-28",
+    "2_thesis_summary": "BKNG ranks in the bottom of the universe on 12-1 momentum (-8.6%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.0857",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260928-BKNG",
+      "snapshot_id": "SNAP-bf37eb0f8b75",
+      "value": -0.0857,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1038",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260928-BKNG",
+      "snapshot_id": "SNAP-bf37eb0f8b75",
+      "value": -0.1038,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.4083",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260928-BKNG",
+      "snapshot_id": "SNAP-bf37eb0f8b75",
+      "value": 0.4083,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0214,
+     "volatility": 0.4083,
+     "adv_usd": 1516521890.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.47% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.4695,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Discretionary)",
+      "result": "PASS",
+      "usage": 10.4956,
+      "limit": 25.0,
+      "headroom": 14.5044,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 89.6995,
+      "limit": 150.0,
+      "headroom": 60.3005,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 31.2975,
+      "limit": 50.0,
+      "headroom": 81.2975,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-bf37eb0f8b75"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 1008254.27
+}

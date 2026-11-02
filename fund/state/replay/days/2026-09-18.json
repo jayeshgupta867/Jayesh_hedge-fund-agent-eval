@@ -1,0 +1,317 @@
+{
+ "date": "2026-09-18",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-09-18",
+   "ticker": "KLAC",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 75.97,
+   "price": 176.99,
+   "notional": 13445.54,
+   "cost": 13.45,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260918-KLAC"
+  },
+  {
+   "date": "2026-09-18",
+   "ticker": "VRTX",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 38.84,
+   "price": 508.34,
+   "notional": 19746.42,
+   "cost": 19.75,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260918-VRTX"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 993243.93,
+ "screen": {
+  "ideas": 2,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-92d89ca00ef2",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260918-KLAC",
+    "ticker": "KLAC",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 4.51,
+    "conviction": 5,
+    "momentum_12_1": 0.9021,
+    "reason": "Strong uptrend: 12-1 momentum +90.2%, +1.7% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260918-VRTX",
+    "ticker": "VRTX",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.278,
+    "conviction": 3,
+    "momentum_12_1": 0.426,
+    "reason": "Strong uptrend: 12-1 momentum +42.6%, +8.1% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260918-KLAC": "MEMO_READY",
+   "20260918-VRTX": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260918-KLAC",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260918-VRTX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260918-KLAC": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "KLAC LONG \u00b7 2026-09-18 \u00b7 idea age from 2026-09-18",
+    "2_thesis_summary": "KLAC ranks in the top of the universe on 12-1 momentum (+90.2%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.9021",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260918-KLAC",
+      "snapshot_id": "SNAP-92d89ca00ef2",
+      "value": 0.9021,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0174",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260918-KLAC",
+      "snapshot_id": "SNAP-92d89ca00ef2",
+      "value": 0.0174,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.7387",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260918-KLAC",
+      "snapshot_id": "SNAP-92d89ca00ef2",
+      "value": 0.7387,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.2255,
+     "volatility": 0.7387,
+     "adv_usd": 1692900356.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.35% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.3537,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 18.730300000000003,
+      "limit": 25.0,
+      "headroom": 6.2697,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 83.4497,
+      "limit": 150.0,
+      "headroom": 66.5503,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 20.2781,
+      "limit": 50.0,
+      "headroom": 29.7219,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-92d89ca00ef2"
+   },
+   "20260918-VRTX": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "VRTX LONG \u00b7 2026-09-18 \u00b7 idea age from 2026-09-18",
+    "2_thesis_summary": "VRTX ranks in the top of the universe on 12-1 momentum (+42.6%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.426",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260918-VRTX",
+      "snapshot_id": "SNAP-92d89ca00ef2",
+      "value": 0.426,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0812",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260918-VRTX",
+      "snapshot_id": "SNAP-92d89ca00ef2",
+      "value": 0.0812,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3018",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260918-VRTX",
+      "snapshot_id": "SNAP-92d89ca00ef2",
+      "value": 0.3018,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1065,
+     "volatility": 0.3018,
+     "adv_usd": 529695075.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.99% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.9881,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 20.061700000000002,
+      "limit": 25.0,
+      "headroom": 4.9383,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 83.4497,
+      "limit": 150.0,
+      "headroom": 66.5503,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 20.2781,
+      "limit": 50.0,
+      "headroom": 29.7219,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-92d89ca00ef2"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 993210.74
+}

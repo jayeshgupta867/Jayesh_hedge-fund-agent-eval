@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-07",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-10-07",
+   "ticker": "RTX",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 98.02,
+   "price": 180.26,
+   "notional": -17668.78,
+   "cost": 17.67,
+   "reason": "stop loss (-12.1% price move)",
+   "idea_id": "20260901-RTX"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1002208.04,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 1002190.37
+}

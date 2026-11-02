@@ -1,0 +1,330 @@
+{
+ "date": "2026-09-21",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-09-21",
+   "ticker": "META",
+   "action": "BUY TO COVER",
+   "direction": "SHORT",
+   "shares": 28.59,
+   "price": 741.25,
+   "notional": 21195.59,
+   "cost": 21.2,
+   "reason": "stop loss (+20.9% price move)",
+   "idea_id": "20260908-META"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-09-21",
+   "ticker": "UNP",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 100.2,
+   "price": 269.63,
+   "notional": 27016.54,
+   "cost": 27.02,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260921-UNP"
+  },
+  {
+   "date": "2026-09-21",
+   "ticker": "IBM",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 41.29,
+   "price": 231.93,
+   "notional": -9576.29,
+   "cost": 9.58,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260921-IBM"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 996022.59,
+ "screen": {
+  "ideas": 2,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-7d101de34dd2",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260921-UNP",
+    "ticker": "UNP",
+    "direction": "LONG",
+    "sector": "Industrials",
+    "score": 1.206,
+    "conviction": 3,
+    "momentum_12_1": 0.402,
+    "reason": "Strong uptrend: 12-1 momentum +40.2%, +3.4% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260921-IBM",
+    "ticker": "IBM",
+    "direction": "SHORT",
+    "sector": "Information Technology",
+    "score": 0.2856,
+    "conviction": 3,
+    "momentum_12_1": -0.0952,
+    "reason": "Persistent downtrend: 12-1 momentum -9.5%, -9.5% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260921-UNP": "MEMO_READY",
+   "20260921-IBM": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260921-UNP",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260921-IBM",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260921-UNP": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "UNP LONG \u00b7 2026-09-21 \u00b7 idea age from 2026-09-21",
+    "2_thesis_summary": "UNP ranks in the top of the universe on 12-1 momentum (+40.2%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.402",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260921-UNP",
+      "snapshot_id": "SNAP-7d101de34dd2",
+      "value": 0.402,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0339",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260921-UNP",
+      "snapshot_id": "SNAP-7d101de34dd2",
+      "value": 0.0339,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2212",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260921-UNP",
+      "snapshot_id": "SNAP-7d101de34dd2",
+      "value": 0.2212,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1005,
+     "volatility": 0.2212,
+     "adv_usd": 709175073.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.71% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.7125,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Industrials)",
+      "result": "PASS",
+      "usage": 3.994,
+      "limit": 25.0,
+      "headroom": 21.006,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 85.5112,
+      "limit": 150.0,
+      "headroom": 64.4888,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 25.9646,
+      "limit": 50.0,
+      "headroom": 24.0354,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-7d101de34dd2"
+   },
+   "20260921-IBM": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "IBM SHORT \u00b7 2026-09-21 \u00b7 idea age from 2026-09-21",
+    "2_thesis_summary": "IBM ranks in the bottom of the universe on 12-1 momentum (-9.5%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.0952",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260921-IBM",
+      "snapshot_id": "SNAP-7d101de34dd2",
+      "value": -0.0952,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0949",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260921-IBM",
+      "snapshot_id": "SNAP-7d101de34dd2",
+      "value": -0.0949,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.624",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260921-IBM",
+      "snapshot_id": "SNAP-7d101de34dd2",
+      "value": 0.624,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0238,
+     "volatility": 0.624,
+     "adv_usd": 1301048269.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "0.96% NAV (risk-budget sized)",
+    "9_size_pct_nav": 0.9615,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 20.5655,
+      "limit": 25.0,
+      "headroom": 4.4345,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 85.5112,
+      "limit": 150.0,
+      "headroom": 64.4888,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 25.9646,
+      "limit": 50.0,
+      "headroom": 75.9646,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-7d101de34dd2"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 995964.81
+}

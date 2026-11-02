@@ -1,0 +1,190 @@
+{
+ "date": "2026-09-29",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-09-29",
+   "ticker": "BA",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 90.04,
+   "price": 187.68,
+   "notional": -16899.04,
+   "cost": 16.9,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20260929-BA"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 1008055.13,
+ "screen": {
+  "ideas": 1,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-9c81ff34a220",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20260929-BA",
+    "ticker": "BA",
+    "direction": "SHORT",
+    "sector": "Industrials",
+    "score": 0.1548,
+    "conviction": 3,
+    "momentum_12_1": -0.0517,
+    "reason": "Persistent downtrend: 12-1 momentum -5.2%, -15.1% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20260929-BA": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260929-BA",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20260929-BA": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "BA SHORT \u00b7 2026-09-29 \u00b7 idea age from 2026-09-29",
+    "2_thesis_summary": "BA ranks in the bottom of the universe on 12-1 momentum (-5.2%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.0517",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260929-BA",
+      "snapshot_id": "SNAP-9c81ff34a220",
+      "value": -0.0517,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1506",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260929-BA",
+      "snapshot_id": "SNAP-9c81ff34a220",
+      "value": -0.1506,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3579",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260929-BA",
+      "snapshot_id": "SNAP-9c81ff34a220",
+      "value": 0.3579,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0129,
+     "volatility": 0.3579,
+     "adv_usd": 1487124170.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.68% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.6764,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Industrials)",
+      "result": "PASS",
+      "usage": 6.6249,
+      "limit": 25.0,
+      "headroom": 18.3751,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 91.0968,
+      "limit": 150.0,
+      "headroom": 58.9032,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 29.814600000000002,
+      "limit": 50.0,
+      "headroom": 79.8146,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-9c81ff34a220"
+   }
+  }
+ },
+ "analyst_log": [],
+ "nav_after": 1008038.23
+}

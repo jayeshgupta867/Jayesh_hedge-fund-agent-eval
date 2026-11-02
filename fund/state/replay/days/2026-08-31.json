@@ -1,0 +1,32 @@
+{
+ "date": "2026-08-31",
+ "mode": "replay",
+ "data_source": "yahoo",
+ "analyst": "template",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-08-31",
+   "ticker": "AMAT",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 22.7,
+   "price": 458.39,
+   "notional": -10406.8,
+   "cost": 10.41,
+   "reason": "stop loss (-12.1% price move)",
+   "idea_id": "20260810-AMAT"
+  }
+ ],
+ "executed": [],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 984181.44,
+ "screen": {
+  "ideas": 0,
+  "vetoed": []
+ },
+ "analyst_log": [],
+ "nav_after": 984171.03
+}
