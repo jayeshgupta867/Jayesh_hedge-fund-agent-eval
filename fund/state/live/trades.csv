@@ -4,3 +4,8 @@ date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
 2026-11-02,TXN,BUY,LONG,106.34,308.0,32753.83,32.75,standing rules: memo passed,20261102-TXN
 2026-11-02,PANW,BUY,LONG,44.77,362.67,16237.89,16.24,standing rules: memo passed,20261102-PANW
 2026-11-02,ADI,BUY,LONG,58.39,425.49,24842.89,24.84,standing rules: memo passed,20261102-ADI
+2026-11-03,INTU,SELL SHORT,SHORT,65.88,344.72,-22711.21,22.71,standing rules: memo passed,20261103-INTU
+2026-11-03,MRK,BUY,LONG,150.43,144.67,21763.38,21.76,standing rules: memo passed,20261103-MRK
+2026-11-03,CSCO,BUY,LONG,231.58,102.97,23845.97,23.85,standing rules: memo passed,20261103-CSCO
+2026-11-03,NKE,SELL SHORT,SHORT,915.64,38.48,-35233.81,35.23,standing rules: memo passed,20261103-NKE
+2026-11-03,ORCL,SELL SHORT,SHORT,135.12,126.19,-17050.45,17.05,standing rules: memo passed,20261103-ORCL
