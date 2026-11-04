@@ -1,0 +1,705 @@
+{
+ "date": "2026-11-04",
+ "mode": "live",
+ "data_source": "yahoo",
+ "analyst": "groq",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [],
+ "executed": [
+  {
+   "date": "2026-11-04",
+   "ticker": "NFLX",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 416.15,
+   "price": 66.34,
+   "notional": -27607.41,
+   "cost": 27.61,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261104-NFLX"
+  },
+  {
+   "date": "2026-11-04",
+   "ticker": "COP",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 135.8,
+   "price": 138.9,
+   "notional": 18862.53,
+   "cost": 18.86,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261104-COP"
+  },
+  {
+   "date": "2026-11-04",
+   "ticker": "DE",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 28.44,
+   "price": 662.99,
+   "notional": 18856.19,
+   "cost": 18.86,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261104-DE"
+  },
+  {
+   "date": "2026-11-04",
+   "ticker": "XOM",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 132.34,
+   "price": 171.85,
+   "notional": 22743.4,
+   "cost": 22.74,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261104-XOM"
+  },
+  {
+   "date": "2026-11-04",
+   "ticker": "CVX",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 113.96,
+   "price": 218.99,
+   "notional": 24955.19,
+   "cost": 24.96,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261104-CVX"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 996621.42,
+ "screen": {
+  "ideas": 10,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-f276de9aaeaf",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20261104-NFLX",
+    "ticker": "NFLX",
+    "direction": "SHORT",
+    "sector": "Communication Services",
+    "score": 1.878,
+    "conviction": 5,
+    "momentum_12_1": -0.3756,
+    "reason": "Persistent downtrend: 12-1 momentum -37.6%, -18.3% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20261104-COP",
+    "ticker": "COP",
+    "direction": "LONG",
+    "sector": "Energy",
+    "score": 1.5192,
+    "conviction": 3,
+    "momentum_12_1": 0.5065,
+    "reason": "Strong uptrend: 12-1 momentum +50.6%, +14.8% vs 200-day average"
+   },
+   {
+    "rank": 3,
+    "idea_id": "20261104-DE",
+    "ticker": "DE",
+    "direction": "LONG",
+    "sector": "Industrials",
+    "score": 1.4844,
+    "conviction": 3,
+    "momentum_12_1": 0.495,
+    "reason": "Strong uptrend: 12-1 momentum +49.5%, +9.7% vs 200-day average"
+   },
+   {
+    "rank": 4,
+    "idea_id": "20261104-XOM",
+    "ticker": "XOM",
+    "direction": "LONG",
+    "sector": "Energy",
+    "score": 1.464,
+    "conviction": 3,
+    "momentum_12_1": 0.4878,
+    "reason": "Strong uptrend: 12-1 momentum +48.8%, +11.5% vs 200-day average"
+   },
+   {
+    "rank": 5,
+    "idea_id": "20261104-CVX",
+    "ticker": "CVX",
+    "direction": "LONG",
+    "sector": "Energy",
+    "score": 1.2024,
+    "conviction": 3,
+    "momentum_12_1": 0.4007,
+    "reason": "Strong uptrend: 12-1 momentum +40.1%, +13.9% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20261104-NFLX": "MEMO_READY",
+   "20261104-COP": "MEMO_READY",
+   "20261104-DE": "MEMO_READY",
+   "20261104-XOM": "MEMO_READY",
+   "20261104-CVX": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261104-NFLX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261104-COP",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261104-DE",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261104-XOM",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261104-CVX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20261104-NFLX": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "NFLX SHORT \u00b7 2026-11-04 \u00b7 idea age from 2026-11-04",
+    "2_thesis_summary": "NFLX ranks in the bottom of the universe on 12-1 momentum (-37.6%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.3756",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261104-NFLX",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": -0.3756,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.1834",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261104-NFLX",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": -0.1834,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.361",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261104-NFLX",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.361,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0939,
+     "volatility": 0.361,
+     "adv_usd": 2948079164.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.77% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.7701,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Communication Services)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 23.4234,
+      "limit": 150.0,
+      "headroom": 126.5766,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.7426,
+      "limit": 50.0,
+      "headroom": 57.7426,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-f276de9aaeaf"
+   },
+   "20261104-COP": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "COP LONG \u00b7 2026-11-04 \u00b7 idea age from 2026-11-04",
+    "2_thesis_summary": "COP ranks in the top of the universe on 12-1 momentum (+50.6%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.5065",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261104-COP",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.5065,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1475",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261104-COP",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.1475,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.317",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261104-COP",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.317,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1266,
+     "volatility": 0.317,
+     "adv_usd": 872138735.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.89% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.8927,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Energy)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 23.4234,
+      "limit": 150.0,
+      "headroom": 126.5766,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.7426,
+      "limit": 50.0,
+      "headroom": 42.2574,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-f276de9aaeaf"
+   },
+   "20261104-DE": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "DE LONG \u00b7 2026-11-04 \u00b7 idea age from 2026-11-04",
+    "2_thesis_summary": "DE ranks in the top of the universe on 12-1 momentum (+49.5%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.495",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261104-DE",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.495,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0965",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261104-DE",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.0965,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3171",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261104-DE",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.3171,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1237,
+     "volatility": 0.3171,
+     "adv_usd": 685825084.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.89% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.8921,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Industrials)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 23.4234,
+      "limit": 150.0,
+      "headroom": 126.5766,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.7426,
+      "limit": 50.0,
+      "headroom": 42.2574,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-f276de9aaeaf"
+   },
+   "20261104-XOM": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "XOM LONG \u00b7 2026-11-04 \u00b7 idea age from 2026-11-04",
+    "2_thesis_summary": "XOM ranks in the top of the universe on 12-1 momentum (+48.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4878",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261104-XOM",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.4878,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.115",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261104-XOM",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.115,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2629",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261104-XOM",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.2629,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.122,
+     "volatility": 0.2629,
+     "adv_usd": 2171943726.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.28% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.2822,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Energy)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 23.4234,
+      "limit": 150.0,
+      "headroom": 126.5766,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.7426,
+      "limit": 50.0,
+      "headroom": 42.2574,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-f276de9aaeaf"
+   },
+   "20261104-CVX": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "CVX LONG \u00b7 2026-11-04 \u00b7 idea age from 2026-11-04",
+    "2_thesis_summary": "CVX ranks in the top of the universe on 12-1 momentum (+40.1%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4007",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261104-CVX",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.4007,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1394",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261104-CVX",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.1394,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2396",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261104-CVX",
+      "snapshot_id": "SNAP-f276de9aaeaf",
+      "value": 0.2396,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1002,
+     "volatility": 0.2396,
+     "adv_usd": 1702040979.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.50% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.5042,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Energy)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 23.4234,
+      "limit": 150.0,
+      "headroom": 126.5766,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.7426,
+      "limit": 50.0,
+      "headroom": 42.2574,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-f276de9aaeaf"
+   }
+  }
+ },
+ "analyst_log": [
+  "reasons: model unavailable (HTTPError), used template",
+  "20261104-NFLX: model unavailable (HTTPError), used template",
+  "20261104-COP: model unavailable (HTTPError), used template",
+  "20261104-DE: model unavailable (HTTPError), used template",
+  "20261104-XOM: model unavailable (HTTPError), used template",
+  "20261104-CVX: model unavailable (HTTPError), used template"
+ ],
+ "nav_after": 996508.4
+}

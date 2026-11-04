@@ -9,3 +9,8 @@ date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
 2026-11-03,CSCO,BUY,LONG,231.58,102.97,23845.97,23.85,standing rules: memo passed,20261103-CSCO
 2026-11-03,NKE,SELL SHORT,SHORT,915.64,38.48,-35233.81,35.23,standing rules: memo passed,20261103-NKE
 2026-11-03,ORCL,SELL SHORT,SHORT,135.12,126.19,-17050.45,17.05,standing rules: memo passed,20261103-ORCL
+2026-11-04,NFLX,SELL SHORT,SHORT,416.15,66.34,-27607.41,27.61,standing rules: memo passed,20261104-NFLX
+2026-11-04,COP,BUY,LONG,135.8,138.9,18862.53,18.86,standing rules: memo passed,20261104-COP
+2026-11-04,DE,BUY,LONG,28.44,662.99,18856.19,18.86,standing rules: memo passed,20261104-DE
+2026-11-04,XOM,BUY,LONG,132.34,171.85,22743.4,22.74,standing rules: memo passed,20261104-XOM
+2026-11-04,CVX,BUY,LONG,113.96,218.99,24955.19,24.96,standing rules: memo passed,20261104-CVX
