@@ -1,0 +1,742 @@
+{
+ "date": "2026-11-05",
+ "mode": "live",
+ "data_source": "yahoo",
+ "analyst": "groq",
+ "policy_version": "fund-1",
+ "rules_version": "rules-1",
+ "exits": [
+  {
+   "date": "2026-11-05",
+   "ticker": "AMD",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 36.07,
+   "price": 404.4,
+   "notional": -14587.31,
+   "cost": 14.59,
+   "reason": "stop loss (-14.2% price move)",
+   "idea_id": "20261102-AMD"
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "MU",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 22.73,
+   "price": 656.39,
+   "notional": -14919.23,
+   "cost": 14.92,
+   "reason": "stop loss (-20.9% price move)",
+   "idea_id": "20261102-MU"
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "ADI",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 59.16,
+   "price": 361.01,
+   "notional": -21358.24,
+   "cost": 21.36,
+   "reason": "stop loss (-14.0% price move)",
+   "idea_id": "20261102-ADI"
+  }
+ ],
+ "executed": [
+  {
+   "date": "2026-11-05",
+   "ticker": "ADBE",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 94.99,
+   "price": 246.44,
+   "notional": -23409.59,
+   "cost": 23.41,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261105-ADBE"
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "AMGN",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 37.72,
+   "price": 460.28,
+   "notional": 17363.75,
+   "cost": 17.36,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261105-AMGN"
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "JNJ",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 87.97,
+   "price": 272.32,
+   "notional": 23957.02,
+   "cost": 23.96,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261105-JNJ"
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "EOG",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 128.48,
+   "price": 144.89,
+   "notional": 18614.8,
+   "cost": 18.61,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261105-EOG"
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "BMY",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 325.66,
+   "price": 63.13,
+   "notional": 20558.78,
+   "cost": 20.56,
+   "reason": "standing rules: memo passed",
+   "idea_id": "20261105-BMY"
+  }
+ ],
+ "skipped": [],
+ "warnings": [],
+ "nav_before_trades": 981132.51,
+ "screen": {
+  "ideas": 8,
+  "vetoed": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-9c1549608914",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20261105-ADBE",
+    "ticker": "ADBE",
+    "direction": "SHORT",
+    "sector": "Information Technology",
+    "score": 1.53,
+    "conviction": 5,
+    "momentum_12_1": -0.3059,
+    "reason": "Persistent downtrend: 12-1 momentum -30.6%, -1.2% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20261105-AMGN",
+    "ticker": "AMGN",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.2924,
+    "conviction": 3,
+    "momentum_12_1": 0.4309,
+    "reason": "Strong uptrend: 12-1 momentum +43.1%, +22.9% vs 200-day average"
+   },
+   {
+    "rank": 3,
+    "idea_id": "20261105-JNJ",
+    "ticker": "JNJ",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.2432,
+    "conviction": 3,
+    "momentum_12_1": 0.4143,
+    "reason": "Strong uptrend: 12-1 momentum +41.4%, +10.5% vs 200-day average"
+   },
+   {
+    "rank": 4,
+    "idea_id": "20261105-EOG",
+    "ticker": "EOG",
+    "direction": "LONG",
+    "sector": "Energy",
+    "score": 1.2132,
+    "conviction": 3,
+    "momentum_12_1": 0.4042,
+    "reason": "Strong uptrend: 12-1 momentum +40.4%, +6.3% vs 200-day average"
+   },
+   {
+    "rank": 5,
+    "idea_id": "20261105-BMY",
+    "ticker": "BMY",
+    "direction": "LONG",
+    "sector": "Health Care",
+    "score": 1.0608,
+    "conviction": 3,
+    "momentum_12_1": 0.3537,
+    "reason": "Strong uptrend: 12-1 momentum +35.4%, +5.9% vs 200-day average"
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20261105-ADBE": "MEMO_READY",
+   "20261105-AMGN": "MEMO_READY",
+   "20261105-JNJ": "MEMO_READY",
+   "20261105-EOG": "MEMO_READY",
+   "20261105-BMY": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261105-ADBE",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261105-AMGN",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261105-JNJ",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261105-EOG",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261105-BMY",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-1"
+  },
+  "memos": {
+   "20261105-ADBE": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "ADBE SHORT \u00b7 2026-11-05 \u00b7 idea age from 2026-11-05",
+    "2_thesis_summary": "ADBE ranks in the bottom of the universe on 12-1 momentum (-30.6%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.3059",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261105-ADBE",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": -0.3059,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0122",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261105-ADBE",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": -0.0122,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.4191",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261105-ADBE",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.4191,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0765,
+     "volatility": 0.4191,
+     "adv_usd": 1059005840.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.39% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.3861,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 10.806999999999999,
+      "limit": 25.0,
+      "headroom": 14.193,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 28.0533,
+      "limit": 150.0,
+      "headroom": 121.9467,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.0057,
+      "limit": 50.0,
+      "headroom": 57.0057,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-9c1549608914"
+   },
+   "20261105-AMGN": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "AMGN LONG \u00b7 2026-11-05 \u00b7 idea age from 2026-11-05",
+    "2_thesis_summary": "AMGN ranks in the top of the universe on 12-1 momentum (+43.1%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4309",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261105-AMGN",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.4309,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.2285",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261105-AMGN",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.2285,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.339",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261105-AMGN",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.339,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1077,
+     "volatility": 0.339,
+     "adv_usd": 1265016483.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.77% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.7699,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 2.2225,
+      "limit": 25.0,
+      "headroom": 22.7775,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 28.0533,
+      "limit": 150.0,
+      "headroom": 121.9467,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.0057,
+      "limit": 50.0,
+      "headroom": 42.9943,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-9c1549608914"
+   },
+   "20261105-JNJ": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "JNJ LONG \u00b7 2026-11-05 \u00b7 idea age from 2026-11-05",
+    "2_thesis_summary": "JNJ ranks in the top of the universe on 12-1 momentum (+41.4%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4143",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261105-JNJ",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.4143,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1049",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261105-JNJ",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.1049,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2457",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261105-JNJ",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.2457,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1036,
+     "volatility": 0.2457,
+     "adv_usd": 2094184530.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.44% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.442,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 2.2225,
+      "limit": 25.0,
+      "headroom": 22.7775,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 28.0533,
+      "limit": 150.0,
+      "headroom": 121.9467,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.0057,
+      "limit": 50.0,
+      "headroom": 42.9943,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-9c1549608914"
+   },
+   "20261105-EOG": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "EOG LONG \u00b7 2026-11-05 \u00b7 idea age from 2026-11-05",
+    "2_thesis_summary": "EOG ranks in the top of the universe on 12-1 momentum (+40.4%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4042",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261105-EOG",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.4042,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0635",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261105-EOG",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.0635,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3162",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261105-EOG",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.3162,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1011,
+     "volatility": 0.3162,
+     "adv_usd": 450975167.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.90% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.8975,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Energy)",
+      "result": "PASS",
+      "usage": 6.662,
+      "limit": 25.0,
+      "headroom": 18.338,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 28.0533,
+      "limit": 150.0,
+      "headroom": 121.9467,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.0057,
+      "limit": 50.0,
+      "headroom": 42.9943,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-9c1549608914"
+   },
+   "20261105-BMY": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "BMY LONG \u00b7 2026-11-05 \u00b7 idea age from 2026-11-05",
+    "2_thesis_summary": "BMY ranks in the top of the universe on 12-1 momentum (+35.4%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.3537",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261105-BMY",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.3537,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0592",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261105-BMY",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.0592,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2863",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20261105-BMY",
+      "snapshot_id": "SNAP-9c1549608914",
+      "value": 0.2863,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0884,
+     "volatility": 0.2863,
+     "adv_usd": 735879535.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.10% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.0957,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Health Care)",
+      "result": "PASS",
+      "usage": 2.2225,
+      "limit": 25.0,
+      "headroom": 22.7775,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 28.0533,
+      "limit": 150.0,
+      "headroom": 121.9467,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.0057,
+      "limit": 50.0,
+      "headroom": 42.9943,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-1",
+    "snapshot_id": "SNAP-9c1549608914"
+   }
+  }
+ },
+ "analyst_log": [
+  "reasons: model unavailable (HTTPError), used template",
+  "20261105-ADBE: model unavailable (HTTPError), used template",
+  "20261105-AMGN: model unavailable (HTTPError), used template",
+  "20261105-JNJ: model unavailable (HTTPError), used template",
+  "20261105-EOG: model unavailable (HTTPError), used template",
+  "20261105-BMY: model unavailable (HTTPError), used template"
+ ],
+ "nav_after": 980977.75
+}

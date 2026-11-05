@@ -14,3 +14,11 @@ date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
 2026-11-04,DE,BUY,LONG,28.44,662.99,18856.19,18.86,standing rules: memo passed,20261104-DE
 2026-11-04,XOM,BUY,LONG,132.34,171.85,22743.4,22.74,standing rules: memo passed,20261104-XOM
 2026-11-04,CVX,BUY,LONG,113.96,218.99,24955.19,24.96,standing rules: memo passed,20261104-CVX
+2026-11-05,AMD,SELL,LONG,36.07,404.4,-14587.31,14.59,stop loss (-14.2% price move),20261102-AMD
+2026-11-05,MU,SELL,LONG,22.73,656.39,-14919.23,14.92,stop loss (-20.9% price move),20261102-MU
+2026-11-05,ADI,SELL,LONG,59.16,361.01,-21358.24,21.36,stop loss (-14.0% price move),20261102-ADI
+2026-11-05,ADBE,SELL SHORT,SHORT,94.99,246.44,-23409.59,23.41,standing rules: memo passed,20261105-ADBE
+2026-11-05,AMGN,BUY,LONG,37.72,460.28,17363.75,17.36,standing rules: memo passed,20261105-AMGN
+2026-11-05,JNJ,BUY,LONG,87.97,272.32,23957.02,23.96,standing rules: memo passed,20261105-JNJ
+2026-11-05,EOG,BUY,LONG,128.48,144.89,18614.8,18.61,standing rules: memo passed,20261105-EOG
+2026-11-05,BMY,BUY,LONG,325.66,63.13,20558.78,20.56,standing rules: memo passed,20261105-BMY
