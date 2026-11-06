@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import io
 from dataclasses import dataclass
+from typing import Callable
 
 import pandas as pd
 
@@ -76,3 +77,50 @@ def _from_stooq(tickers: list[str]) -> Prices:
     c = pd.DataFrame(close).sort_index()
     # Stooq closes are split- and dividend-adjusted already
     return Prices(c, c.copy(), pd.DataFrame(vol).sort_index(), "stooq")
+
+
+# ---------------------------------------------------------------- v4: extra live inputs
+
+@dataclass
+class MarketContext:
+    """Everything the daily run needs from outside the price table. Injected, so tests
+    and replays never touch the network.
+
+    point_in_time: True only in live mode. Replays have no historical short interest,
+    so crowding is reported as NOT ASSESSED there instead of using today's value.
+    """
+    short_interest: Callable[[str], float | None] = lambda ticker: None
+    confirm_close: Callable[[str, pd.Timestamp], float | None] = lambda ticker, date: None
+    point_in_time: bool = False
+
+
+def short_interest_yahoo(ticker: str) -> float | None:
+    """Share of float sold short (0.12 = 12%), from Yahoo. None if unavailable."""
+    try:
+        import yfinance as yf
+
+        v = yf.Ticker(ticker).info.get("shortPercentOfFloat")
+        return float(v) if v is not None else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def confirm_close_stooq(ticker: str, date: pd.Timestamp) -> float | None:
+    """Second source for a suspicious move: Stooq's close on `date`, or None."""
+    try:
+        import requests
+
+        sym = ticker.lower().replace(".", "-") + ".us"
+        r = requests.get(f"https://stooq.com/q/d/l/?s={sym}&i=d", timeout=20)
+        if r.status_code != 200 or not r.text.startswith("Date"):
+            return None
+        df = pd.read_csv(io.StringIO(r.text), parse_dates=["Date"]).set_index("Date")
+        v = df["Close"].get(pd.Timestamp(date.date()))
+        return float(v) if v is not None and v == v else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def live_context() -> MarketContext:
+    return MarketContext(short_interest=short_interest_yahoo, confirm_close=confirm_close_stooq,
+                         point_in_time=True)

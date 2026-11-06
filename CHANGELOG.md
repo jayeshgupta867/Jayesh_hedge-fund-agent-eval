@@ -1,3 +1,36 @@
+# Changelog — fund v3 → v4
+
+Feedback from the final Edge Course session (5 Nov 2026), from Gianluca (hedge fund CIO) and Hemal (peer), plus problems found in the first live week. Same rule as V1 → V2: accept · adapt · reject, with the reason.
+
+## Findings
+
+| # | Source | Finding | Decision | What changed | Why |
+|---|---|---|---|---|---|
+| 1 | Gianluca | Let the agent be "more critical and questioning of the input received". | adapt | `analyst.py` challenge step: the analyst reviews each trade-ready idea against code-computed facts (e.g. share of the momentum from a single day) and may add a note or escalate to the PM. Output sanitised to note/escalate. | It can question, but it still cannot decide. An agent that can approve or upsize would break the core design. |
+| 2 | Gianluca | Always check the data is live and there has been no glitch. | accept | `dataguard.py`: closed-session check, staleness stop, frozen-price and unconfirmed-jump quarantine with a second source, benchmark glitch stops the day. | Bad data is the cheapest way to make an irreversible mistake. The first live day already had one (incident 1). |
+| 3 | Gianluca | Check every idea's correlation with the existing book: high correlation is replication, i.e. concentration. | accept | `risk.correlation_check`: 60-day signed correlation to the book and to each position; above 0.70 halves the size, above 0.85 rejects. Replaces V2's "NOT ASSESSED". | V2 had no price history, so I declared it. The fund has prices now, so I can compute it honestly. Day 1 bought five chip/software stocks together (incident 3). |
+| 4 | Gianluca | Liquidity: no more than ~3% of average daily volume, ~20% of the closing auction, look at L1–L3 and options. | adapt | 3% ADV cap per trade, square-root impact cost, capacity estimate. Closing auction and order book declared NOT ASSESSED. | The ADV rule I can compute from free data. Auction and order-book data are paid, so I declare them instead of faking them. |
+| 5 | Gianluca | Define the strategy and asset class first; everything follows from it. | accept | `fund/policy/mandate.json`, shown on the dashboard. | Every limit and rule only makes sense relative to a mandate. |
+| 6 | Gianluca | The long book, the short book and the hedge are three different logics. Avoid crowded shorts (GameStop, VW). | accept | Short stop 10% (long 12%); shorts with > 10% of float sold short are not added, unknown short interest goes to the PM; SPY hedge book to near-zero beta; P&L by book. | A short has unbounded loss, so it needs its own rules. Splitting the books shows where the money is made or lost. |
+| 7 | Gianluca | Systematic trades inside the model's parameters sign automatically; discretionary ones are signed by hand. | accept | Standing rules sign clean trades; flagged trades wait in `pending.json` for `pm_approvals.json`. Approvals bind the exact trade (token), are valid one run, and are ignored if committed by the bot. | It is how his fund works, and it puts the human exactly where the uncertainty is. |
+| 8 | Hemal | Backtests must not use future data. | accept | Red-team test R20 poisons all future prices and checks 30 days of decisions are identical; a mutation proves the test works. | A backtest that peeks is worse than none: it gives false confidence. |
+| 9 | Paolo | Course feedback (demo, more technical sessions). | — | No fund change. | Course feedback, not fund feedback. |
+
+## Incident log (first live week)
+
+| # | What happened | Impact | Fix |
+|---|---|---|---|
+| 1 | 2 Nov: the first live run was started at 16:17 UTC, while US markets were open, so five positions were booked at intraday prices; the evening run then skipped the day as already processed. | P&L on those five positions overstated by about $2.7k (0.27% of NAV). History left as is (git is the audit trail). | Never book an open session (`dataguard.drop_unfinished_session`, red-team R17). |
+| 2 | 2–5 Nov: every Groq call failed with an HTTP error. Groq shut down `llama-3.3-70b-versatile` on 16 Aug 2026. The template wrote every memo, but the dashboard said "AI model (Groq)". | No wrong trades (template memos are fully checked), but the report was misleading. | Default model `openai/gpt-oss-120b`, optional `GROQ_MODEL` repository variable, HTTP status logged, dashboard shows what actually wrote each memo (R05). |
+| 3 | 2 Nov: five highly correlated chip/software longs bought on day 1; three (AMD, MU, ADI) hit their stops on 5 Nov. | The five day-1 names lost about $14.7k of the fund's −$19.0k (long book −$18.3k, short book −$0.8k). | Correlation with the book (R21). |
+| 4 | Found while writing red-team R04: a malformed model reply (data points as text) crashed the whole run. | None (found before release). | Malformed replies become an empty draft the harness stops. |
+| 5 | Found while testing R10 with real git: the approvals-author check always returned "unknown". | None: it failed closed (all approvals ignored). | Fixed path handling; R10 now uses a real git repo. |
+
+## Policy versions
+`limit_policy.json` fund-1 → fund-2 (correlation, liquidity, data sections) · `standing_rules.json` rules-1 → rules-2 (short stop, short book, hedge, approvals) · new `mandate.json`, `pm_approvals.json`.
+
+---
+
 # Changelog — v1 → v2
 
 `v2/` is a copy of `v1/`. It changes in a refinement session with the orchestrator: finding by finding, you decide accept · adapt · reject and say why; every change is shown before and after and written only when you confirm. Your reasons go here in your own words. `v1/` is never modified.

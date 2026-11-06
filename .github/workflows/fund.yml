@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "live = process the latest trading day · replay = rebuild the backtest"
+        description: "live = process the latest closed trading day · replay = rebuild the backtest"
         type: choice
         options: [live, replay]
         default: live
@@ -29,9 +29,11 @@ jobs:
       MODE: ${{ inputs.mode || 'live' }}
       DAYS: ${{ inputs.days || '60' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # full history: the engine checks who last changed pm_approvals.json
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -44,14 +46,19 @@ jobs:
         working-directory: evaluation
         run: python -m pytest -q -p no:cacheprovider
 
-      - name: Engine tests (no trading if any fail)
+      - name: Engine and red-team tests (no trading if any fail)
         id: engine_tests
         run: python -m pytest fund/tests -q -p no:cacheprovider
+
+      - name: Red-team report and mutation check (no trading if any safeguard is untested)
+        id: redteam
+        run: python -m fund.redteam --json fund/state/redteam.json
 
       - name: Run the fund
         id: fund
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL }}   # optional repository variable; default openai/gpt-oss-120b
         run: python -m fund.engine.cli "$MODE" --days "$DAYS"
 
       - name: Record that tests blocked trading
@@ -61,13 +68,24 @@ jobs:
           python - <<'PY'
           import json, os, datetime
           json.dump({"mode": os.environ["MODE"], "ok": False,
-                     "message": "no trading: a test failed, see the Actions log",
+                     "message": "no trading: a test or the red-team check failed, see the Actions log",
                      "run_at_utc": datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M")},
                     open(f"fund/state/status_{os.environ['MODE']}.json", "w"), indent=2)
           PY
 
-      - name: Commit results to the repo
+      - name: Guard - the run changed nothing outside fund/state
+        id: guard
         if: always()
+        run: |
+          changed=$(git status --porcelain --untracked-files=all -- . ':(exclude)fund/state')
+          if [ -n "$changed" ]; then
+            echo "::error::The run modified files outside fund/state. Nothing is committed."
+            echo "$changed"
+            exit 1
+          fi
+
+      - name: Commit results to the repo
+        if: always() && steps.guard.outcome == 'success'
         run: |
           git config user.name "fund-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

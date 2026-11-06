@@ -31,7 +31,8 @@ See `CHANGELOG.md` for the reasoning.
 | File | What it covers |
 |---|---|
 | `L1_model.md` – `L9_graph.md` | Design layers: model, prompt, context, memory, skills, workflow, harness, loop, trace |
-| `CHANGELOG.md` | V1 → V2 decisions and reasons |
+| `CHANGELOG.md` | V1 → V2 and V3 → V4 decisions and reasons, incident log |
+| `REDTEAM.md` | Red-team attacks and mutation check results |
 | `PASS_REVIEW.md` | Final 13-check design review |
 
 ## Evaluation
@@ -40,24 +41,40 @@ The `evaluation/` folder contains a runnable Python version of the harness, test
 The research agent is stubbed, so this evaluates the harness, not the model. See `evaluation/README.md` for the full results table and how to run it.
 
 ## Live paper fund
-The `fund/` folder turns the design into a running paper-trading fund: $1m of simulated money, long/short US large caps, benchmarked to SPY. No real money is involved.
+The `fund/` folder turns the design into a running paper-trading fund: $1m of simulated money, long/short US large caps with a SPY hedge, benchmarked to SPY. No real money is involved. Dashboard: https://jayesh-agentic-fund.streamlit.app
 
 Every US trading day after the close, GitHub Actions:
-1. runs all harness and engine tests, and **does not trade if any fail**;
-2. downloads prices and runs a momentum screen (code picks every name and number);
-3. passes the ideas through the unchanged harness, where an AI analyst (Groq) drafts each memo and the harness checks every citation, the conviction cap and every limit;
-4. applies the PM's standing rules (`fund/policy/standing_rules.json`) and veto file (`fund/policy/pm_overrides.json`);
-5. books paper trades at the close, revalues the fund and commits the results to `fund/state/`. The git history is the audit trail.
+1. runs all harness, engine and red-team tests plus a mutation check, and **does not trade if any fail**;
+2. downloads prices and runs the **data gate**: no intraday prices, no stale feed, unconfirmed jumps and frozen prices quarantined;
+3. runs a momentum screen (code picks every name and number);
+4. passes the ideas through the unchanged harness, where an AI analyst (Groq) drafts each memo and the harness checks every citation, the conviction cap and every limit;
+5. runs the **book checks**: at most 3% of average daily volume, correlation with the existing book (above 0.70 halves the size, above 0.85 rejects it), no crowded shorts, and the analyst **challenges its own input** (it can escalate, never approve);
+6. books trades the PM's standing rules pre-approve, and **queues anything flagged for a manual PM sign-off** (`fund/policy/pm_approvals.json`);
+7. keeps three books (long, short, SPY hedge to near-zero beta), revalues the fund and commits the results to `fund/state/`. The git history is the audit trail.
 
-The dashboard (`streamlit_app.py`) shows NAV vs SPY, drawdown, positions, trades and each day's committee decisions, plus a **Replay** mode (the same engine over past days) and the interactive **Harness lab**.
+The dashboard (`streamlit_app.py`) shows NAV vs SPY, drawdown, positions, P&L by book, trades, each day's committee decisions with every check, trades awaiting the PM, the red-team results, plus a **Replay** mode and the interactive **Harness lab**.
 
 | Path | What it is |
 |---|---|
-| `fund/engine/` | Prices, screen, AI analyst, paper ledger, daily run |
-| `fund/policy/` | PM-owned limits, standing rules and veto |
-| `fund/state/` | Committed results: `live/` and `replay/` |
-| `fund/tests/` | 16 engine tests: accounting, limits, veto, stops, model misquotes, outages, replay |
-| `.github/workflows/fund.yml` | The daily schedule and the manual replay button |
+| `fund/engine/` | Prices, data gate, screen, AI analyst, book risk, approvals, paper ledger, daily run |
+| `fund/policy/` | PM-owned mandate, limits, standing rules, veto and approvals (the engine only reads these) |
+| `fund/state/` | Committed results: `live/` and `replay/`, plus the latest red-team report |
+| `fund/tests/` | 59 tests: 16 engine, 28 red-team attacks, 15 v4 features |
+| `fund/redteam.py` | Runs the attacks, then switches each safeguard off to prove the tests depend on it |
+| `.github/workflows/fund.yml` | The daily schedule, the replay button and the fail-safes |
 | `dashboard/`, `streamlit_app.py` | The public dashboard |
 
-Caveats: fills at the daily close with 10 bps cost, no borrow costs; replay uses today's large-cap list (survivorship bias) and the template analyst, so hindsight cannot leak into past decisions.
+## Safety: preventing irreversible actions
+A trade is an action that cannot be undone. The design lets the AI draft and question, and never size, approve or book:
+
+| Layer | Stops |
+|---|---|
+| Data gate | Booking intraday or stale prices, trading or stopping out on a bad print |
+| Harness | Hallucinated numbers, inflated conviction, the agent writing its own size or PM decision, database writes |
+| Book checks | Hidden concentration, illiquid trades, crowded shorts; the analyst can only escalate |
+| PM sign-off | Flagged trades booked without a human; approvals are bound to the exact trade by a token, valid for one run, and ignored if written by the automation |
+| Fail-safes | Trading with a failing test or an untested safeguard; the run changing anything outside `fund/state` |
+
+`REDTEAM.md` lists every attack (prompt injection, approval bypass, forged and expired approvals, self-approval, self-modification, glitches, stale data, look-ahead, crowded shorts, corrupted configuration) and the mutation check. Run it with `python -m fund.redteam`.
+
+Caveats: fills at the daily close with 10 bps plus a square-root impact estimate, no borrow costs; replay uses today's large-cap list (survivorship bias) and the template analyst, so hindsight cannot leak into past decisions; closing-auction volume and order-book depth are NOT ASSESSED (no free data). See `CHANGELOG.md` for the v4 changes and the incident log.

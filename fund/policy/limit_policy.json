@@ -1,7 +1,7 @@
 {
-  "version": "fund-1",
+  "version": "fund-2",
   "owner": "PM",
-  "note": "Limits are data, not design: the PM edits this file; every day's report records the version used.",
+  "note": "Limits are data, not design: the PM edits this file; every day's report records the version used. fund-2 adds correlation, liquidity and data-quality limits (Edge session feedback, Nov 2026).",
   "limits": {
     "max_position_pct_nav": 5.0,
     "max_sector_pct_nav": 25.0,
@@ -12,5 +12,26 @@
     "risk_budget_pct_nav": 1.0,
     "max_liquidation_days": 5,
     "max_adv_participation": 0.2
+  },
+  "correlation": {
+    "window_days": 60,
+    "min_obs": 40,
+    "halve_above": 0.70,
+    "reject_above": 0.85,
+    "note": "Signed by side: two longs in one cluster are one bet; a long and a short in a pair are a hedge."
+  },
+  "liquidity": {
+    "max_trade_pct_adv": 3.0,
+    "impact_coefficient": 0.1,
+    "closing_auction_share": "NOT ASSESSED: no closing-auction volume in free data (rule of thumb: stay under 20% of the auction)",
+    "order_book_depth": "NOT ASSESSED: no L2/L3 order-book or options-market data"
+  },
+  "data": {
+    "max_one_day_move": 0.25,
+    "max_benchmark_move": 0.10,
+    "confirm_tolerance": 0.02,
+    "frozen_days": 5,
+    "max_stale_business_days": 4,
+    "session_close_ny": "16:30"
   }
 }

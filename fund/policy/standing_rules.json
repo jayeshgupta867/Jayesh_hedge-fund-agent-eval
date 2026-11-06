@@ -1,13 +1,30 @@
 {
-  "version": "rules-1",
+  "version": "rules-2",
   "owner": "PM",
-  "note": "The PM's approval, written in advance. A memo trades only if it passes every harness check AND these rules.",
+  "note": "The PM's approval, written in advance, for systematic trades inside the mandate. A memo trades only if it passes every harness check, every book check AND these rules. Anything flagged waits for a manual PM sign-off (fund/policy/pm_approvals.json).",
   "min_conviction": 3,
   "max_new_trades_per_day": 5,
   "allow_shorts": true,
   "stop_loss_pct": 12,
+  "stop_loss_short_pct": 10,
   "max_holding_days": 63,
   "signal_exit_percentile": 0.5,
   "transaction_cost_bps": 10,
-  "starting_capital": 1000000
+  "starting_capital": 1000000,
+  "short_book": {
+    "max_short_interest_pct_float": 10,
+    "note": "Crowded shorts are not added (squeeze risk). Unknown short interest goes to the PM."
+  },
+  "hedge": {
+    "enabled": true,
+    "instrument": "SPY",
+    "target_net_beta_pct": 0,
+    "rebalance_band_pct": 5,
+    "beta_window_days": 60,
+    "note": "Third book: a SPY position that brings beta-adjusted net exposure to the target. It protects the long and short books; it is not a view."
+  },
+  "approvals": {
+    "valid_trading_days": 1,
+    "max_price_drift_pct": 3
+  }
 }

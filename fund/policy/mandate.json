@@ -1,0 +1,16 @@
+{
+  "version": "mandate-1",
+  "owner": "PM",
+  "strategy": "Systematic cross-sectional momentum, long/short, with a market hedge",
+  "asset_class": "US large-cap equities (cash shares) plus SPY for the hedge",
+  "universe": "About 100 S&P 500 large caps across all 11 GICS sectors (fixed list in fund/engine/universe.py)",
+  "benchmark": "SPY",
+  "execution": "Paper fills at the official daily close, after the session has closed",
+  "books": {
+    "long": "Strongest 12-1 momentum, above the 200-day average. Stop 12%.",
+    "short": "Weakest 12-1 momentum, below the 200-day average, not crowded (short interest at most 10% of float). Stop 10%: losses on a short are unbounded.",
+    "hedge": "SPY sized each day so the beta-adjusted net exposure stays near 0%."
+  },
+  "sign_off": "Systematic trades inside this mandate are signed in advance by the standing rules. Any trade the checks flag waits for a manual PM sign-off.",
+  "not_in_scope": "Real money, leverage beyond 150% gross, options, borrow costs, intraday execution"
+}
