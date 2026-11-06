@@ -1,5 +1,5 @@
-"""PM sign-off for flagged trades (v4, Gianluca: systematic trades inside the model's
-parameters are signed automatically; anything outside them is signed by hand).
+"""PM sign-off for flagged trades (v4: systematic trades inside the model's parameters
+are signed automatically; anything outside them is signed by hand).
 
 Flow
 1. A trade that passes every check but carries a flag (analyst challenge, crowding or

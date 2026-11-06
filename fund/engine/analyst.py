@@ -9,7 +9,7 @@ TemplateAnalyst writes the same fields deterministically. It is used when no API
 is set, when the model is unreachable, and always in replay mode (a model trained on
 later data could leak hindsight into past decisions).
 
-v4 · challenge step (Gianluca: let the agent be "more critical and questioning of the input").
+v4 · challenge step: the agent questions its input instead of only drafting from it.
 After the harness, the analyst reviews each trade-ready idea against facts computed by code
 from the price path (for example: how much of the momentum came from a single day). It may
 add a note or ESCALATE the trade to the PM. It can never approve, size or un-reject a trade:

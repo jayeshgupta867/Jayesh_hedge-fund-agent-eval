@@ -208,7 +208,7 @@ with t_pos:
                          "pnl_pct": st.column_config.NumberColumn("P&L %", format="%.2f")})
 
 with t_books:
-    st.caption("Gianluca: the long book, the short book and the hedge follow different logic, so they are judged "
+    st.caption("The long book, the short book and the hedge follow different logic, so they are judged "
                "separately. P&L since inception = trade cash flows (incl. costs) + value still held. "
                "The three rows add up to the fund's total P&L.")
     books = pnl_by_book(pos, data["trades"])

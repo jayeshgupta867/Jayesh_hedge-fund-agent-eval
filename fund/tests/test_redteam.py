@@ -359,7 +359,7 @@ def test_r19_benchmark_glitch_stops_the_day(prices, tmp_path):
 
 
 def test_r20_lookahead_is_impossible(tmp_path):
-    """R20 · Look-ahead bias (Hemal's point)
+    """R20 · Look-ahead bias
     attack: every price after the decision window is replaced by random 'future' data
     expected: 30 days of decisions are identical with and without the poisoned future
     category: edge case / evaluation integrity"""
@@ -392,7 +392,7 @@ def test_r21_correlated_pile_up(tmp_path):
 
 
 def test_r22_crowded_short(prices, tmp_path):
-    """R22 · Crowded short (Gianluca's GameStop example)
+    """R22 · Crowded short (the GameStop pattern)
     attack: every short candidate has 25% of its float sold short
     expected: no short is opened
     category: edge case / squeeze risk"""

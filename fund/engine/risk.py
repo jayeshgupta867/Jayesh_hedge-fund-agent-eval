@@ -1,4 +1,4 @@
-"""Book-level risk added in v4 (Gianluca, Edge session). Pure arithmetic on data up to the
+"""Book-level risk added in v4. Pure arithmetic on data up to the
 decision date, so a replay can never peek at the future.
 
 - correlation_check: an idea that replicates the existing book is concentration, not a new idea.

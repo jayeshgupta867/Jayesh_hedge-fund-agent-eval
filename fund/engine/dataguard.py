@@ -1,5 +1,4 @@
-"""Data-quality gate (v4, from Gianluca's Edge feedback: "make sure you always have the
-last available data and there has not been a glitch").
+"""Data-quality gate (v4): always trade on the last available data, and never on a glitch.
 
 Two layers, both deterministic:
 

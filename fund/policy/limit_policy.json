@@ -1,7 +1,7 @@
 {
   "version": "fund-2",
   "owner": "PM",
-  "note": "Limits are data, not design: the PM edits this file; every day's report records the version used. fund-2 adds correlation, liquidity and data-quality limits (Edge session feedback, Nov 2026).",
+  "note": "Limits are data, not design: the PM edits this file; every day's report records the version used. fund-2 adds correlation, liquidity and data-quality limits (v4, Nov 2026).",
   "limits": {
     "max_position_pct_nav": 5.0,
     "max_sector_pct_nav": 25.0,
