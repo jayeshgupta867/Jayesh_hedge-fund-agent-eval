@@ -3,50 +3,370 @@
  "mode": "replay",
  "data_source": "yahoo",
  "analyst": "template",
- "policy_version": "fund-1",
- "rules_version": "rules-1",
- "exits": [],
+ "policy_version": "fund-2",
+ "rules_version": "rules-2",
+ "exits": [
+  {
+   "date": "2026-08-28",
+   "ticker": "AMAT",
+   "action": "SELL",
+   "direction": "LONG",
+   "shares": 22.11,
+   "price": 461.67,
+   "notional": -10207.48,
+   "cost": 10.21,
+   "reason": "stop loss (-13.5% price move)",
+   "idea_id": "20260813-AMAT"
+  }
+ ],
  "executed": [
   {
    "date": "2026-08-28",
-   "ticker": "MCD",
+   "ticker": "KLAC",
+   "action": "BUY",
+   "direction": "LONG",
+   "shares": 33.51,
+   "price": 175.54,
+   "notional": 5883.15,
+   "cost": 5.94,
+   "reason": "standing rules: memo and book checks passed",
+   "idea_id": "20260828-KLAC"
+  },
+  {
+   "date": "2026-08-28",
+   "ticker": "TMUS",
    "action": "SELL SHORT",
    "direction": "SHORT",
-   "shares": 95.49,
-   "price": 265.0,
-   "notional": -25304.04,
-   "cost": 25.3,
-   "reason": "standing rules: memo passed",
-   "idea_id": "20260828-MCD"
+   "shares": 110.2,
+   "price": 181.37,
+   "notional": -19986.76,
+   "cost": 20.25,
+   "reason": "standing rules: memo and book checks passed",
+   "idea_id": "20260828-TMUS"
+  },
+  {
+   "date": "2026-08-28",
+   "ticker": "META",
+   "action": "SELL SHORT",
+   "direction": "SHORT",
+   "shares": 28.82,
+   "price": 578.02,
+   "notional": -16660.6,
+   "cost": 16.73,
+   "reason": "standing rules: memo and book checks passed",
+   "idea_id": "20260828-META"
   }
  ],
- "skipped": [],
+ "skipped": [
+  {
+   "idea_id": "20260828-LRCX",
+   "ticker": "LRCX",
+   "reason": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+  },
+  {
+   "idea_id": "20260828-MS",
+   "ticker": "MS",
+   "reason": "replicates the book: correlation 0.90 > 0.85 (closest: GS 0.90)"
+  }
+ ],
+ "escalated": [],
+ "approvals": [],
  "warnings": [],
- "nav_before_trades": 982642.99,
+ "pm_alerts": [],
+ "data_checks": [
+  {
+   "check": "glitch scan",
+   "result": "PASS",
+   "note": "105 tickers: no frozen prices, no unconfirmed jumps"
+  }
+ ],
+ "decisions": {
+  "20260828-KLAC": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.18% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $55.5m = 3.0% of ADV $1.85bn; this trade $12k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "PASS",
+     "note": "concentration: correlation 0.78 > 0.7 (closest: CAT 0.78), size halved",
+     "rho_book": 0.618,
+     "max_pair": 0.777,
+     "pair_ticker": "CAT"
+    },
+    {
+     "check": "analyst challenge",
+     "result": "PASS",
+     "note": "no escalation"
+    }
+   ],
+   "correlation": {
+    "result": "PASS",
+    "action": "halve",
+    "rho_book": 0.618,
+    "max_pair": 0.777,
+    "pair_ticker": "CAT",
+    "note": "concentration: correlation 0.78 > 0.7 (closest: CAT 0.78), size halved"
+   },
+   "facts": {
+    "last_day_move": -0.0448,
+    "largest_day_move": -0.1524,
+    "largest_day_date": "2026-01-30",
+    "share_of_momentum_from_one_day": 0.0
+   },
+   "challenges": [],
+   "final_pct_nav": 0.5914
+  },
+  "20260828-LRCX": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.16% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $77.2m = 3.0% of ADV $2.57bn; this trade $12k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "FAIL",
+     "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)",
+     "rho_book": 0.635,
+     "max_pair": 0.893,
+     "pair_ticker": "KLAC"
+    }
+   ],
+   "correlation": {
+    "result": "FAIL",
+    "action": "reject",
+    "rho_book": 0.635,
+    "max_pair": 0.893,
+    "pair_ticker": "KLAC",
+    "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+   }
+  },
+  "20260828-MS": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.98% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $27.3m = 3.0% of ADV $0.91bn; this trade $20k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "FAIL",
+     "note": "replicates the book: correlation 0.90 > 0.85 (closest: GS 0.90)",
+     "rho_book": 0.59,
+     "max_pair": 0.896,
+     "pair_ticker": "GS"
+    }
+   ],
+   "correlation": {
+    "result": "FAIL",
+    "action": "reject",
+    "rho_book": 0.59,
+    "max_pair": 0.896,
+    "pair_ticker": "GS",
+    "note": "replicates the book: correlation 0.90 > 0.85 (closest: GS 0.90)"
+   }
+  },
+  "20260828-TMUS": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "2.01% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $21.7m = 3.0% of ADV $0.72bn; this trade $20k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "PASS",
+     "note": "diversifying: correlation to book 0.31, closest INTU 0.40",
+     "rho_book": 0.309,
+     "max_pair": 0.399,
+     "pair_ticker": "INTU"
+    },
+    {
+     "check": "short crowding",
+     "result": "NOT ASSESSED",
+     "action": "none",
+     "note": "replay: no point-in-time short interest, crowding not checked"
+    },
+    {
+     "check": "analyst challenge",
+     "result": "PASS",
+     "note": "no escalation"
+    }
+   ],
+   "correlation": {
+    "result": "PASS",
+    "action": "none",
+    "rho_book": 0.309,
+    "max_pair": 0.399,
+    "pair_ticker": "INTU",
+    "note": "diversifying: correlation to book 0.31, closest INTU 0.40"
+   },
+   "facts": {
+    "last_day_move": 0.0263,
+    "largest_day_move": -0.1075,
+    "largest_day_date": "2026-07-23",
+    "share_of_momentum_from_one_day": 0.322
+   },
+   "challenges": [],
+   "final_pct_nav": 2.009
+  },
+  "20260828-META": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.67% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $276.2m = 3.0% of ADV $9.21bn; this trade $17k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "PASS",
+     "note": "diversifying: correlation to book 0.20, closest NKE 0.37",
+     "rho_book": 0.199,
+     "max_pair": 0.368,
+     "pair_ticker": "NKE"
+    },
+    {
+     "check": "short crowding",
+     "result": "NOT ASSESSED",
+     "action": "none",
+     "note": "replay: no point-in-time short interest, crowding not checked"
+    },
+    {
+     "check": "analyst challenge",
+     "result": "PASS",
+     "note": "no escalation"
+    }
+   ],
+   "correlation": {
+    "result": "PASS",
+    "action": "none",
+    "rho_book": 0.199,
+    "max_pair": 0.368,
+    "pair_ticker": "NKE",
+    "note": "diversifying: correlation to book 0.20, closest NKE 0.37"
+   },
+   "facts": {
+    "last_day_move": 0.0121,
+    "largest_day_move": -0.1133,
+    "largest_day_date": "2025-10-30",
+    "share_of_momentum_from_one_day": 0.372
+   },
+   "challenges": [],
+   "final_pct_nav": 1.6747
+  }
+ },
+ "hedge": {
+  "book_beta_pct": 17.52,
+  "target_pct": -17.52,
+  "before_pct": -16.07,
+  "traded": false,
+  "beta_assumed_1": [],
+  "note": "within the \u00b15% band: no trade",
+  "after_pct": -16.07,
+  "beta_net_after_pct": 1.45
+ },
+ "nav_before_trades": 994877.09,
  "screen": {
-  "ideas": 1,
-  "vetoed": []
+  "ideas": 7,
+  "vetoed": [],
+  "quarantined": []
  },
  "harness": {
   "status": "AWAITING_GATE2",
   "stop_reason": "",
-  "snapshot_id": "SNAP-7c128077c375",
+  "snapshot_id": "SNAP-c012011d6278",
   "shortlist": [
    {
     "rank": 1,
-    "idea_id": "20260828-MCD",
-    "ticker": "MCD",
-    "direction": "SHORT",
-    "sector": "Consumer Discretionary",
-    "score": 0.3516,
+    "idea_id": "20260828-KLAC",
+    "ticker": "KLAC",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 5.0,
+    "conviction": 5,
+    "momentum_12_1": 1.0374,
+    "reason": "Strong uptrend: 12-1 momentum +103.7%, +3.5% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260828-LRCX",
+    "ticker": "LRCX",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 5.0,
+    "conviction": 5,
+    "momentum_12_1": 1.8877,
+    "reason": "Strong uptrend: 12-1 momentum +188.8%, +17.4% vs 200-day average"
+   },
+   {
+    "rank": 3,
+    "idea_id": "20260828-MS",
+    "ticker": "MS",
+    "direction": "LONG",
+    "sector": "Financials",
+    "score": 1.2912,
     "conviction": 3,
-    "momentum_12_1": -0.1171,
-    "reason": "Persistent downtrend: 12-1 momentum -11.7%, -10.1% vs 200-day average"
+    "momentum_12_1": 0.4302,
+    "reason": "Strong uptrend: 12-1 momentum +43.0%, +14.2% vs 200-day average"
+   },
+   {
+    "rank": 4,
+    "idea_id": "20260828-TMUS",
+    "ticker": "TMUS",
+    "direction": "SHORT",
+    "sector": "Communication Services",
+    "score": 1.1888,
+    "conviction": 4,
+    "momentum_12_1": -0.2974,
+    "reason": "Persistent downtrend: 12-1 momentum -29.7%, -6.1% vs 200-day average"
+   },
+   {
+    "rank": 5,
+    "idea_id": "20260828-META",
+    "ticker": "META",
+    "direction": "SHORT",
+    "sector": "Communication Services",
+    "score": 1.1056,
+    "conviction": 4,
+    "momentum_12_1": -0.2764,
+    "reason": "Persistent downtrend: 12-1 momentum -27.6%, -7.1% vs 200-day average"
    }
   ],
   "exceptions": [],
   "ideas": {
-   "20260828-MCD": "MEMO_READY"
+   "20260828-KLAC": "MEMO_READY",
+   "20260828-LRCX": "MEMO_READY",
+   "20260828-MS": "MEMO_READY",
+   "20260828-TMUS": "MEMO_READY",
+   "20260828-META": "MEMO_READY"
   },
   "repairs": {},
   "receipts": [
@@ -72,7 +392,35 @@
     "reason": ""
    },
    {
-    "tray": "memo_draft_20260828-MCD",
+    "tray": "memo_draft_20260828-KLAC",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260828-LRCX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260828-MS",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260828-TMUS",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260828-META",
     "from": "S1",
     "to": "harness",
     "result": "PASS",
@@ -84,59 +432,59 @@
    "S1 files written only allowed types": true,
    "DB writes": 0,
    "receipts all PASS": true,
-   "policy version": "fund-1"
+   "policy version": "fund-2"
   },
   "memos": {
-   "20260828-MCD": {
+   "20260828-KLAC": {
     "top_flags": [
-     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+     "Correlation with book: PASS \u2013 concentration: correlation 0.78 > 0.7 (closest: CAT 0.78), size halved"
     ],
-    "1_ticker_direction_date": "MCD SHORT \u00b7 2026-08-28 \u00b7 idea age from 2026-08-28",
-    "2_thesis_summary": "MCD ranks in the bottom of the universe on 12-1 momentum (-11.7%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "1_ticker_direction_date": "KLAC LONG \u00b7 2026-08-28 \u00b7 idea age from 2026-08-28",
+    "2_thesis_summary": "KLAC ranks in the top of the universe on 12-1 momentum (+103.7%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
     "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
     "4_data_points": [
      {
-      "claim": "momentum_12_1 = -0.1171",
+      "claim": "momentum_12_1 = 1.0374",
       "table": "idea_pipeline",
       "column": "momentum_12_1",
-      "idea_id": "20260828-MCD",
-      "snapshot_id": "SNAP-7c128077c375",
-      "value": -0.1171,
+      "idea_id": "20260828-KLAC",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 1.0374,
       "label": "source: analyst's pipeline row \u2013 not independent evidence"
      },
      {
-      "claim": "pct_above_ma200 = -0.1014",
+      "claim": "pct_above_ma200 = 0.0345",
       "table": "idea_pipeline",
       "column": "pct_above_ma200",
-      "idea_id": "20260828-MCD",
-      "snapshot_id": "SNAP-7c128077c375",
-      "value": -0.1014,
+      "idea_id": "20260828-KLAC",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.0345,
       "label": "source: analyst's pipeline row \u2013 not independent evidence"
      },
      {
-      "claim": "vol_63d = 0.233",
+      "claim": "vol_63d = 0.8455",
       "table": "idea_pipeline",
       "column": "vol_63d",
-      "idea_id": "20260828-MCD",
-      "snapshot_id": "SNAP-7c128077c375",
-      "value": 0.233,
+      "idea_id": "20260828-KLAC",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.8455,
       "label": "source: analyst's pipeline row \u2013 not independent evidence"
      }
     ],
     "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
-    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
-    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
     "8_return_vol_liquidity": {
-     "expected_return": 0.0293,
-     "volatility": 0.233,
-     "adv_usd": 1209243778.0,
+     "expected_return": 0.25,
+     "volatility": 0.8455,
+     "adv_usd": 1850123139.0,
      "owners": {
       "expected_return": "analyst (idea_pipeline)",
       "volatility/adv": "market data owner"
      }
     },
-    "9_size": "2.58% NAV (risk-budget sized)",
-    "9_size_pct_nav": 2.5751,
+    "9_size": "1.18% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.1827,
     "10_limit_report": [
      {
       "name": "position size",
@@ -147,27 +495,27 @@
       "note": ""
      },
      {
-      "name": "sector concentration (Consumer Discretionary)",
+      "name": "sector concentration (Information Technology)",
       "result": "PASS",
-      "usage": 8.0219,
+      "usage": 12.514399999999998,
       "limit": 25.0,
-      "headroom": 16.9781,
+      "headroom": 12.4856,
       "note": ""
      },
      {
       "name": "gross exposure",
       "result": "PASS",
-      "usage": 74.0444,
+      "usage": 62.1614,
       "limit": 150.0,
-      "headroom": 75.9556,
+      "headroom": 87.8386,
       "note": ""
      },
      {
       "name": "net exposure",
       "result": "PASS",
-      "usage": 21.5532,
+      "usage": 8.3102,
       "limit": 50.0,
-      "headroom": 71.5532,
+      "headroom": 41.6898,
       "note": ""
      },
      {
@@ -180,11 +528,524 @@
      }
     ],
     "11_pm_decision": "",
-    "policy_version": "fund-1",
-    "snapshot_id": "SNAP-7c128077c375"
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-c012011d6278",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.18% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $55.5m = 3.0% of ADV $1.85bn; this trade $12k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "PASS",
+      "note": "concentration: correlation 0.78 > 0.7 (closest: CAT 0.78), size halved",
+      "rho_book": 0.618,
+      "max_pair": 0.777,
+      "pair_ticker": "CAT"
+     },
+     {
+      "check": "analyst challenge",
+      "result": "PASS",
+      "note": "no escalation"
+     }
+    ]
+   },
+   "20260828-LRCX": {
+    "top_flags": [
+     "Correlation with book: FAIL \u2013 replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+    ],
+    "1_ticker_direction_date": "LRCX LONG \u00b7 2026-08-28 \u00b7 idea age from 2026-08-28",
+    "2_thesis_summary": "LRCX ranks in the top of the universe on 12-1 momentum (+188.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 1.8877",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260828-LRCX",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 1.8877,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1742",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260828-LRCX",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.1742,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.8628",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260828-LRCX",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.8628,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.25,
+     "volatility": 0.8628,
+     "adv_usd": 2573749957.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.16% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.159,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 12.514399999999998,
+      "limit": 25.0,
+      "headroom": 12.4856,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 62.1614,
+      "limit": 150.0,
+      "headroom": 87.8386,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 8.3102,
+      "limit": 50.0,
+      "headroom": 41.6898,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-c012011d6278",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.16% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $77.2m = 3.0% of ADV $2.57bn; this trade $12k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "FAIL",
+      "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)",
+      "rho_book": 0.635,
+      "max_pair": 0.893,
+      "pair_ticker": "KLAC"
+     }
+    ]
+   },
+   "20260828-MS": {
+    "top_flags": [
+     "Correlation with book: FAIL \u2013 replicates the book: correlation 0.90 > 0.85 (closest: GS 0.90)"
+    ],
+    "1_ticker_direction_date": "MS LONG \u00b7 2026-08-28 \u00b7 idea age from 2026-08-28",
+    "2_thesis_summary": "MS ranks in the top of the universe on 12-1 momentum (+43.0%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4302",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260828-MS",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.4302,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1425",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260828-MS",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.1425,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3035",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260828-MS",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.3035,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1076,
+     "volatility": 0.3035,
+     "adv_usd": 909199657.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.98% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.9769,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Financials)",
+      "result": "PASS",
+      "usage": 3.6904,
+      "limit": 25.0,
+      "headroom": 21.3096,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 62.1614,
+      "limit": 150.0,
+      "headroom": 87.8386,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 8.3102,
+      "limit": 50.0,
+      "headroom": 41.6898,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-c012011d6278",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.98% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $27.3m = 3.0% of ADV $0.91bn; this trade $20k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "FAIL",
+      "note": "replicates the book: correlation 0.90 > 0.85 (closest: GS 0.90)",
+      "rho_book": 0.59,
+      "max_pair": 0.896,
+      "pair_ticker": "GS"
+     }
+    ]
+   },
+   "20260828-TMUS": {
+    "top_flags": [
+     "Correlation with book: PASS \u2013 diversifying: correlation to book 0.31, closest INTU 0.40"
+    ],
+    "1_ticker_direction_date": "TMUS SHORT \u00b7 2026-08-28 \u00b7 idea age from 2026-08-28",
+    "2_thesis_summary": "TMUS ranks in the bottom of the universe on 12-1 momentum (-29.7%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.2974",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260828-TMUS",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": -0.2974,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0607",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260828-TMUS",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": -0.0607,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.3982",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260828-TMUS",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.3982,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "4 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0743,
+     "volatility": 0.3982,
+     "adv_usd": 724072554.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.01% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.009,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Communication Services)",
+      "result": "PASS",
+      "usage": 5.0431,
+      "limit": 25.0,
+      "headroom": 19.9569,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 62.1614,
+      "limit": 150.0,
+      "headroom": 87.8386,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 8.3102,
+      "limit": 50.0,
+      "headroom": 58.3102,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-c012011d6278",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "2.01% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $21.7m = 3.0% of ADV $0.72bn; this trade $20k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "PASS",
+      "note": "diversifying: correlation to book 0.31, closest INTU 0.40",
+      "rho_book": 0.309,
+      "max_pair": 0.399,
+      "pair_ticker": "INTU"
+     },
+     {
+      "check": "short crowding",
+      "result": "NOT ASSESSED",
+      "action": "none",
+      "note": "replay: no point-in-time short interest, crowding not checked"
+     },
+     {
+      "check": "analyst challenge",
+      "result": "PASS",
+      "note": "no escalation"
+     }
+    ]
+   },
+   "20260828-META": {
+    "top_flags": [
+     "Correlation with book: PASS \u2013 diversifying: correlation to book 0.20, closest NKE 0.37"
+    ],
+    "1_ticker_direction_date": "META SHORT \u00b7 2026-08-28 \u00b7 idea age from 2026-08-28",
+    "2_thesis_summary": "META ranks in the bottom of the universe on 12-1 momentum (-27.6%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.2764",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260828-META",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": -0.2764,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.0707",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260828-META",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": -0.0707,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.4777",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260828-META",
+      "snapshot_id": "SNAP-c012011d6278",
+      "value": 0.4777,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses above its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "4 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0691,
+     "volatility": 0.4777,
+     "adv_usd": 9205492380.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.67% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.6747,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Communication Services)",
+      "result": "PASS",
+      "usage": 5.0431,
+      "limit": 25.0,
+      "headroom": 19.9569,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 62.1614,
+      "limit": 150.0,
+      "headroom": 87.8386,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 8.3102,
+      "limit": 50.0,
+      "headroom": 58.3102,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-c012011d6278",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.67% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $276.2m = 3.0% of ADV $9.21bn; this trade $17k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "PASS",
+      "note": "diversifying: correlation to book 0.20, closest NKE 0.37",
+      "rho_book": 0.199,
+      "max_pair": 0.368,
+      "pair_ticker": "NKE"
+     },
+     {
+      "check": "short crowding",
+      "result": "NOT ASSESSED",
+      "action": "none",
+      "note": "replay: no point-in-time short interest, crowding not checked"
+     },
+     {
+      "check": "analyst challenge",
+      "result": "PASS",
+      "note": "no escalation"
+     }
+    ]
    }
   }
  },
  "analyst_log": [],
- "nav_after": 982617.68
+ "analyst_used": "template",
+ "capacity_usd": 745600000.0,
+ "nav_after": 994823.97
 }

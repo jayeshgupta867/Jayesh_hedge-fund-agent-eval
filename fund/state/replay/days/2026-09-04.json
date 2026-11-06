@@ -3,20 +3,20 @@
  "mode": "replay",
  "data_source": "yahoo",
  "analyst": "template",
- "policy_version": "fund-1",
- "rules_version": "rules-1",
+ "policy_version": "fund-2",
+ "rules_version": "rules-2",
  "exits": [
   {
    "date": "2026-09-04",
-   "ticker": "META",
+   "ticker": "ORCL",
    "action": "BUY TO COVER",
    "direction": "SHORT",
-   "shares": 22.61,
-   "price": 616.77,
-   "notional": 13945.0,
-   "cost": 13.95,
-   "reason": "stop loss (+12.2% price move)",
-   "idea_id": "20260821-META"
+   "shares": 104.02,
+   "price": 158.78,
+   "notional": 16516.42,
+   "cost": 16.52,
+   "reason": "short stop / squeeze guard (+11.2% price move against the short)",
+   "idea_id": "20260818-ORCL"
   }
  ],
  "executed": [
@@ -25,28 +25,285 @@
    "ticker": "ADBE",
    "action": "SELL SHORT",
    "direction": "SHORT",
-   "shares": 58.28,
+   "shares": 29.38,
    "price": 266.51,
-   "notional": -15531.66,
-   "cost": 15.53,
-   "reason": "standing rules: memo passed",
+   "notional": -7829.71,
+   "cost": 7.89,
+   "reason": "standing rules: memo and book checks passed",
    "idea_id": "20260904-ADBE"
   }
  ],
- "skipped": [],
+ "skipped": [
+  {
+   "idea_id": "20260904-AMAT",
+   "ticker": "AMAT",
+   "reason": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+  },
+  {
+   "idea_id": "20260904-LRCX",
+   "ticker": "LRCX",
+   "reason": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+  },
+  {
+   "idea_id": "20260904-TXN",
+   "ticker": "TXN",
+   "reason": "replicates the book: correlation 0.94 > 0.85 (closest: ADI 0.94)"
+  },
+  {
+   "idea_id": "20260904-MS",
+   "ticker": "MS",
+   "reason": "replicates the book: correlation 0.89 > 0.85 (closest: GS 0.89)"
+  }
+ ],
+ "escalated": [],
+ "approvals": [],
  "warnings": [],
- "nav_before_trades": 988976.67,
+ "pm_alerts": [],
+ "data_checks": [
+  {
+   "check": "glitch scan",
+   "result": "PASS",
+   "note": "105 tickers: no frozen prices, no unconfirmed jumps"
+  }
+ ],
+ "decisions": {
+  "20260904-AMAT": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.21% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $110.4m = 3.0% of ADV $3.68bn; this trade $12k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "FAIL",
+     "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)",
+     "rho_book": 0.723,
+     "max_pair": 0.892,
+     "pair_ticker": "KLAC"
+    }
+   ],
+   "correlation": {
+    "result": "FAIL",
+    "action": "reject",
+    "rho_book": 0.723,
+    "max_pair": 0.892,
+    "pair_ticker": "KLAC",
+    "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+   }
+  },
+  "20260904-LRCX": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.19% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $70.3m = 3.0% of ADV $2.34bn; this trade $12k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "FAIL",
+     "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)",
+     "rho_book": 0.688,
+     "max_pair": 0.888,
+     "pair_ticker": "KLAC"
+    }
+   ],
+   "correlation": {
+    "result": "FAIL",
+    "action": "reject",
+    "rho_book": 0.688,
+    "max_pair": 0.888,
+    "pair_ticker": "KLAC",
+    "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+   }
+  },
+  "20260904-TXN": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.31% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $43.1m = 3.0% of ADV $1.44bn; this trade $13k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "FAIL",
+     "note": "replicates the book: correlation 0.94 > 0.85 (closest: ADI 0.94)",
+     "rho_book": 0.425,
+     "max_pair": 0.936,
+     "pair_ticker": "ADI"
+    }
+   ],
+   "correlation": {
+    "result": "FAIL",
+    "action": "reject",
+    "rho_book": 0.425,
+    "max_pair": 0.936,
+    "pair_ticker": "ADI",
+    "note": "replicates the book: correlation 0.94 > 0.85 (closest: ADI 0.94)"
+   }
+  },
+  "20260904-MS": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "2.10% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $24.4m = 3.0% of ADV $0.81bn; this trade $21k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "FAIL",
+     "note": "replicates the book: correlation 0.89 > 0.85 (closest: GS 0.89)",
+     "rho_book": 0.505,
+     "max_pair": 0.886,
+     "pair_ticker": "GS"
+    }
+   ],
+   "correlation": {
+    "result": "FAIL",
+    "action": "reject",
+    "rho_book": 0.505,
+    "max_pair": 0.886,
+    "pair_ticker": "GS",
+    "note": "replicates the book: correlation 0.89 > 0.85 (closest: GS 0.89)"
+   }
+  },
+  "20260904-ADBE": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.57% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $35.6m = 3.0% of ADV $1.19bn; this trade $16k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "PASS",
+     "note": "concentration: correlation 0.78 > 0.7 (closest: INTU 0.78), size halved",
+     "rho_book": 0.541,
+     "max_pair": 0.779,
+     "pair_ticker": "INTU"
+    },
+    {
+     "check": "short crowding",
+     "result": "NOT ASSESSED",
+     "action": "none",
+     "note": "replay: no point-in-time short interest, crowding not checked"
+    },
+    {
+     "check": "analyst challenge",
+     "result": "PASS",
+     "note": "no escalation"
+    }
+   ],
+   "correlation": {
+    "result": "PASS",
+    "action": "halve",
+    "rho_book": 0.541,
+    "max_pair": 0.779,
+    "pair_ticker": "INTU",
+    "note": "concentration: correlation 0.78 > 0.7 (closest: INTU 0.78), size halved"
+   },
+   "facts": {
+    "last_day_move": -0.0673,
+    "largest_day_move": -0.0758,
+    "largest_day_date": "2026-03-13",
+    "share_of_momentum_from_one_day": 0.282
+   },
+   "challenges": [],
+   "final_pct_nav": 0.7853
+  }
+ },
+ "hedge": {
+  "book_beta_pct": 17.21,
+  "target_pct": -17.21,
+  "before_pct": -16.05,
+  "traded": false,
+  "beta_assumed_1": [],
+  "note": "within the \u00b15% band: no trade",
+  "after_pct": -16.05,
+  "beta_net_after_pct": 1.16
+ },
+ "nav_before_trades": 997114.54,
  "screen": {
-  "ideas": 1,
-  "vetoed": []
+  "ideas": 8,
+  "vetoed": [],
+  "quarantined": []
  },
  "harness": {
   "status": "AWAITING_GATE2",
   "stop_reason": "",
-  "snapshot_id": "SNAP-77cfc71872d0",
+  "snapshot_id": "SNAP-85b63a6aa093",
   "shortlist": [
    {
     "rank": 1,
+    "idea_id": "20260904-AMAT",
+    "ticker": "AMAT",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 5.0,
+    "conviction": 5,
+    "momentum_12_1": 2.3483,
+    "reason": "Strong uptrend: 12-1 momentum +234.8%, +11.9% vs 200-day average"
+   },
+   {
+    "rank": 2,
+    "idea_id": "20260904-LRCX",
+    "ticker": "LRCX",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 5.0,
+    "conviction": 5,
+    "momentum_12_1": 2.0618,
+    "reason": "Strong uptrend: 12-1 momentum +206.2%, +18.0% vs 200-day average"
+   },
+   {
+    "rank": 3,
+    "idea_id": "20260904-TXN",
+    "ticker": "TXN",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 1.5756,
+    "conviction": 3,
+    "momentum_12_1": 0.525,
+    "reason": "Strong uptrend: 12-1 momentum +52.5%, +8.8% vs 200-day average"
+   },
+   {
+    "rank": 4,
+    "idea_id": "20260904-MS",
+    "ticker": "MS",
+    "direction": "LONG",
+    "sector": "Financials",
+    "score": 1.356,
+    "conviction": 3,
+    "momentum_12_1": 0.4522,
+    "reason": "Strong uptrend: 12-1 momentum +45.2%, +15.0% vs 200-day average"
+   },
+   {
+    "rank": 5,
     "idea_id": "20260904-ADBE",
     "ticker": "ADBE",
     "direction": "SHORT",
@@ -59,6 +316,10 @@
   ],
   "exceptions": [],
   "ideas": {
+   "20260904-AMAT": "MEMO_READY",
+   "20260904-LRCX": "MEMO_READY",
+   "20260904-TXN": "MEMO_READY",
+   "20260904-MS": "MEMO_READY",
    "20260904-ADBE": "MEMO_READY"
   },
   "repairs": {},
@@ -85,6 +346,34 @@
     "reason": ""
    },
    {
+    "tray": "memo_draft_20260904-AMAT",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260904-LRCX",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260904-TXN",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20260904-MS",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
     "tray": "memo_draft_20260904-ADBE",
     "from": "S1",
     "to": "harness",
@@ -97,12 +386,476 @@
    "S1 files written only allowed types": true,
    "DB writes": 0,
    "receipts all PASS": true,
-   "policy version": "fund-1"
+   "policy version": "fund-2"
   },
   "memos": {
+   "20260904-AMAT": {
+    "top_flags": [
+     "Correlation with book: FAIL \u2013 replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+    ],
+    "1_ticker_direction_date": "AMAT LONG \u00b7 2026-09-04 \u00b7 idea age from 2026-09-04",
+    "2_thesis_summary": "AMAT ranks in the top of the universe on 12-1 momentum (+234.8%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 2.3483",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260904-AMAT",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 2.3483,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1192",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260904-AMAT",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.1192,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.8263",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260904-AMAT",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.8263,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.25,
+     "volatility": 0.8263,
+     "adv_usd": 3678542547.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.21% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.2102,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 11.3278,
+      "limit": 25.0,
+      "headroom": 13.6722,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.7666,
+      "limit": 150.0,
+      "headroom": 81.2334,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.178799999999998,
+      "limit": 50.0,
+      "headroom": 42.8212,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-85b63a6aa093",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.21% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $110.4m = 3.0% of ADV $3.68bn; this trade $12k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "FAIL",
+      "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)",
+      "rho_book": 0.723,
+      "max_pair": 0.892,
+      "pair_ticker": "KLAC"
+     }
+    ]
+   },
+   "20260904-LRCX": {
+    "top_flags": [
+     "Correlation with book: FAIL \u2013 replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)"
+    ],
+    "1_ticker_direction_date": "LRCX LONG \u00b7 2026-09-04 \u00b7 idea age from 2026-09-04",
+    "2_thesis_summary": "LRCX ranks in the top of the universe on 12-1 momentum (+206.2%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 2.0618",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260904-LRCX",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 2.0618,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1802",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260904-LRCX",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.1802,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.8395",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260904-LRCX",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.8395,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "5 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.25,
+     "volatility": 0.8395,
+     "adv_usd": 2342453791.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.19% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.1912,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 11.3278,
+      "limit": 25.0,
+      "headroom": 13.6722,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.7666,
+      "limit": 150.0,
+      "headroom": 81.2334,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.178799999999998,
+      "limit": 50.0,
+      "headroom": 42.8212,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-85b63a6aa093",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.19% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $70.3m = 3.0% of ADV $2.34bn; this trade $12k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "FAIL",
+      "note": "replicates the book: correlation 0.89 > 0.85 (closest: KLAC 0.89)",
+      "rho_book": 0.688,
+      "max_pair": 0.888,
+      "pair_ticker": "KLAC"
+     }
+    ]
+   },
+   "20260904-TXN": {
+    "top_flags": [
+     "Correlation with book: FAIL \u2013 replicates the book: correlation 0.94 > 0.85 (closest: ADI 0.94)"
+    ],
+    "1_ticker_direction_date": "TXN LONG \u00b7 2026-09-04 \u00b7 idea age from 2026-09-04",
+    "2_thesis_summary": "TXN ranks in the top of the universe on 12-1 momentum (+52.5%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.525",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260904-TXN",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.525,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0883",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260904-TXN",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.0883,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.4584",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260904-TXN",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.4584,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.1313,
+     "volatility": 0.4584,
+     "adv_usd": 1435288896.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.31% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.3089,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 11.3278,
+      "limit": 25.0,
+      "headroom": 13.6722,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.7666,
+      "limit": 150.0,
+      "headroom": 81.2334,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.178799999999998,
+      "limit": 50.0,
+      "headroom": 42.8212,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-85b63a6aa093",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.31% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $43.1m = 3.0% of ADV $1.44bn; this trade $13k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "FAIL",
+      "note": "replicates the book: correlation 0.94 > 0.85 (closest: ADI 0.94)",
+      "rho_book": 0.425,
+      "max_pair": 0.936,
+      "pair_ticker": "ADI"
+     }
+    ]
+   },
+   "20260904-MS": {
+    "top_flags": [
+     "Correlation with book: FAIL \u2013 replicates the book: correlation 0.89 > 0.85 (closest: GS 0.89)"
+    ],
+    "1_ticker_direction_date": "MS LONG \u00b7 2026-09-04 \u00b7 idea age from 2026-09-04",
+    "2_thesis_summary": "MS ranks in the top of the universe on 12-1 momentum (+45.2%) and trades above its 200-day average. Trend persistence over 3 months is the edge.",
+    "3_catalyst": "The trend holds while the stock stays on the same side of its 200-day average.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.4522",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20260904-MS",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.4522,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1503",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20260904-MS",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.1503,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "vol_63d = 0.2856",
+      "table": "idea_pipeline",
+      "column": "vol_63d",
+      "idea_id": "20260904-MS",
+      "snapshot_id": "SNAP-85b63a6aa093",
+      "value": 0.2856,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "Momentum crash: a sharp reversal when crowded trends unwind.",
+    "6_falsifier_exit": "Price crosses below its 200-day average. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "3 \u2013 Signal strength only; no independent evidence beyond the screen.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.113,
+     "volatility": 0.2856,
+     "adv_usd": 813789610.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.10% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.1008,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Financials)",
+      "result": "PASS",
+      "usage": 3.7718,
+      "limit": 25.0,
+      "headroom": 21.2282,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 68.7666,
+      "limit": 150.0,
+      "headroom": 81.2334,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 7.178799999999998,
+      "limit": 50.0,
+      "headroom": 42.8212,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-85b63a6aa093",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "2.10% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $24.4m = 3.0% of ADV $0.81bn; this trade $21k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "FAIL",
+      "note": "replicates the book: correlation 0.89 > 0.85 (closest: GS 0.89)",
+      "rho_book": 0.505,
+      "max_pair": 0.886,
+      "pair_ticker": "GS"
+     }
+    ]
+   },
    "20260904-ADBE": {
     "top_flags": [
-     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+     "Correlation with book: PASS \u2013 concentration: correlation 0.78 > 0.7 (closest: INTU 0.78), size halved"
     ],
     "1_ticker_direction_date": "ADBE SHORT \u00b7 2026-09-04 \u00b7 idea age from 2026-09-04",
     "2_thesis_summary": "ADBE ranks in the bottom of the universe on 12-1 momentum (-24.4%) and trades below its 200-day average. Trend persistence over 3 months is the edge.",
@@ -113,7 +866,7 @@
       "table": "idea_pipeline",
       "column": "momentum_12_1",
       "idea_id": "20260904-ADBE",
-      "snapshot_id": "SNAP-77cfc71872d0",
+      "snapshot_id": "SNAP-85b63a6aa093",
       "value": -0.2442,
       "label": "source: analyst's pipeline row \u2013 not independent evidence"
      },
@@ -122,7 +875,7 @@
       "table": "idea_pipeline",
       "column": "pct_above_ma200",
       "idea_id": "20260904-ADBE",
-      "snapshot_id": "SNAP-77cfc71872d0",
+      "snapshot_id": "SNAP-85b63a6aa093",
       "value": -0.0053,
       "label": "source: analyst's pipeline row \u2013 not independent evidence"
      },
@@ -131,7 +884,7 @@
       "table": "idea_pipeline",
       "column": "vol_63d",
       "idea_id": "20260904-ADBE",
-      "snapshot_id": "SNAP-77cfc71872d0",
+      "snapshot_id": "SNAP-85b63a6aa093",
       "value": 0.5094,
       "label": "source: analyst's pipeline row \u2013 not independent evidence"
      }
@@ -162,25 +915,25 @@
      {
       "name": "sector concentration (Information Technology)",
       "result": "PASS",
-      "usage": 18.106299999999997,
+      "usage": 11.3278,
       "limit": 25.0,
-      "headroom": 6.8937,
+      "headroom": 13.6722,
       "note": ""
      },
      {
       "name": "gross exposure",
       "result": "PASS",
-      "usage": 76.8794,
+      "usage": 68.7666,
       "limit": 150.0,
-      "headroom": 73.1206,
+      "headroom": 81.2334,
       "note": ""
      },
      {
       "name": "net exposure",
       "result": "PASS",
-      "usage": 23.15,
+      "usage": 7.178799999999998,
       "limit": 50.0,
-      "headroom": 73.15,
+      "headroom": 57.1788,
       "note": ""
      },
      {
@@ -193,11 +946,44 @@
      }
     ],
     "11_pm_decision": "",
-    "policy_version": "fund-1",
-    "snapshot_id": "SNAP-77cfc71872d0"
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-85b63a6aa093",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.57% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $35.6m = 3.0% of ADV $1.19bn; this trade $16k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "PASS",
+      "note": "concentration: correlation 0.78 > 0.7 (closest: INTU 0.78), size halved",
+      "rho_book": 0.541,
+      "max_pair": 0.779,
+      "pair_ticker": "INTU"
+     },
+     {
+      "check": "short crowding",
+      "result": "NOT ASSESSED",
+      "action": "none",
+      "note": "replay: no point-in-time short interest, crowding not checked"
+     },
+     {
+      "check": "analyst challenge",
+      "result": "PASS",
+      "note": "no escalation"
+     }
+    ]
    }
   }
  },
  "analyst_log": [],
- "nav_after": 988947.19
+ "analyst_used": "template",
+ "capacity_usd": 815600000.0,
+ "nav_after": 997090.13
 }
