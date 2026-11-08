@@ -24,6 +24,7 @@ After feedback from practitioners (a hedge fund manager and a senior wealth mana
 - **Adapted:** risk lives at the aggregate book level, so every memo now states that correlation risk was NOT ASSESSED (no data), so a limit PASS is never read as "safe for the book".
 - **Accepted:** every data field names an owner.
 - **Rejected:** stop-loss rules (out of scope, post-execution) and a second verification agent.
+- **Revised (Nov 2026):** the sizing formula and limit values are now stated in the design, with worked examples (`L6_workflow.md` § Sizing and limits): size = 0.6% NAV × (conviction ÷ 5) ÷ volatility, capped at exit within 5 days at ≤ 20% of ADV; limits 5% position, 25% sector, 150% gross, ±40% net.
 
 See `CHANGELOG.md` for the reasoning.
 
@@ -31,7 +32,7 @@ See `CHANGELOG.md` for the reasoning.
 | File | What it covers |
 |---|---|
 | `L1_model.md` – `L9_graph.md` | Design layers: model, prompt, context, memory, skills, workflow, harness, loop, trace |
-| `CHANGELOG.md` | V1 → V2 and V3 → V4 decisions and reasons, incident log |
+| `CHANGELOG.md` | V1 → V2, the V2 revision and fund v3 → v4: decisions, reasons, incident log |
 | `REDTEAM.md` | Red-team attacks and mutation check results |
 | `PASS_REVIEW.md` | Final 13-check design review |
 

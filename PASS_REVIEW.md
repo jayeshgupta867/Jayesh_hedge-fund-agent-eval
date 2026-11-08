@@ -23,3 +23,5 @@ Version: v2 · Status: PASS · Reviewed on: 2026-10-29
 Student confirmation — "I confirm this summary of my decisions is accurate": jayeshgupta@student.ie.edu · 2026-10-29
 
 From this date `v2/` is read-only. `handoff.json` was generated from these files and matches the row in `alumns`.
+
+Revision on 2026-11-08: after review, the sizing formula and the limit values are stated in `L6_workflow.md` § Sizing and limits and in `L3_context.md` § A6 (they were previously placeholders set by the PM). No other decision changed; see `CHANGELOG.md`.

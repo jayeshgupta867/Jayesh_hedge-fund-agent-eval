@@ -1,3 +1,15 @@
+# Changelog — design V2 revision (8 Nov 2026)
+
+Review of V2: it keeps V1's strengths and adds two sensible, honest refinements, but some material gaps from V1 are still open. Same rule: accept · adapt · reject, with the reason.
+
+| # | Source | Finding (quoted) | Decision | What changed (file § section) | Why, in my words |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Review of V2 | "Sizing formulas and limits still have no numbers." | accept | `L6_workflow.md` § A2 (memo fields 9–10), § A3 (U7, U8) and new § Sizing and limits (formula, values, how limits cut the size, four worked examples from the sample fund); `L3_context.md` § A6 (starting values; `market_data` named as the volatility/ADV source); `PASS_REVIEW.md` revision note | A formula without numbers cannot be checked by anyone. The harness already ran with values (0.6% NAV risk budget, 5% / 25% / 150% / ±40% limits); the design now states them, so the document and the code say the same thing. |
+
+The V1 → V2 note "limit values null, to be set by the PM" is superseded: the values are set, and they stay PM-owned data in `limit_policy.json`. I also checked the other layers for missing numbers; they already have them (2 repair attempts, 4 model calls · 10 minutes · 50k tokens per idea, a 10-minute PM review target, snapshot no older than the last close).
+
+---
+
 # Changelog — fund v3 → v4
 
 Changes after the first live trial runs (2–5 Nov 2026) and a review of the design against how a real hedge fund runs its books. Same rule as V1 → V2: accept · adapt · reject, with the reason.
