@@ -1,4 +1,6 @@
 {
   "note": "PM sign-off for flagged trades. Copy the line the dashboard shows under 'Awaiting PM' into the list, e.g. {\"idea_id\": \"20261106-XYZ\", \"token\": \"0123abcd4567ef89\", \"decision\": \"approve\"}. Use \"reject\" to drop one. An approval is valid for the next run only, binds the exact trade, and is ignored if this file was last changed by the automation.",
-  "approvals": []
+  "approvals": [
+    {"idea_id": "20261106-AMD", "token": "741a79f2c564348e", "decision": "approve"}
+  ]
 }
