@@ -2,7 +2,8 @@
 
 Design and evaluation of an agentic workflow for a hedge fund front office: from pending trade ideas to a one-page trade memo a portfolio manager can approve, reject or resize.
 
-The V2 design passed all 13 design checks..
+The V2 design passed all 13 design checks.
+
 Write-up: [Safeguarding an AI trading agent (PDF)](Safeguarding_an_AI_trading_agent.pdf)
 
 ## The problem
