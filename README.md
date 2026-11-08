@@ -2,7 +2,7 @@
 
 Design and evaluation of an agentic workflow for a hedge fund front office: from pending trade ideas to a one-page trade memo a portfolio manager can approve, reject or resize.
 
-Built as part of the IE University Edge Course (Master in Finance), V2 passed all 13 design checks.
+The V2 design passed all 13 design checks..
 
 ## The problem
 Which parts of a hedge fund's idea-to-trade process can an AI agent safely do, and which must stay with code or a human? The workflow stops **before execution**: nothing it produces moves money.
