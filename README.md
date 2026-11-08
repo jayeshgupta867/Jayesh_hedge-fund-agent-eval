@@ -78,4 +78,33 @@ A trade is an action that cannot be undone. The design lets the AI draft and que
 
 `REDTEAM.md` lists every attack (prompt injection, approval bypass, forged and expired approvals, self-approval, self-modification, glitches, stale data, look-ahead, crowded shorts, corrupted configuration) and the mutation check. Run it with `python -m fund.redteam`.
 
+### Run it yourself
+Every test and the red-team report run offline in under a minute, with no API key and no market data:
+
+```bash
+git clone https://github.com/jayeshgupta867/Jayesh_hedge-fund-agent-eval
+cd Jayesh_hedge-fund-agent-eval
+pip install -r fund/requirements.txt
+python -m pytest evaluation/tests fund/tests -q   # 77 tests
+python -m fund.redteam --md REDTEAM.md            # 28 attacks + 12 mutations
+```
+
+Dashboard locally: `pip install -r requirements.txt` then `streamlit run streamlit_app.py`. A live run (`python -m fund.engine.cli live`) needs internet for prices, and `GROQ_API_KEY` for the AI analyst (without it, deterministic template memos are used).
+
+**What the tests cover:** the attacks run on synthetic prices with a scripted model, so they test the safeguards, not the model's judgement. The real model is observed only in the live runs (see the incident log in `CHANGELOG.md`).
+
+### Stopping and recovering
+A booked trade cannot be undone, only exited at a later close. Every control below is a file edit or a button on GitHub, applied at the next run:
+
+| Control | How |
+|---|---|
+| Stop everything | Actions → Fund run → ⋯ → Disable workflow |
+| Freeze new trades (marks and exits continue) | `standing_rules.json`: `min_conviction` to 6 |
+| Block a stock | `pm_overrides.json`: `veto_tickers` (a veto overrides an approval) |
+| Exit a position at the next close | `pm_overrides.json`: `close_tickers` |
+| Drop the hedge | `standing_rules.json`: `hedge.enabled` to false |
+| Reject a flagged trade | leave it out of `pm_approvals.json`; it expires after one run |
+
+Recovery: approvals expire after one run; an unreadable policy file stops the run instead of trading; a bad edit is reverted with git; the replay is rebuilt from scratch on demand; every report, trade and approval stays in git history.
+
 Caveats: fills at the daily close with 10 bps plus a square-root impact estimate, no borrow costs; replay uses today's large-cap list (survivorship bias) and the template analyst, so hindsight cannot leak into past decisions; closing-auction volume and order-book depth are NOT ASSESSED (no free data). See `CHANGELOG.md` for the v4 changes and the incident log.
