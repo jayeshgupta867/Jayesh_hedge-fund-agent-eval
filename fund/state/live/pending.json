@@ -1,22 +1,42 @@
 [
  {
-  "idea_id": "20261109-TMUS",
+  "idea_id": "20261110-TMUS",
   "ticker": "TMUS",
   "direction": "SHORT",
   "sector": "Communication Services",
-  "pct_nav": 1.3501,
-  "price": 168.71,
-  "date_queued": "2026-11-09",
+  "pct_nav": 1.351,
+  "price": 169.08,
+  "date_queued": "2026-11-10",
   "reasons": [
-   "analyst: Over half (50.6%) of the 12\u20111 momentum stems from a single -13.27% drop on 2026\u201110\u201109, indicating a one\u2011off event driving the signal"
+   "analyst: Nearly half of the momentum (49.3%) is driven by a single -13.27% drop on 2026-10-09"
   ],
-  "thesis": "The screen flagged TMUS due to its steep 12\u2011month versus 1\u2011month momentum of \u201324.5% and a price 8.7% below its 200\u2011day moving average, placing it in the bottom 7% momentum percentile. The short thesis would play out if the down\u2011trend persists, driving the stock further below its long\u2011term average.",
+  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative (-25%) and the stock trades below its 200\u2011day average (-8.5%), placing it in the bottom 6% of momentum across the universe. The short thesis would play out if the down\u2011trend persists, driving the price further below the long\u2011term average.",
   "idea": {
-   "idea_id": "20261109-TMUS",
+   "idea_id": "20261110-TMUS",
    "ticker": "TMUS",
    "direction": "SHORT",
    "sector": "Communication Services"
   },
-  "token": "8412223b3163f055"
+  "token": "e04b63772e0ae13f"
+ },
+ {
+  "idea_id": "20261110-IBM",
+  "ticker": "IBM",
+  "direction": "SHORT",
+  "sector": "Information Technology",
+  "pct_nav": 2.0633,
+  "price": 244.53,
+  "date_queued": "2026-11-10",
+  "reasons": [
+   "analyst: share_of_momentum_from_one_day 1.06 indicates the momentum signal is driven by a single day's move"
+  ],
+  "thesis": "The screen flagged IBM because its 12\u2011month versus 1\u2011month momentum is sharply negative at \u201324% and it sits in the bottom 7% of momentum percentile, indicating extreme weakness relative to peers. The short thesis would play out if that weakness persists, driving the stock further below its 200\u2011day average and delivering a price decline over the next few months.",
+  "idea": {
+   "idea_id": "20261110-IBM",
+   "ticker": "IBM",
+   "direction": "SHORT",
+   "sector": "Information Technology"
+  },
+  "token": "1c1a2ab59a56e385"
  }
 ]
