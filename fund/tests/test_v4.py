@@ -181,8 +181,11 @@ def test_policy_has_the_v4_sections():
     pol = load_limit_policy(POLICY / "limit_policy.json")
     assert pol["version"] == "fund-2"
     assert pol["correlation"]["halve_above"] == 0.70 and pol["liquidity"]["max_trade_pct_adv"] == 3.0
-    assert json.loads((POLICY / "pm_approvals.json").read_text())["approvals"] == []
-
+       # The PM edits this file in normal use, so check its shape, not that it is empty.
+    approvals = json.loads((POLICY / "pm_approvals.json").read_text())["approvals"]
+    assert isinstance(approvals, list)
+    for a in approvals:
+        assert {"idea_id", "token", "decision"} <= a.keys() and a["decision"] in {"approve", "reject"}
 
 def test_model_default_is_not_the_retired_one(monkeypatch):
     from fund.engine.analyst import DEFAULT_MODEL, GroqAnalyst
