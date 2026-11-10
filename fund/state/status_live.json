@@ -1,6 +1,6 @@
 {
   "mode": "live",
-  "ok": false,
-  "message": "no trading: a test or the red-team check failed, see the Actions log",
-  "run_at_utc": "2026-11-10 11:22"
+  "run_at_utc": "2026-11-10 11:50",
+  "ok": true,
+  "message": "1 day(s) processed \u00b7 1 trade(s) awaiting PM"
 }

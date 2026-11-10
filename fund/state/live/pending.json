@@ -1,62 +1,22 @@
 [
  {
-  "idea_id": "20261106-AMD",
-  "ticker": "AMD",
-  "direction": "LONG",
-  "sector": "Information Technology",
-  "pct_nav": 1.112,
-  "price": 449.04,
-  "date_queued": "2026-11-06",
-  "reasons": [
-   "analyst: largest_day_move -0.1731 (17% drop) on 2026-02-04 is a one\u2011off extreme event that may distort momentum"
-  ],
-  "thesis": "The screen flagged AMD because its 12\u2011month versus 1\u2011month momentum is exceptionally high at +142% and it sits 7.9% above its 200\u2011day moving average, placing it in the 99th percentile of momentum across the universe. The trade would work if this relative strength persists, allowing the price to continue out\u2011performing the broader market over the next few months.",
-  "idea": {
-   "idea_id": "20261106-AMD",
-   "ticker": "AMD",
-   "direction": "LONG",
-   "sector": "Information Technology"
-  },
-  "token": "741a79f2c564348e"
- },
- {
-  "idea_id": "20261106-IBM",
-  "ticker": "IBM",
+  "idea_id": "20261109-TMUS",
+  "ticker": "TMUS",
   "direction": "SHORT",
-  "sector": "Information Technology",
-  "pct_nav": 2.0576,
-  "price": 245.0,
-  "date_queued": "2026-11-06",
+  "sector": "Communication Services",
+  "pct_nav": 1.3501,
+  "price": 168.71,
+  "date_queued": "2026-11-09",
   "reasons": [
-   "analyst: share_of_momentum_from_one_day is 1.048, indicating the 12\u20111 momentum is driven entirely by a single 25% drop on 2026\u201107\u201114"
+   "analyst: Over half (50.6%) of the 12\u20111 momentum stems from a single -13.27% drop on 2026\u201110\u201109, indicating a one\u2011off event driving the signal"
   ],
-  "thesis": "The screen flagged IBM because its 12\u2011month versus 1\u2011month momentum is sharply negative (-24.2%) and it sits in the bottom 7% of momentum percentile, indicating strong downside bias. The short thesis would play out if the stock continues to underperform and slides further below its 200\u2011day average.",
+  "thesis": "The screen flagged TMUS due to its steep 12\u2011month versus 1\u2011month momentum of \u201324.5% and a price 8.7% below its 200\u2011day moving average, placing it in the bottom 7% momentum percentile. The short thesis would play out if the down\u2011trend persists, driving the stock further below its long\u2011term average.",
   "idea": {
-   "idea_id": "20261106-IBM",
-   "ticker": "IBM",
+   "idea_id": "20261109-TMUS",
+   "ticker": "TMUS",
    "direction": "SHORT",
-   "sector": "Information Technology"
+   "sector": "Communication Services"
   },
-  "token": "0d1eed06a926ca92"
- },
- {
-  "idea_id": "20261106-NOW",
-  "ticker": "NOW",
-  "direction": "SHORT",
-  "sector": "Information Technology",
-  "pct_nav": 0.8139,
-  "price": 101.97,
-  "date_queued": "2026-11-06",
-  "reasons": [
-   "analyst: 85% of the 12-1 momentum came from one day (-17.8% on 2026-04-23): likely an event, not a trend"
-  ],
-  "thesis": "The screen flagged NOW because its 12\u2011month versus 1\u2011month momentum is strongly negative (-20.6%) and the stock trades below its 200\u2011day average (-10.9%), placing it in the bottom 8% of momentum across the universe. The short thesis would work if the down\u2011trend persists and the price continues to lag the long\u2011term average.",
-  "idea": {
-   "idea_id": "20261106-NOW",
-   "ticker": "NOW",
-   "direction": "SHORT",
-   "sector": "Information Technology"
-  },
-  "token": "950a9d9baa313bbb"
+  "token": "8412223b3163f055"
  }
 ]
