@@ -1,43 +1,42 @@
 [
  {
-  "idea_id": "20261111-MU",
+  "idea_id": "20261112-MU",
   "ticker": "MU",
   "direction": "LONG",
   "sector": "Information Technology",
-  "pct_nav": 0.5633,
-  "price": 811.3,
-  "date_queued": "2026-11-11",
+  "pct_nav": 0.5643,
+  "price": 798.44,
+  "date_queued": "2026-11-12",
   "reasons": [
-   "analyst: last_day_move 11.9% is unusually high, may reflect a one\u2011off event",
-   "analyst: largest_day_move 19.3% on 2026-05-26 suggests a gap or anomalous spike"
+   "analyst: 13.2% of momentum comes from a single day (2026-05-26) indicating a one\u2011off spike"
   ],
-  "thesis": "The screen flagged MU because its 12\u2011month versus 1\u2011month price momentum is extremely high at +276.7%, placing it at the top percentile of all stocks. The trade would work if this momentum persists and the stock continues to trade above its 200\u2011day average.",
+  "thesis": "The screen flagged MU because its 12\u2011month versus 1\u2011month momentum is extremely high (279.6%) and it is trading 4.5% above its 200\u2011day moving average, placing it at the top 100th percentile of momentum in the universe. The trade would work if that strong price trend continues, supported by ongoing demand for semiconductor equipment.",
   "idea": {
-   "idea_id": "20261111-MU",
+   "idea_id": "20261112-MU",
    "ticker": "MU",
    "direction": "LONG",
    "sector": "Information Technology"
   },
-  "token": "00c99b499129ae04"
+  "token": "0295388be67435d7"
  },
  {
-  "idea_id": "20261111-TMUS",
+  "idea_id": "20261112-TMUS",
   "ticker": "TMUS",
   "direction": "SHORT",
   "sector": "Communication Services",
-  "pct_nav": 1.3639,
-  "price": 172.16,
-  "date_queued": "2026-11-11",
+  "pct_nav": 1.3636,
+  "price": 171.03,
+  "date_queued": "2026-11-12",
   "reasons": [
-   "analyst: 52.5% of the 12\u20111 momentum is driven by a single -13.27% day on 2026\u201110\u201109"
+   "analyst: share_of_momentum_from_one_day 0.519 indicates over half of momentum came from a single day"
   ],
-  "thesis": "The screen flagged TMUS due to its steep 12\u2011month to 1\u2011month momentum of \u201323.8%, price trading 6.8% below its 200\u2011day average and a momentum percentile in the bottom 8% of the universe. The short thesis would play out if the down\u2011trend persists, keeping the stock under the 200\u2011day moving average and further eroding momentum.",
+  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative (-24%) and its price sits 7.4% below the 200\u2011day moving average, placing it in the bottom 8% of momentum percentile. The short thesis would work if the downtrend persists, pulling the stock further below its long\u2011term average.",
   "idea": {
-   "idea_id": "20261111-TMUS",
+   "idea_id": "20261112-TMUS",
    "ticker": "TMUS",
    "direction": "SHORT",
    "sector": "Communication Services"
   },
-  "token": "aa4656a1f40046c1"
+  "token": "7bb26af75f6b25c3"
  }
 ]
