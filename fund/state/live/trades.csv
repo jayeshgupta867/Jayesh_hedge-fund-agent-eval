@@ -24,3 +24,4 @@ date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
 2026-11-05,BMY,BUY,LONG,325.66,63.13,20558.78,20.56,standing rules: memo passed,20261105-BMY
 2026-11-09,AMD,BUY,LONG,10.14,508.58,5155.18,5.17,standing rules: memo and book checks passed,20261109-AMD
 2026-11-09,SPY,SELL SHORT,SHORT,88.84,752.69,-66871.29,66.87,hedge: beta-adjusted net +6.8% → +0% target,HEDGE
+2026-11-13,MU,BUY,LONG,7.24,778.31,5634.56,5.65,standing rules: memo and book checks passed,20261113-MU
