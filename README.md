@@ -110,9 +110,11 @@ Every test and the red-team report run offline in under a minute, with no API ke
 git clone https://github.com/jayeshgupta867/Jayesh_hedge-fund-agent-eval
 cd Jayesh_hedge-fund-agent-eval
 pip install -r fund/requirements.txt
-python -m pytest evaluation/tests fund/tests -q   # 77 tests
-python -m fund.redteam --md REDTEAM.md            # 28 attacks + 12 mutations
+python -m pytest evaluation/tests fund/tests -q
+python -m fund.redteam --md REDTEAM.md
 ```
+
+The `pytest` line runs all 77 tests; the `redteam` line runs the 28 attacks and the 12 mutation checks and rewrites `REDTEAM.md`.
 
 Dashboard locally: `pip install -r requirements.txt` then `streamlit run streamlit_app.py`. A live run (`python -m fund.engine.cli live`) needs internet for prices, and `GROQ_API_KEY` for the AI analyst (without it, deterministic template memos are used).
 
