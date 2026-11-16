@@ -27,7 +27,7 @@ Changes after the first live trial runs (2–5 Nov 2026) and a review of the des
 | 7 | Systematic trades inside the model's parameters can be signed automatically; anything outside them should be signed by hand. | accept | Standing rules sign clean trades; flagged trades wait in `pending.json` for `pm_approvals.json`. Approvals bind the exact trade (token), are valid one run, and are ignored if committed by the bot. | It puts the human exactly where the uncertainty is. |
 | 8 | Backtests must not use future data. | accept | Red-team test R20 poisons all future prices and checks 30 days of decisions are identical; a mutation proves the test works. | A backtest that peeks is worse than none: it gives false confidence. |
 
-## Incident log (first live week)
+## Incident log (first two live weeks)
 
 | # | What happened | Impact | Fix |
 |---|---|---|---|
@@ -36,6 +36,7 @@ Changes after the first live trial runs (2–5 Nov 2026) and a review of the des
 | 3 | 2 Nov: five highly correlated chip/software longs bought on day 1; three (AMD, MU, ADI) hit their stops on 5 Nov. | The five day-1 names lost about $14.7k of the fund's −$19.0k (long book −$18.3k, short book −$0.8k). | Correlation with the book (R21). |
 | 4 | Found while writing red-team R04: a malformed model reply (data points as text) crashed the whole run. | None (found before release). | Malformed replies become an empty draft the harness stops. |
 | 5 | Found while testing R10 with real git: the approvals-author check always returned "unknown". | None: it failed closed (all approvals ignored). | Fixed path handling; R10 now uses a real git repo. |
+| 6 | 9–10 Nov: the PM's approval of AMD (`20261106-AMD`) made the next run fail its pre-trade tests: `test_policy_has_the_v4_sections` still asserted that `pm_approvals.json` was empty, so a real sign-off read as a broken policy file. The 9 Nov scheduled run and a manual retry both stopped. | No trading on those runs (failed closed); the 9 Nov close was processed about 12 hours late. The approval was then voided anyway: AMD had moved 13.3% since it was queued (limit 3%). | The test now checks the file's shape (`idea_id`, `token`, `decision` of approve or reject) instead of requiring it empty. |
 
 ## Policy versions
 `limit_policy.json` fund-1 → fund-2 (correlation, liquidity, data sections) · `standing_rules.json` rules-1 → rules-2 (short stop, short book, hedge, approvals) · new `mandate.json`, `pm_approvals.json`.
