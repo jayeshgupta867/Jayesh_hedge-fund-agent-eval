@@ -104,7 +104,7 @@ The dashboard (`streamlit_app.py`) shows NAV vs SPY, drawdown, positions, P&L by
 `REDTEAM.md` lists every attack (prompt injection, approval bypass, forged and expired approvals, self-approval, self-modification, glitches, stale data, look-ahead, crowded shorts, corrupted configuration) and the mutation check. Run it with `python -m fund.redteam`.
 
 ### Run it yourself
-Every test and the red-team report run offline in under a minute, with no API key and no market data:
+Every test and the red-team report run offline in about two minutes, with no API key and no market data:
 
 ```bash
 git clone https://github.com/jayeshgupta867/Jayesh_hedge-fund-agent-eval
