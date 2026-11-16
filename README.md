@@ -28,16 +28,16 @@ An AI agent helps run a paper hedge fund every trading day, but it cannot size, 
 
 ## Evidence
 
-- **28 of 28 red-team attacks blocked**: prompt injection, forged and stale approvals, the agent writing its own size, malformed output, tool failures, look-ahead and more ([REDTEAM.md](REDTEAM.md)).
-- **12 of 12 safeguards proven by a mutation check**: each is switched off in turn, and the attacks it stops must then succeed.
+- **28 of 28 red-team attacks blocked**: Prompt injection, forged and stale approvals, the agent writing its own size, malformed output, tool failures, look-ahead and more ([REDTEAM.md](REDTEAM.md)).
+- **12 of 12 safeguards proven by a mutation check**: Each is switched off in turn, and the attacks it stops must then succeed.
 - **77 tests**, re-run on GitHub Actions before every trading day; if any fails, the fund does not trade.
-- **Live since 2 Nov 2026**: six real incidents so far, each caught or turned into a safeguard with a regression test ([CHANGELOG.md](CHANGELOG.md), incident log).
+- **Live since 2 Nov 2026**: Six real incidents so far, each caught or turned into a safeguard with a regression test ([CHANGELOG.md](CHANGELOG.md), incident log).
 
 ## Limitations
 
 - **Simulated execution.** Paper fills at the close with 10 bps plus an impact estimate; no broker, no borrow cost on shorts, no partial fills.
 - **The model is barely tested live.** The red team uses a scripted model, so it proves the safeguards, not the model's judgement.
-- **Not assessed, and declared as such:** closing-auction volume, order-book depth, borrow availability, point-in-time short interest in the replay.
+- **Not assessed, and declared as such:** Closing-auction volume, order-book depth, borrow availability, point-in-time short interest in the replay.
 - **Free data.** Yahoo, with Stooq to confirm suspicious moves; a real crash in a thinly covered stock could be exited a day late.
 - **Short track record.** The replay uses today's large-cap list (survivorship bias). Returns show a controlled process, not an edge.
 - **One-person sign-off.** A real fund would separate PM and risk approval.
@@ -45,8 +45,8 @@ An AI agent helps run a paper hedge fund every trading day, but it cannot size, 
 ## The design
 - **One research agent** writes shortlist reasons and a falsifiable thesis per idea (catalyst, key risk, falsifier, numeric exit level). It only drafts.
 - **A deterministic script harness** does all the arithmetic: data pull, ranking, position sizing, limit checks, and a check that every cited number matches the database.
-- **Two PM gates:** the portfolio manager selects ideas from the shortlist, then approves, rejects or resizes each memo. Only the PM commits anything.
-- **Read-only by design:** the agent has no database access at all; any database write by the workflow stops the run.
+- **Two PM gates:** The portfolio manager selects ideas from the shortlist, then approves, rejects or resizes each memo. Only the PM commits anything.
+- **Read-only by design:** The agent has no database access at all; any database write by the workflow stops the run.
 
 ## Key design decisions
 - **Control breaches surfaced, not hidden.** In the test data, all three pending ideas already had positions opened without PM approval. The workflow flags them above the shortlist instead of pitching or ignoring them; a shortlist of zero candidates is a valid result.
@@ -56,10 +56,10 @@ An AI agent helps run a paper hedge fund every trading day, but it cannot size, 
 
 ## V1 → V2
 After feedback from practitioners (a hedge fund manager and a senior wealth manager):
-- **Adapted:** risk lives at the aggregate book level, so every memo now states that correlation risk was NOT ASSESSED (no data), so a limit PASS is never read as "safe for the book".
-- **Accepted:** every data field names an owner.
-- **Rejected:** stop-loss rules (out of scope, post-execution) and a second verification agent.
-- **Revised (Nov 2026):** the sizing formula and limit values are now stated in the design, with worked examples (`L6_workflow.md` § Sizing and limits): size = 0.6% NAV × (conviction ÷ 5) ÷ volatility, capped at exit within 5 days at ≤ 20% of ADV; limits 5% position, 25% sector, 150% gross, ±40% net.
+- **Adapted:** Risk lives at the aggregate book level, so every memo now states that correlation risk was NOT ASSESSED (no data), so a limit PASS is never read as "safe for the book".
+- **Accepted:** Every data field names an owner.
+- **Rejected:** Stop-loss rules (out of scope, post-execution) and a second verification agent.
+- **Revised (Nov 2026):** The sizing formula and limit values are now stated in the design, with worked examples (`L6_workflow.md` § Sizing and limits): size = 0.6% NAV × (conviction ÷ 5) ÷ volatility, capped at exit within 5 days at ≤ 20% of ADV; limits 5% position, 25% sector, 150% gross, ±40% net.
 
 See `CHANGELOG.md` for the reasoning.
 
@@ -80,13 +80,13 @@ The research agent is stubbed, so this evaluates the harness, not the model. See
 The `fund/` folder turns the design into a running paper-trading fund: $1m of simulated money, long/short US large caps with a SPY hedge, benchmarked to SPY. No real money is involved. Dashboard: https://jayesh-agentic-fund.streamlit.app
 
 Every US trading day after the close, GitHub Actions:
-1. runs all harness, engine and red-team tests plus a mutation check, and **does not trade if any fail**;
-2. downloads prices and runs the **data gate**: no intraday prices, no stale feed, unconfirmed jumps and frozen prices quarantined;
-3. runs a momentum screen (code picks every name and number);
-4. passes the ideas through the unchanged harness, where an AI analyst (Groq) drafts each memo and the harness checks every citation, the conviction cap and every limit;
-5. runs the **book checks**: at most 3% of average daily volume, correlation with the existing book (above 0.70 halves the size, above 0.85 rejects it), no crowded shorts, and the analyst **challenges its own input** (it can escalate, never approve);
-6. books trades the PM's standing rules pre-approve, and **queues anything flagged for a manual PM sign-off** (`fund/policy/pm_approvals.json`);
-7. keeps three books (long, short, SPY hedge to near-zero beta), revalues the fund and commits the results to `fund/state/`. The git history is the audit trail.
+1. Runs all harness, engine and red-team tests plus a mutation check, and **does not trade if any fail**;
+2. Downloads prices and runs the **data gate**: no intraday prices, no stale feed, unconfirmed jumps and frozen prices quarantined;
+3. Runs a momentum screen (code picks every name and number);
+4. Passes the ideas through the unchanged harness, where an AI analyst (Groq) drafts each memo and the harness checks every citation, the conviction cap and every limit;
+5. Runs the **book checks**: at most 3% of average daily volume, correlation with the existing book (above 0.70 halves the size, above 0.85 rejects it), no crowded shorts, and the analyst **challenges its own input** (it can escalate, never approve);
+6. Books trades the PM's standing rules pre-approve, and **queues anything flagged for a manual PM sign-off** (`fund/policy/pm_approvals.json`);
+7. Keeps three books (long, short, SPY hedge to near-zero beta), revalues the fund and commits the results to `fund/state/`. The Git history is the audit trail.
 
 The dashboard (`streamlit_app.py`) shows NAV vs SPY, drawdown, positions, P&L by book, trades, each day's committee decisions with every check, trades awaiting the PM, the red-team results, plus a **Replay** mode and the interactive **Harness lab**.
 
@@ -116,7 +116,7 @@ python -m fund.redteam --md REDTEAM.md            # 28 attacks + 12 mutations
 
 Dashboard locally: `pip install -r requirements.txt` then `streamlit run streamlit_app.py`. A live run (`python -m fund.engine.cli live`) needs internet for prices, and `GROQ_API_KEY` for the AI analyst (without it, deterministic template memos are used).
 
-**What the tests cover:** the attacks run on synthetic prices with a scripted model, so they test the safeguards, not the model's judgement. The real model is observed only in the live runs (see the incident log in `CHANGELOG.md`).
+**What the tests cover:** The attacks run on synthetic prices with a scripted model, so they test the safeguards, not the model's judgement. The real model is observed only in the live runs (see the incident log in `CHANGELOG.md`).
 
 ### Stopping and recovering
 A booked trade cannot be undone, only exited at a later close. Every control below is a file edit or a button on GitHub, applied at the next run:
@@ -128,8 +128,8 @@ A booked trade cannot be undone, only exited at a later close. Every control bel
 | Block a stock | `pm_overrides.json`: `veto_tickers` (a veto overrides an approval) |
 | Exit a position at the next close | `pm_overrides.json`: `close_tickers` |
 | Drop the hedge | `standing_rules.json`: `hedge.enabled` to false |
-| Reject a flagged trade | leave it out of `pm_approvals.json`; it expires after one run |
+| Reject a flagged trade | Leave it out of `pm_approvals.json`; it expires after one run |
 
-Recovery: approvals expire after one run; an unreadable policy file stops the run instead of trading; a bad edit is reverted with git; the replay is rebuilt from scratch on demand; every report, trade and approval stays in git history.
+Recovery: Approvals expire after one run; an unreadable policy file stops the run instead of trading; a bad edit is reverted with Git; the replay is rebuilt from scratch on demand; every report, trade and approval stays in Git history.
 
 See `CHANGELOG.md` for the v4 changes and the incident log.
