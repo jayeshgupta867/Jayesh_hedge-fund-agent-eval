@@ -9,6 +9,39 @@ The V2 design passed all 13 design checks.
 ## The problem
 Which parts of a hedge fund's idea-to-trade process can an AI agent safely do, and which must stay with code or a human? The workflow stops **before execution**: nothing it produces moves money.
 
+## Safety approach
+
+An AI agent helps run a paper hedge fund every trading day, but it cannot size, approve or book a trade. Three rules make that hold:
+
+1. **Authority sits outside the model.** Sizes come from a formula, limits from a PM-owned policy file, approvals from a human commit. The agent's output is parsed into fixed fields, so a size or approval it writes has nowhere to go.
+2. **Every check can only shrink, stop or escalate a trade.** No check can create a trade or make one larger.
+3. **Fail closed.** Missing data means no size; an unreadable policy file, a stale feed or a failing test means no trading that day.
+
+| Layer | What it stops |
+|---|---|
+| Data gate | Booking intraday or stale prices; trading or stopping out on a bad print |
+| Harness | Invented numbers, inflated conviction, the agent writing its own size or decision, database writes |
+| Book checks | Concentration (correlation with the book above 0.70 halves the size, above 0.85 rejects it), trades over 3% of average daily volume, crowded shorts |
+| Challenge step | Signals driven by one event or bad data: the agent may note or escalate, never approve |
+| PM sign-off | A flagged trade booked without a human: the approval is bound to the exact trade, valid for one run, void if the price moves over 3%, and ignored if the automation wrote it |
+| Fail-safes | Trading with a broken safeguard: all tests and a mutation check run before every trading day, and the run may only change `fund/state/` |
+
+## Evidence
+
+- **28 of 28 red-team attacks blocked**: prompt injection, forged and stale approvals, the agent writing its own size, malformed output, tool failures, look-ahead and more ([REDTEAM.md](REDTEAM.md)).
+- **12 of 12 safeguards proven by a mutation check**: each is switched off in turn, and the attacks it stops must then succeed.
+- **77 tests**, re-run on GitHub Actions before every trading day; if any fails, the fund does not trade.
+- **Live since 2 Nov 2026**: six real incidents so far, each caught or turned into a safeguard with a regression test ([CHANGELOG.md](CHANGELOG.md), incident log).
+
+## Limitations
+
+- **Simulated execution.** Paper fills at the close with 10 bps plus an impact estimate; no broker, no borrow cost on shorts, no partial fills.
+- **The model is barely tested live.** The red team uses a scripted model, so it proves the safeguards, not the model's judgement.
+- **Not assessed, and declared as such:** closing-auction volume, order-book depth, borrow availability, point-in-time short interest in the replay.
+- **Free data.** Yahoo, with Stooq to confirm suspicious moves; a real crash in a thinly covered stock could be exited a day late.
+- **Short track record.** The replay uses today's large-cap list (survivorship bias). Returns show a controlled process, not an edge.
+- **One-person sign-off.** A real fund would separate PM and risk approval.
+
 ## The design
 - **One research agent** writes shortlist reasons and a falsifiable thesis per idea (catalyst, key risk, falsifier, numeric exit level). It only drafts.
 - **A deterministic script harness** does all the arithmetic: data pull, ranking, position sizing, limit checks, and a check that every cited number matches the database.
@@ -67,17 +100,7 @@ The dashboard (`streamlit_app.py`) shows NAV vs SPY, drawdown, positions, P&L by
 | `.github/workflows/fund.yml` | The daily schedule, the replay button and the fail-safes |
 | `dashboard/`, `streamlit_app.py` | The public dashboard |
 
-## Safety: preventing irreversible actions
-A trade is an action that cannot be undone. The design lets the AI draft and question, and never size, approve or book:
-
-| Layer | Stops |
-|---|---|
-| Data gate | Booking intraday or stale prices, trading or stopping out on a bad print |
-| Harness | Hallucinated numbers, inflated conviction, the agent writing its own size or PM decision, database writes |
-| Book checks | Hidden concentration, illiquid trades, crowded shorts; the analyst can only escalate |
-| PM sign-off | Flagged trades booked without a human; approvals are bound to the exact trade by a token, valid for one run, and ignored if written by the automation |
-| Fail-safes | Trading with a failing test or an untested safeguard; the run changing anything outside `fund/state` |
-
+## Reproduce, stop and recover
 `REDTEAM.md` lists every attack (prompt injection, approval bypass, forged and expired approvals, self-approval, self-modification, glitches, stale data, look-ahead, crowded shorts, corrupted configuration) and the mutation check. Run it with `python -m fund.redteam`.
 
 ### Run it yourself
@@ -109,4 +132,4 @@ A booked trade cannot be undone, only exited at a later close. Every control bel
 
 Recovery: approvals expire after one run; an unreadable policy file stops the run instead of trading; a bad edit is reverted with git; the replay is rebuilt from scratch on demand; every report, trade and approval stays in git history.
 
-Caveats: fills at the daily close with 10 bps plus a square-root impact estimate, no borrow costs; replay uses today's large-cap list (survivorship bias) and the template analyst, so hindsight cannot leak into past decisions; closing-auction volume and order-book depth are NOT ASSESSED (no free data). See `CHANGELOG.md` for the v4 changes and the incident log.
+See `CHANGELOG.md` for the v4 changes and the incident log.
