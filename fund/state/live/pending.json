@@ -1,22 +1,22 @@
 [
  {
-  "idea_id": "20261116-TMUS",
+  "idea_id": "20261117-TMUS",
   "ticker": "TMUS",
   "direction": "SHORT",
   "sector": "Communication Services",
-  "pct_nav": 1.3689,
-  "price": 170.01,
-  "date_queued": "2026-11-16",
+  "pct_nav": 1.8227,
+  "price": 167.9,
+  "date_queued": "2026-11-17",
   "reasons": [
-   "analyst: 51.2% of the 12\u20111 momentum stems from a single -13.27% move on 2026\u201110\u201109"
+   "analyst: Nearly half of the 12\u20111 momentum (46.8%) stems from a single -13.27% drop on 2026\u201110\u201109"
   ],
-  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative (-24.3%), it trades below its 200\u2011day average (-7.8%) and sits in the bottom 7% of momentum percentile, indicating a strong downtrend. The short thesis would work if the negative price pressure persists and the stock continues to lag its peers, driving further price declines.",
+  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative at \u201326.2%, it trades 8.9% below its 200\u2011day average, and its momentum percentile is in the bottom 5% of the universe. The short thesis would play out if the stock continues to underperform, pushing price further below the long\u2011term trend line.",
   "idea": {
-   "idea_id": "20261116-TMUS",
+   "idea_id": "20261117-TMUS",
    "ticker": "TMUS",
    "direction": "SHORT",
    "sector": "Communication Services"
   },
-  "token": "8a900750a5574073"
+  "token": "18217a6c77bdb337"
  }
 ]
