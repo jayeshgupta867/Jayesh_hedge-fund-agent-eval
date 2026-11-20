@@ -1,42 +1,42 @@
 [
  {
-  "idea_id": "20261119-TMUS",
+  "idea_id": "20261120-TMUS",
   "ticker": "TMUS",
   "direction": "SHORT",
   "sector": "Communication Services",
-  "pct_nav": 1.8153,
-  "price": 162.53,
-  "date_queued": "2026-11-19",
+  "pct_nav": 1.8075,
+  "price": 165.6,
+  "date_queued": "2026-11-20",
   "reasons": [
-   "analyst: Nearly half of the momentum (46.6%) is driven by a single -13.3% drop on 2026-10-09"
+   "analyst: 53.8% of the 12\u20111 momentum stems from a single -13.27% drop on 2026\u201110\u201109"
   ],
-  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative (-26.3%), the price sits 11.6% below its 200\u2011day average, and it ranks in the bottom 5% of momentum across the universe. The short thesis would play out if the downtrend persists, pushing the stock further below the 200\u2011day moving average and delivering additional price declines.",
+  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative (-23.3%) and the stock trades below its 200\u2011day average (-9.9%), placing it in the bottom 5% momentum percentile. The short thesis would play out if the downward price pressure persists, pushing the stock further below its long\u2011term trend line.",
   "idea": {
-   "idea_id": "20261119-TMUS",
+   "idea_id": "20261120-TMUS",
    "ticker": "TMUS",
    "direction": "SHORT",
    "sector": "Communication Services"
   },
-  "token": "e100fc72c0cce8ce"
+  "token": "af2f1774181985d1"
  },
  {
-  "idea_id": "20261119-ISRG",
+  "idea_id": "20261120-ISRG",
   "ticker": "ISRG",
   "direction": "SHORT",
   "sector": "Health Care",
-  "pct_nav": 1.7356,
-  "price": 407.24,
-  "date_queued": "2026-11-19",
+  "pct_nav": 1.7286,
+  "price": 399.05,
+  "date_queued": "2026-11-20",
   "reasons": [
-   "analyst: 62.3% of the 12\u20111 momentum is driven by a single 14.15% drop on 2026\u201107\u201117"
+   "analyst: 63.4% of the 12\u20111 momentum comes from a single -14.15% drop on 2026\u201107\u201117"
   ],
-  "thesis": "The screen flagged ISRG because its 12\u2011month versus 1\u2011month momentum is sharply negative at \u201321.7% and its price sits 4.9% below the 200\u2011day moving average, placing it in the bottom 6% of momentum percentile. The short thesis would work if the down\u2011trend persists, pushing the stock further below its long\u2011term average.",
+  "thesis": "The screen flagged ISRG because its 12\u2011month versus 1\u2011month momentum is sharply negative (-21.4%) and the stock trades 6.7% below its 200\u2011day moving average, placing it in the bottom 6% of momentum percentile. The short thesis would work if the down\u2011trend persists, driving the price further below the 200\u2011day average and keeping momentum weak.",
   "idea": {
-   "idea_id": "20261119-ISRG",
+   "idea_id": "20261120-ISRG",
    "ticker": "ISRG",
    "direction": "SHORT",
    "sector": "Health Care"
   },
-  "token": "d6f1244f72c4f3e6"
+  "token": "92d3dfca429581a9"
  }
 ]
