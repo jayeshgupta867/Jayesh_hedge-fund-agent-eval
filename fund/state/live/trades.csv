@@ -32,3 +32,5 @@ date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
 2026-11-20,MU,SELL,LONG,7.24,594.51,-4303.95,4.3,stop loss (-23.6% price move),20261113-MU
 2026-11-20,SPY,BUY TO COVER,SHORT,88.84,689.81,61284.84,61.28,hedge: beta-adjusted net -5.8% → +0% target,HEDGE
 2026-11-20,SPY,BUY,LONG,83.86,689.81,57844.13,57.84,hedge: beta-adjusted net -5.8% → +0% target,HEDGE
+2026-11-23,AMD,BUY,LONG,20.31,453.46,9210.83,9.24,standing rules: memo and book checks passed,20261123-AMD
+2026-11-23,ADI,BUY,LONG,20.77,378.75,7867.84,7.92,standing rules: memo and book checks passed,20261123-ADI
