@@ -1,42 +1,42 @@
 [
  {
-  "idea_id": "20261123-TXN",
-  "ticker": "TXN",
-  "direction": "LONG",
-  "sector": "Information Technology",
-  "pct_nav": 0.8471,
-  "price": 291.19,
-  "date_queued": "2026-11-23",
-  "reasons": [
-   "analyst: 27.9% of the 12\u20111 momentum is driven by a single 19.4% price jump on 2026\u201104\u201123"
-  ],
-  "thesis": "The screen flagged TXN because its 12\u2011month versus 1\u2011month momentum is extremely high at +88.8% and it sits 10.1% above its 200\u2011day moving average, placing it in the 97th percentile of momentum across the universe. The trade would work if the stock can sustain this relative strength and keep trading above the 200\u2011day average over the next few months.",
-  "idea": {
-   "idea_id": "20261123-TXN",
-   "ticker": "TXN",
-   "direction": "LONG",
-   "sector": "Information Technology"
-  },
-  "token": "f67e5831d6b90cea"
- },
- {
-  "idea_id": "20261123-TMUS",
+  "idea_id": "20261124-TMUS",
   "ticker": "TMUS",
   "direction": "SHORT",
   "sector": "Communication Services",
-  "pct_nav": 1.8075,
-  "price": 166.36,
-  "date_queued": "2026-11-23",
+  "pct_nav": 1.8087,
+  "price": 167.3,
+  "date_queued": "2026-11-24",
   "reasons": [
-   "analyst: 41.7% of momentum comes from a single day (largest move -13.27% on 2026-10-09), indicating a one\u2011off event"
+   "analyst: 42.6% of the 12\u20111 momentum stems from a single 13.27% drop on 2026\u201110\u201109"
   ],
-  "thesis": "The screen flagged TMUS because its 12\u2011month versus 1\u2011month momentum is sharply negative (-28.9%), it trades below its 200\u2011day average (-9.4%) and sits in the bottom 5% momentum percentile, indicating strong relative weakness. The short thesis would play out if the stock continues to underperform, pushing price further below the 200\u2011day trend line.",
+  "thesis": "The screen flagged TMUS due to its steep 12\u2011month to 1\u2011month momentum drop of \u201328.4% and price sitting 8.8% below its 200\u2011day average, placing it in the bottom 5% momentum percentile. The short thesis would play out if the stock continues to underperform, driving further price declines and staying below the long\u2011term trend line.",
   "idea": {
-   "idea_id": "20261123-TMUS",
+   "idea_id": "20261124-TMUS",
    "ticker": "TMUS",
    "direction": "SHORT",
    "sector": "Communication Services"
   },
-  "token": "821cf05deb418037"
+  "token": "d4fbe6b3c7eaf774"
+ },
+ {
+  "idea_id": "20261124-BKNG",
+  "ticker": "BKNG",
+  "direction": "SHORT",
+  "sector": "Consumer Discretionary",
+  "pct_nav": 1.5252,
+  "price": 146.64,
+  "date_queued": "2026-11-24",
+  "reasons": [
+   "analyst: 46.5% of the momentum is driven by a single -9.32% day on 2026-02-03"
+  ],
+  "thesis": "The screen flagged BKNG for a short because its 12\u2011month versus 1\u2011month momentum is sharply negative (-19%) and its price sits 15% below the 200\u2011day average, placing it in the bottom 8% of momentum across the universe. The trade would work if the down\u2011trend persists, driving the stock further below its moving average.",
+  "idea": {
+   "idea_id": "20261124-BKNG",
+   "ticker": "BKNG",
+   "direction": "SHORT",
+   "sector": "Consumer Discretionary"
+  },
+  "token": "adcc7e08aef6d977"
  }
 ]
