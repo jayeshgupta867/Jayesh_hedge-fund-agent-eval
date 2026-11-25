@@ -35,3 +35,4 @@ date,ticker,action,direction,shares,price,notional,cost,reason,idea_id
 2026-11-23,AMD,BUY,LONG,20.31,453.46,9210.83,9.24,standing rules: memo and book checks passed,20261123-AMD
 2026-11-23,ADI,BUY,LONG,20.77,378.75,7867.84,7.92,standing rules: memo and book checks passed,20261123-ADI
 2026-11-24,ADI,SELL,LONG,20.77,312.95,-6500.96,6.5,stop loss (-17.4% price move),20261123-ADI
+2026-11-25,TMUS,SELL SHORT,SHORT,108.18,166.25,-17985.66,18.21,standing rules: memo and book checks passed,20261125-TMUS
