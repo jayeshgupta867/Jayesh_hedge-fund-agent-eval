@@ -1,0 +1,934 @@
+{
+ "date": "2026-11-27",
+ "mode": "live",
+ "data_source": "yahoo",
+ "analyst": "groq",
+ "policy_version": "fund-2",
+ "rules_version": "rules-2",
+ "exits": [],
+ "executed": [],
+ "skipped": [
+  {
+   "idea_id": "20261127-LMT",
+   "ticker": "LMT",
+   "reason": "conviction below 3"
+  },
+  {
+   "idea_id": "20261127-MO",
+   "ticker": "MO",
+   "reason": "conviction below 3"
+  },
+  {
+   "idea_id": "20261127-PM",
+   "ticker": "PM",
+   "reason": "conviction below 3"
+  }
+ ],
+ "escalated": [
+  {
+   "idea_id": "20261127-TXN",
+   "ticker": "TXN",
+   "direction": "LONG",
+   "pct_nav": 0.7483,
+   "price": 281.85,
+   "token": "ffe77bcb8b5bff26",
+   "reasons": [
+    "analyst: 26.6% of the momentum comes from a single 19.4% move on 2026-04-23"
+   ]
+  },
+  {
+   "idea_id": "20261127-BKNG",
+   "ticker": "BKNG",
+   "direction": "SHORT",
+   "pct_nav": 2.0424,
+   "price": 150.39,
+   "token": "5ffa5fdcdfc11254",
+   "reasons": [
+    "analyst: share_of_momentum_from_one_day 0.358 indicates a single day's move accounts for over a third of the 12\u20111 momentum (largest_day_move -9.32%)"
+   ]
+  }
+ ],
+ "approvals": [
+  {
+   "idea_id": "20261125-TXN",
+   "ticker": "TXN",
+   "token": "4b3353af3a3df4e1",
+   "result": "no PM decision: dropped (the screen may propose it again)"
+  }
+ ],
+ "warnings": [
+  "TMUS: not marked today (no trusted price), last mark kept"
+ ],
+ "pm_alerts": [],
+ "data_checks": [
+  {
+   "check": "session closed",
+   "result": "PASS",
+   "note": "latest bar 2026-11-27 is a closed session"
+  },
+  {
+   "check": "data freshness",
+   "result": "PASS",
+   "note": "latest bar 0 business day(s) old"
+  },
+  {
+   "check": "glitch scan",
+   "result": "PASS",
+   "note": "105 tickers: no frozen prices, no unconfirmed jumps"
+  }
+ ],
+ "decisions": {
+  "20261127-TXN": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "1.50% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $83.8m = 3.0% of ADV $2.79bn; this trade $15k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "PASS",
+     "note": "concentration: correlation 0.72 > 0.7 (closest: AMD 0.72), size halved",
+     "rho_book": 0.067,
+     "max_pair": 0.725,
+     "pair_ticker": "AMD"
+    },
+    {
+     "check": "analyst challenge",
+     "result": "ESCALATE",
+     "note": "26.6% of the momentum comes from a single 19.4% move on 2026-04-23"
+    }
+   ],
+   "correlation": {
+    "result": "PASS",
+    "action": "halve",
+    "rho_book": 0.067,
+    "max_pair": 0.725,
+    "pair_ticker": "AMD",
+    "note": "concentration: correlation 0.72 > 0.7 (closest: AMD 0.72), size halved"
+   },
+   "facts": {
+    "last_day_move": 0.0432,
+    "largest_day_move": 0.1943,
+    "largest_day_date": "2026-04-23",
+    "share_of_momentum_from_one_day": 0.266
+   },
+   "challenges": [
+    {
+     "issue": "26.6% of the momentum comes from a single 19.4% move on 2026-04-23",
+     "action": "escalate"
+    }
+   ],
+   "final_pct_nav": 0.7483
+  },
+  "20261127-LMT": {
+   "checks": []
+  },
+  "20261127-BKNG": {
+   "checks": [
+    {
+     "check": "limits (harness)",
+     "result": "PASS",
+     "note": "2.04% NAV after headroom"
+    },
+    {
+     "check": "liquidity",
+     "result": "PASS",
+     "note": "max trade $35.2m = 3.0% of ADV $1.17bn; this trade $20k"
+    },
+    {
+     "check": "correlation with book",
+     "result": "PASS",
+     "note": "diversifying: correlation to book 0.53, closest MCD 0.64",
+     "rho_book": 0.528,
+     "max_pair": 0.641,
+     "pair_ticker": "MCD"
+    },
+    {
+     "check": "short crowding",
+     "result": "PASS",
+     "action": "none",
+     "note": "short interest 2.1% of float"
+    },
+    {
+     "check": "analyst challenge",
+     "result": "ESCALATE",
+     "note": "share_of_momentum_from_one_day 0.358 indicates a single day's move accounts for over a third of the 12\u20111 momentum (largest_day_move -9.32%)"
+    }
+   ],
+   "correlation": {
+    "result": "PASS",
+    "action": "none",
+    "rho_book": 0.528,
+    "max_pair": 0.641,
+    "pair_ticker": "MCD",
+    "note": "diversifying: correlation to book 0.53, closest MCD 0.64"
+   },
+   "facts": {
+    "last_day_move": 0.006,
+    "largest_day_move": -0.0932,
+    "largest_day_date": "2026-02-03",
+    "share_of_momentum_from_one_day": 0.358
+   },
+   "challenges": [
+    {
+     "issue": "share_of_momentum_from_one_day 0.358 indicates a single day's move accounts for over a third of the 12\u20111 momentum (largest_day_move -9.32%)",
+     "action": "escalate"
+    }
+   ],
+   "final_pct_nav": 2.0424
+  },
+  "20261127-MO": {
+   "checks": []
+  },
+  "20261127-PM": {
+   "checks": []
+  }
+ },
+ "hedge": {
+  "book_beta_pct": -5.28,
+  "target_pct": 5.28,
+  "before_pct": 6.14,
+  "traded": false,
+  "beta_assumed_1": [
+   "TMUS"
+  ],
+  "note": "within the \u00b15% band: no trade",
+  "after_pct": 6.14,
+  "beta_net_after_pct": 0.86
+ },
+ "nav_before_trades": 994903.31,
+ "screen": {
+  "ideas": 8,
+  "vetoed": [],
+  "quarantined": []
+ },
+ "harness": {
+  "status": "AWAITING_GATE2",
+  "stop_reason": "",
+  "snapshot_id": "SNAP-73b703f8b714",
+  "shortlist": [
+   {
+    "rank": 1,
+    "idea_id": "20261127-TXN",
+    "ticker": "TXN",
+    "direction": "LONG",
+    "sector": "Information Technology",
+    "score": 4.738,
+    "conviction": 5,
+    "momentum_12_1": 0.9475,
+    "reason": "High momentum and 6% above MA200 indicates strong bullish signal."
+   },
+   {
+    "rank": 2,
+    "idea_id": "20261127-LMT",
+    "ticker": "LMT",
+    "direction": "LONG",
+    "sector": "Industrials",
+    "score": 1.284,
+    "conviction": 3,
+    "momentum_12_1": 0.428,
+    "reason": "Moderate momentum and 7.6% above MA200 suggest bullish trend."
+   },
+   {
+    "rank": 3,
+    "idea_id": "20261127-BKNG",
+    "ticker": "BKNG",
+    "direction": "SHORT",
+    "sector": "Consumer Discretionary",
+    "score": 1.196,
+    "conviction": 5,
+    "momentum_12_1": -0.2393,
+    "reason": "Negative momentum and 12.9% below MA200 justify short position."
+   },
+   {
+    "rank": 4,
+    "idea_id": "20261127-MO",
+    "ticker": "MO",
+    "direction": "LONG",
+    "sector": "Consumer Staples",
+    "score": 1.0068,
+    "conviction": 3,
+    "momentum_12_1": 0.3357,
+    "reason": "Positive momentum and 11.75% above MA200 support long entry."
+   },
+   {
+    "rank": 5,
+    "idea_id": "20261127-PM",
+    "ticker": "PM",
+    "direction": "LONG",
+    "sector": "Consumer Staples",
+    "score": 0.9984,
+    "conviction": 3,
+    "momentum_12_1": 0.3329,
+    "reason": "Positive momentum and 3.5% above MA200 indicate modest long bias."
+   }
+  ],
+  "exceptions": [],
+  "ideas": {
+   "20261127-TXN": "MEMO_READY",
+   "20261127-LMT": "MEMO_READY",
+   "20261127-BKNG": "MEMO_READY",
+   "20261127-MO": "MEMO_READY",
+   "20261127-PM": "MEMO_READY"
+  },
+  "repairs": {},
+  "receipts": [
+   {
+    "tray": "candidates.json",
+    "from": "U2",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "reasons.json",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "selected.json",
+    "from": "PM",
+    "to": "S1",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261127-TXN",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261127-LMT",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261127-BKNG",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261127-MO",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   },
+   {
+    "tray": "memo_draft_20261127-PM",
+    "from": "S1",
+    "to": "harness",
+    "result": "PASS",
+    "reason": ""
+   }
+  ],
+  "boundaries": {
+   "S1 DB calls": 0,
+   "S1 files written only allowed types": true,
+   "DB writes": 0,
+   "receipts all PASS": true,
+   "policy version": "fund-2"
+  },
+  "memos": {
+   "20261127-TXN": {
+    "top_flags": [
+     "Correlation with book: PASS \u2013 concentration: correlation 0.72 > 0.7 (closest: AMD 0.72), size halved"
+    ],
+    "1_ticker_direction_date": "TXN LONG \u00b7 2026-11-27 \u00b7 idea age from 2026-11-27",
+    "2_thesis_summary": "The screen flagged TXN because its 12\u2011month versus 1\u2011month momentum is extremely high (94.75%) and it is trading 6.27% above its 200\u2011day moving average, placing it in the 97th percentile of momentum across the universe. The thesis would work if that strong relative strength persists, allowing the stock to continue out\u2011performing its peers over the next few months.",
+    "3_catalyst": "Sustained price appreciation that keeps the stock above the 200\u2011day moving average while the 12\u20111 momentum ratio remains elevated, supported by above\u2011average 63\u2011day volume.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.9475",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261127-TXN",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.9475,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0627",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261127-TXN",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.0627,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "mom_percentile = 0.9709",
+      "table": "idea_pipeline",
+      "column": "mom_percentile",
+      "idea_id": "20261127-TXN",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.9709,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "expected_return = 0.2369",
+      "table": "idea_pipeline",
+      "column": "expected_return",
+      "idea_id": "20261127-TXN",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.2369,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "A sharp reversal that pushes the price below the 200\u2011day moving average, causing momentum to collapse and triggering a sell\u2011off.",
+    "6_falsifier_exit": "If TXN\u2019s price falls below its 200\u2011day moving average and the 12\u20111 momentum ratio drops below 0.5 within the three\u2011month horizon, the thesis is disproven. \u00b7 exit level -0.12",
+    "7_conviction_proposed": "4 \u2013 The data shows very strong momentum but the short\u2011term risk of a reversal warrants a slightly lower conviction than the maximum.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.2369,
+     "volatility": 0.5345,
+     "adv_usd": 2791892712.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.50% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.4967,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Information Technology)",
+      "result": "PASS",
+      "usage": 8.1411,
+      "limit": 25.0,
+      "headroom": 16.8589,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 43.167699999999996,
+      "limit": 150.0,
+      "headroom": 106.8323,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 11.4867,
+      "limit": 50.0,
+      "headroom": 38.5133,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-73b703f8b714",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "1.50% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $83.8m = 3.0% of ADV $2.79bn; this trade $15k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "PASS",
+      "note": "concentration: correlation 0.72 > 0.7 (closest: AMD 0.72), size halved",
+      "rho_book": 0.067,
+      "max_pair": 0.725,
+      "pair_ticker": "AMD"
+     },
+     {
+      "check": "analyst challenge",
+      "result": "ESCALATE",
+      "note": "26.6% of the momentum comes from a single 19.4% move on 2026-04-23"
+     }
+    ]
+   },
+   "20261127-LMT": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "LMT LONG \u00b7 2026-11-27 \u00b7 idea age from 2026-11-27",
+    "2_thesis_summary": "The screen flagged LMT because its 12\u2011month versus 1\u2011month momentum is +42.8% and it is trading 7.6% above its 200\u2011day moving average, placing it in the 86th percentile of momentum across the universe. The trade would work if the upward price trajectory continues, reinforcing the momentum advantage over the next three months.",
+    "3_catalyst": "Sustained buying pressure that keeps the stock above its 200\u2011day moving average and pushes the 12\u2011month momentum higher",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.428",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261127-LMT",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.428,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.076",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261127-LMT",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.076,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "mom_percentile = 0.8641",
+      "table": "idea_pipeline",
+      "column": "mom_percentile",
+      "idea_id": "20261127-LMT",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.8641,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "expected_return = 0.107",
+      "table": "idea_pipeline",
+      "column": "expected_return",
+      "idea_id": "20261127-LMT",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.107,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "A sharp deterioration in defense spending or a negative earnings surprise could reverse price momentum",
+    "6_falsifier_exit": "If the stock price falls back below its 200\u2011day moving average within the next three months \u00b7 exit level -0.1",
+    "7_conviction_proposed": "2 \u2013 Momentum metrics are strong but limited by sector\u2011specific risk",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.107,
+     "volatility": 0.337,
+     "adv_usd": 766979639.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.19% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.1869,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Industrials)",
+      "result": "PASS",
+      "usage": 1.8329,
+      "limit": 25.0,
+      "headroom": 23.1671,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 43.167699999999996,
+      "limit": 150.0,
+      "headroom": 106.8323,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 11.4867,
+      "limit": 50.0,
+      "headroom": 38.5133,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-73b703f8b714"
+   },
+   "20261127-BKNG": {
+    "top_flags": [
+     "Correlation with book: PASS \u2013 diversifying: correlation to book 0.53, closest MCD 0.64"
+    ],
+    "1_ticker_direction_date": "BKNG SHORT \u00b7 2026-11-27 \u00b7 idea age from 2026-11-27",
+    "2_thesis_summary": "The screen flagged BKNG because its 12\u2011month versus 1\u2011month momentum is sharply negative (-23.9%), the price sits 12.9% below its 200\u2011day moving average, and it ranks in the bottom 5% of momentum across the universe. The short thesis would play out if the down\u2011trend persists, pulling the stock further below the 200\u2011day average and keeping momentum weak.",
+    "3_catalyst": "Continued deterioration in booking growth or a broader consumer discretionary slowdown that drives further price declines and reinforces the low\u2011momentum signal.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = -0.2393",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261127-BKNG",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": -0.2393,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = -0.129",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261127-BKNG",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": -0.129,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "mom_percentile = 0.0485",
+      "table": "idea_pipeline",
+      "column": "mom_percentile",
+      "idea_id": "20261127-BKNG",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.0485,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "expected_return = 0.0598",
+      "table": "idea_pipeline",
+      "column": "expected_return",
+      "idea_id": "20261127-BKNG",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.0598,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "A sudden positive earnings surprise or a rapid rebound in travel demand could trigger a sharp price rally, erasing the short edge.",
+    "6_falsifier_exit": "The stock price climbs back above its 200\u2011day moving average and momentum turns positive, indicating a reversal of the downtrend. \u00b7 exit level 0.12",
+    "7_conviction_proposed": "4 \u2013 The data show strong bearish momentum but the short side still faces upside risk, warranting a high\u2011but not maximum conviction.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0598,
+     "volatility": 0.3917,
+     "adv_usd": 1174861088.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "2.04% NAV (risk-budget sized)",
+    "9_size_pct_nav": 2.0424,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Discretionary)",
+      "result": "PASS",
+      "usage": 5.924799999999999,
+      "limit": 25.0,
+      "headroom": 19.0752,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 43.167699999999996,
+      "limit": 150.0,
+      "headroom": 106.8323,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 11.4867,
+      "limit": 50.0,
+      "headroom": 61.4867,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-73b703f8b714",
+    "book_checks": [
+     {
+      "check": "limits (harness)",
+      "result": "PASS",
+      "note": "2.04% NAV after headroom"
+     },
+     {
+      "check": "liquidity",
+      "result": "PASS",
+      "note": "max trade $35.2m = 3.0% of ADV $1.17bn; this trade $20k"
+     },
+     {
+      "check": "correlation with book",
+      "result": "PASS",
+      "note": "diversifying: correlation to book 0.53, closest MCD 0.64",
+      "rho_book": 0.528,
+      "max_pair": 0.641,
+      "pair_ticker": "MCD"
+     },
+     {
+      "check": "short crowding",
+      "result": "PASS",
+      "action": "none",
+      "note": "short interest 2.1% of float"
+     },
+     {
+      "check": "analyst challenge",
+      "result": "ESCALATE",
+      "note": "share_of_momentum_from_one_day 0.358 indicates a single day's move accounts for over a third of the 12\u20111 momentum (largest_day_move -9.32%)"
+     }
+    ]
+   },
+   "20261127-MO": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "MO LONG \u00b7 2026-11-27 \u00b7 idea age from 2026-11-27",
+    "2_thesis_summary": "The screen flagged Altria (MO) because its 12\u2011month versus 1\u2011month momentum is +33.6% and it is trading about 11.8% above its 200\u2011day moving average, placing it in the 82nd percentile of momentum across the universe. The trade would work if the price continues to rise, staying above the 200\u2011day average and maintaining strong relative strength.",
+    "3_catalyst": "Continued price appreciation that keeps the stock above its 200\u2011day moving average and pushes momentum deeper into the top percentile within the next three months.",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.3357",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261127-MO",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.3357,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.1175",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261127-MO",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.1175,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "mom_percentile = 0.8155",
+      "table": "idea_pipeline",
+      "column": "mom_percentile",
+      "idea_id": "20261127-MO",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.8155,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "expected_return = 0.0839",
+      "table": "idea_pipeline",
+      "column": "expected_return",
+      "idea_id": "20261127-MO",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.0839,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "A sector\u2011wide pullback or negative news on smoking consumption could trigger a price drop below the 200\u2011day average, eroding the momentum edge.",
+    "6_falsifier_exit": "The stock price falling back below its 200\u2011day moving average before the three\u2011month horizon. \u00b7 exit level -0.1",
+    "7_conviction_proposed": "2 \u2013 Momentum is robust but the defensive nature of the sector warrants moderate confidence.",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0839,
+     "volatility": 0.2175,
+     "adv_usd": 657992079.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.84% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.8391,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Staples)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 43.167699999999996,
+      "limit": 150.0,
+      "headroom": 106.8323,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 11.4867,
+      "limit": 50.0,
+      "headroom": 38.5133,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-73b703f8b714"
+   },
+   "20261127-PM": {
+    "top_flags": [
+     "Aggregate/correlation risk: NOT ASSESSED \u2013 no correlation data"
+    ],
+    "1_ticker_direction_date": "PM LONG \u00b7 2026-11-27 \u00b7 idea age from 2026-11-27",
+    "2_thesis_summary": "The screen flagged Philip Morris (PM) because its 12\u2011month versus 1\u2011month momentum is strong (+33.3%) and its price sits modestly above the 200\u2011day moving average, placing it in the 81st percentile of momentum across the universe. The trade would work if the upward price trajectory persists, keeping the stock above the long\u2011term average and reinforcing its relative strength.",
+    "3_catalyst": "A continuation of the current price rally that keeps the stock above the 200\u2011day moving average and lifts the 12\u2011month momentum further",
+    "4_data_points": [
+     {
+      "claim": "momentum_12_1 = 0.3329",
+      "table": "idea_pipeline",
+      "column": "momentum_12_1",
+      "idea_id": "20261127-PM",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.3329,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "pct_above_ma200 = 0.0349",
+      "table": "idea_pipeline",
+      "column": "pct_above_ma200",
+      "idea_id": "20261127-PM",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.0349,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "mom_percentile = 0.8058",
+      "table": "idea_pipeline",
+      "column": "mom_percentile",
+      "idea_id": "20261127-PM",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.8058,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     },
+     {
+      "claim": "expected_return = 0.0832",
+      "table": "idea_pipeline",
+      "column": "expected_return",
+      "idea_id": "20261127-PM",
+      "snapshot_id": "SNAP-73b703f8b714",
+      "value": 0.0832,
+      "label": "source: analyst's pipeline row \u2013 not independent evidence"
+     }
+    ],
+    "5_key_risk": "A reversal in consumer sentiment or regulatory pressure that pulls the stock below its 200\u2011day average, eroding momentum",
+    "6_falsifier_exit": "If the price falls below the 200\u2011day moving average within the next three months, breaking the current above\u2011average bias \u00b7 exit level -0.08",
+    "7_conviction_proposed": "2 \u2013 Momentum is strong but the upside cushion is modest, so a moderate conviction is appropriate",
+    "8_return_vol_liquidity": {
+     "expected_return": 0.0832,
+     "volatility": 0.2548,
+     "adv_usd": 1128739944.0,
+     "owners": {
+      "expected_return": "analyst (idea_pipeline)",
+      "volatility/adv": "market data owner"
+     }
+    },
+    "9_size": "1.57% NAV (risk-budget sized)",
+    "9_size_pct_nav": 1.5699,
+    "10_limit_report": [
+     {
+      "name": "position size",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 5.0,
+      "headroom": 5.0,
+      "note": ""
+     },
+     {
+      "name": "sector concentration (Consumer Staples)",
+      "result": "PASS",
+      "usage": 0.0,
+      "limit": 25.0,
+      "headroom": 25.0,
+      "note": ""
+     },
+     {
+      "name": "gross exposure",
+      "result": "PASS",
+      "usage": 43.167699999999996,
+      "limit": 150.0,
+      "headroom": 106.8323,
+      "note": ""
+     },
+     {
+      "name": "net exposure",
+      "result": "PASS",
+      "usage": 11.4867,
+      "limit": 50.0,
+      "headroom": 38.5133,
+      "note": ""
+     },
+     {
+      "name": "aggregate/correlation risk",
+      "result": "NOT ASSESSED",
+      "usage": null,
+      "limit": null,
+      "headroom": null,
+      "note": "no correlation data \u2014 a limit PASS is not 'safe for the book'"
+     }
+    ],
+    "11_pm_decision": "",
+    "policy_version": "fund-2",
+    "snapshot_id": "SNAP-73b703f8b714"
+   }
+  }
+ },
+ "analyst_log": [],
+ "analyst_used": "model",
+ "capacity_usd": 838800000.0,
+ "nav_after": 994903.31
+}

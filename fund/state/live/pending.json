@@ -1,22 +1,42 @@
 [
  {
-  "idea_id": "20261125-TXN",
+  "idea_id": "20261127-TXN",
   "ticker": "TXN",
   "direction": "LONG",
   "sector": "Information Technology",
-  "pct_nav": 0.7526,
-  "price": 270.19,
-  "date_queued": "2026-11-25",
+  "pct_nav": 0.7483,
+  "price": 281.85,
+  "date_queued": "2026-11-27",
   "reasons": [
-   "analyst: 26.6% of the 12\u20111 momentum is driven by a single 19.4% price jump on 2026\u201104\u201123, indicating a one\u2011off event"
+   "analyst: 26.6% of the momentum comes from a single 19.4% move on 2026-04-23"
   ],
-  "thesis": "The screen flagged TXN because its 12\u2011month versus 1\u2011month momentum is extremely high at 94.8% and it sits just above its 200\u2011day moving average, placing it in the 97th percentile of momentum across the universe. The trade would work if the stock sustains this upward price trajectory and the high relative momentum persists over the next few months.",
+  "thesis": "The screen flagged TXN because its 12\u2011month versus 1\u2011month momentum is extremely high (94.75%) and it is trading 6.27% above its 200\u2011day moving average, placing it in the 97th percentile of momentum across the universe. The thesis would work if that strong relative strength persists, allowing the stock to continue out\u2011performing its peers over the next few months.",
   "idea": {
-   "idea_id": "20261125-TXN",
+   "idea_id": "20261127-TXN",
    "ticker": "TXN",
    "direction": "LONG",
    "sector": "Information Technology"
   },
-  "token": "4b3353af3a3df4e1"
+  "token": "ffe77bcb8b5bff26"
+ },
+ {
+  "idea_id": "20261127-BKNG",
+  "ticker": "BKNG",
+  "direction": "SHORT",
+  "sector": "Consumer Discretionary",
+  "pct_nav": 2.0424,
+  "price": 150.39,
+  "date_queued": "2026-11-27",
+  "reasons": [
+   "analyst: share_of_momentum_from_one_day 0.358 indicates a single day's move accounts for over a third of the 12\u20111 momentum (largest_day_move -9.32%)"
+  ],
+  "thesis": "The screen flagged BKNG because its 12\u2011month versus 1\u2011month momentum is sharply negative (-23.9%), the price sits 12.9% below its 200\u2011day moving average, and it ranks in the bottom 5% of momentum across the universe. The short thesis would play out if the down\u2011trend persists, pulling the stock further below the 200\u2011day average and keeping momentum weak.",
+  "idea": {
+   "idea_id": "20261127-BKNG",
+   "ticker": "BKNG",
+   "direction": "SHORT",
+   "sector": "Consumer Discretionary"
+  },
+  "token": "5ffa5fdcdfc11254"
  }
 ]
